@@ -1,0 +1,274 @@
+{% extends "_layout/alpha/layout-alpha-operationTwo.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        text: '机构列表'
+        }
+        ]
+        )
+        }}
+<div>
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 30%">
+                <col style="width: 50%">
+                <col style="">
+            </colgroup>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>机构名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入机构名称">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>所在地
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize" style="float: left; width: 49%; margin-right: 2%;">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">省份</option>
+                                <option value="1">北京</option>
+                                <option value="2">上海</option>
+                                <option value="3">广西</option>
+                                <option value="3">浙江</option>
+                            </select>
+                        </div>
+                        <div class="form-control-wrap smallsize" style="float: left; width: 49%">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">城市</option>
+                                <option value="1">东莞</option>
+                                <option value="2">广州</option>
+                                <option value="3">深圳</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                    </div>
+                </td>
+                <!-- <td>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部账号角色
+                            </option>
+                            <option value="">
+                                角色1
+                            </option>
+                            <option value="">
+                                角色2
+                            </option>
+                        </select>
+                    </div>
+                </td> -->
+            </tr>
+        </table>
+    </div>
+
+
+    {# 表格 #}
+    <table class="table inverse">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 15%">
+      <col style="width:  8%">
+      <col style="width: 15%">
+      <col style="width: 20%">
+      <col style="width: 10%">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>机构编号</th>
+      <th>机构名称</th>
+      <th>层级</th>
+      <th>所在地</th>
+      <th>创建时间</th>
+      <th>状 态</th>
+      <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1086</td>
+      <td>招商银行济南分行</td>
+      <td>3</td>
+      <td>山东，济南</td>
+      <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+      <td>启用</td>
+      <td class="text-align-left">
+        <a class="link-standard" href="机构管理-机构列表（查看）.html">
+          查看
+        </a> &nbsp;&nbsp;
+          <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>&nbsp;&nbsp;
+          <a class="link-standard" href="机构管理-机构列表（管理员）.html">
+              管理员
+          </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>1086</td>
+      <td>招商银行济南分行</td>
+      <td>3</td>
+      <td>山东，济南</td>
+      <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor" >18:00:00</span></td>
+      <td>禁用</td>
+      <td class="text-align-left">
+        <a class="link-standard" href="机构管理-机构列表（查看）.html">
+          查看
+        </a>&nbsp;&nbsp;
+          <a href="javascript:void(0);" class="link-standard opt-active">启用</a>&nbsp;&nbsp;
+          <a class="link-standard" href="机构管理-机构列表（管理员）.html">
+              管理员
+          </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>1086</td>
+      <td>工商银行武汉分行</td>
+      <td>2</td>
+      <td>山东，济南</td>
+      <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+      <td>启用</td>
+      <td class="text-align-left">
+        <a class="link-standard" href="机构管理-机构列表（查看）.html">
+          查看
+        </a>&nbsp;&nbsp;
+          <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>&nbsp;&nbsp;
+        <a class="link-standard" href="机构管理-机构列表（管理员）.html">
+          管理员
+        </a>
+      </td>
+    </tr>
+
+    <tr>
+        <td>1086</td>
+        <td>招商银行总行</td>
+        <td>1</td>
+        <td>山东，济南</td>
+        <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+        <td>待启用</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="机构管理-机构列表（查看）.html">
+                查看
+            </a>&nbsp;&nbsp;
+            <a class="link-standard" href="机构管理-管理员账号（新建管理员账号）.html">
+                管理员
+            </a>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title: '<span class="warning-FontColor">确定禁用？</span>',
+            content : '禁用后，该机构及关联的渠道将不可用',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title: '<span class="warning-FontColor">确定启用？</span>',
+            content : '启用后，该机构及关联的渠道将正常可用',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+
+</script>
+{% endblock %}

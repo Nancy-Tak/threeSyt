@@ -1,0 +1,238 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+{# 步骤提示 #}
+{{
+stepTipsAlpha.default(
+list = [
+{
+step: '1',
+text: '创建商户',
+spec:'#F2F2F2'
+},{
+step:'2',
+text: '关联合同'
+},{
+step:'3',
+text: '关联服务商'
+},{
+step:'4',
+text: '设置管理员'
+},{
+step:'5',
+text: '启用商户'
+}
+]
+)
+}}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },{
+                    text: '创建商户'
+                }
+            ]
+        )
+    }}
+
+    <div class="form-frame">
+        <form autocomplete="off">
+          <!-- 属性配置-->
+          <div class="form-title">
+               属性配置
+          </div>
+          <div class="form-layer1">
+              <div class="form-layer2">
+                {# 商户角色 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 商户角色 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <select class="form-control">
+                        <option value="">请选择</option>
+                        <option value="0">商户</option>
+                      </select>
+                   </div>
+                </div>
+                {# 商户类型 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 商户类型 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <select class="form-control">
+                        <option value="0">企业</option>
+                        <option value="1">个体户</option>
+                      </select>
+                   </div>
+                </div>
+
+                  {# 收单设备 #}
+                  <div class="form-group">
+                      <label class="form-control-label">
+                          <b> * </b>
+                          <span> 收单设备 </span>
+                          <em> : </em>
+                      </label>
+                      <div class="form-control-wrap">
+                          <select class="form-control" id="payFont">
+                              <option value="0">聚合收单二维码</option>
+                              <option value="1">POS机</option>
+                          </select>
+                      </div>
+                  </div>
+
+
+                {# 所属行业 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 所属行业 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <div class="form-control-cascade">
+                        <select class="form-control">
+                          <option value="">主分类</option>
+                          <option value="1">美食</option>
+                          <option value="2">购物</option>
+                          <option value="3">景点</option>
+                          <option value="4">休闲娱乐</option>
+                        </select>
+                      </div>
+                      <div class="form-control-cascade">
+                        <select class="form-control">
+                          <option value="">二级分类</option>
+                          <option value="1">1.1</option>
+                          <option value="1">1.2</option>
+                        </select>
+                      </div>
+                   </div>
+                </div>
+              </div>
+          </div>
+          <!-- 功能权限配置-->
+          <!-- <div class="form-title">
+               功能权限配置
+          </div>
+          <table class="table table-checkBox">
+            <tbody>
+              <tr>
+                <td>
+                  <input id="J-info" name="info" type="checkBox" checked="checked" />
+                  <label for="J-info">
+                      录入商户主体信息
+                  </label>
+                </td>
+                <td>
+                  <input type="checkBox" checked="checked" />
+                  <label>
+                      录入法人信息
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkBox" />
+                  <label>
+                      签署通道合同
+                  </label>
+                </td>
+                <td>
+                  <input type="checkBox" checked="checked" />
+                  <label>
+                      资金结算
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkBox" />
+                  <label>
+                      上传企业证照图片
+                  </label>
+                </td>
+                <td>
+                  <input type="checkBox" />
+                  <label>
+                      上传实体环境图片
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkBox" checked="checked" />
+                  <label>
+                      激活和使用终端
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <!-- 按钮 -->
+            {#
+            <div  id="targetLink1" class="text-align-center fn-mt-20">
+                <a href="关联商户管理-创建商户2(1.2聚合收单).html" class="btn primary ">下一步</a>
+            </div>
+
+            <div id="targetLink2" class="display-none text-align-center fn-mt-20">
+                <a href="关联商户管理-创建商户.html" class="btn primary">下一步</a>
+                <!-- <button type="submit" class="btn primary">下一步</button> -->
+                <!--<a href="javaScript:void(0);" class="btn default">取消</a>-->
+            </div>
+            #}
+            <div  class="text-align-center fn-mt-20">
+                <a href="关联商户管理-创建商户.html" class="btn primary ">下一步</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        //选择收单设备
+        $('#payFont').change(function () {
+//            console.log(  $('#payFont').val() )
+            if($('#payFont').val()==="0"){
+                $('#targetLink1').removeClass("display-none");
+                $('#targetLink2').addClass("display-none");
+            } else {
+                $('#targetLink1').addClass("display-none");
+                $('#targetLink2').removeClass("display-none");
+            }
+
+        })
+    });
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,92 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    text: '修改密码'
+                }
+            ]
+        )
+    }}
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>原始密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control" placeholder="请输入当前登录密码">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>新密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control" placeholder="8-16位数字、字母或其组合">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>再次确认新密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control" placeholder="请再次输入新密码">
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            <div class="text-align-center">
+                <div class="plural-btns btn-with-viceLink fn-mt-20">
+                    <button type="button" class="btn primary" id="submit">确认修改</button>
+                    <a href="系统管理-账号管理-编辑账号.html" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将返回系统首页',
+            });
+        });
+    });
+</script>
+{% endblock %}

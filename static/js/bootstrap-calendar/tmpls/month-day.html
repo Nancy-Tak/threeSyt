@@ -1,0 +1,17 @@
+<div class="cal-month-day <% if (events.length > 0){%> has-event <%}%> <%= cls %>">
+	<span class="pull-right" data-cal-date="<%= data_day %>" data-cal-view="day" <% if(tooltip){ %> data-toggle="tooltips" title="<%= tooltip %>"<%}%>><%= day %></span>
+  <%= cls.indexOf('cal-day-today') > -1 ? '<span class="pull-left fn-pt-15 fn-pl-15">(今天)</span>' : '' %>
+	<% if (events.length > 0) { %>
+		<div class="events-list" data-cal-start="<%= start %>" data-cal-end="<%= end %>">
+			<% _.each(events, function(event) { %>
+        <% if(event.type === 0){ %>
+          <a href="javascript:void(0);" class="pull-left event link-standard <%= event['class'] %>">本日无收支</a>
+        <% }else if(event.type === 1){ %>
+				  <a href="javascript:void(0);" class="pull-left event link-standard <%= event['class'] %>">账单未生成</a>
+         <% } else if(event.type === 2) {%>
+          <a href="#download-file" data-toggle="smooth-scroll" class="pull-left event link-standard <%= event['class'] %> j-download" data-cal-date="<%= data_day %>"><i class="icon-arrow-small-down fs-28 vert-m"></i> 下载账单</a>
+         <%}%>
+			<% }); %>
+		</div>
+	<% } %>
+</div>

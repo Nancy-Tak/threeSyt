@@ -1,0 +1,210 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '服务商管理-服务商列表.html',
+                    text: '服务商管理'
+                },
+                {
+                    text: '创建服务商'
+                }
+            ]
+        )
+    }}
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <form autocomplete="off">
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>服务商名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control" placeholder="请填写服务商公司名称">
+                            </div>
+                        </div>
+
+
+                        {#  服务商类型 #}
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <span> 服务商类型 </span>
+                                <em> : </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <select class="form-control" id="serviceProviderType">
+                                    <option value="0">软件服务商</option>
+                                    <option value="2">硬件服务商</option>
+                                    <option value="1">分润服务商</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="setAccount" class="display-none">
+                            {# 开户行 #}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b> * </b>
+                                    <span> 开户行 </span>
+                                    <em> : </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <option value="0">招商银行</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {# 开户名 #}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b> * </b>
+                                    <span> 开户名 </span>
+                                    <em> : </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            {# 开户行所在省份 #}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b> * </b>
+                                    <span> 开户行所在省份 </span>
+                                    <em> : </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <option value="0">广东</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {# 开户行所在城市 #}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b> * </b>
+                                    <span> 开户行所在城市 </span>
+                                    <em> : </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <option value="0">广州</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {# 分支行 #}
+                           <div class="form-group">
+                                <label class="form-control-label">
+                                    <b> * </b>
+                                    <span> 分支行 </span>
+                                    <em> : </em>
+                                </label>
+                                                                                                           <style>
+                            .triangle-up {
+                                width: 0;
+                                height: 0;
+                                border-left: 3px solid transparent;
+                                border-right: 3px solid transparent;
+                                border-top: 7px solid black;
+                                position: absolute;
+                                top: 17px;
+                                right: 7px;
+                            }
+                        </style>
+                     <div class="form-control-wrap">
+                                        <div class="form-control-dropdown with-keyin">
+                                            <span class="triangle-up">
+
+                                            </span>
+                                            <input type="text" data-toggle="dropdown" class="form-control" id="form-control-example8" placeholder="请输入文字" value="" aria-expanded="false">
+                                            <ul class="form-control-dropdown-menu">
+                                                <li title="option one" style="display: block;">招商银行股份有限公司厦门海虹支行
+                                                </li>
+                                                <li title="option two" style="display: block;">招商银行股份有限公司厦门金湖支行
+                                                </li>
+                                                <li title="option three" style="display: block;">招商银行股份有限公司厦门禾祥支行
+                                                </li>
+                                                <li title="option four" style="display: block;">招商银行股份有限公司武汉王家湾支行
+                                                </li>
+                                                <li title="option five" style="display: block;" class="">招商银行股份有限公司上海九亭支行
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                    </div>
+                                 <!--<div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <option value="0">招商银行深圳分行</option>
+                                    </select>
+                                </div>-->
+                            </div>
+
+                            {#结算账户#}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b>*
+                                    </b>
+                                    <span>结算账号
+                                                        </span>
+                                    <em>：
+                                    </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="text-align-center">
+                <div class="form-control-wrap plural-btns margin-top-20px">
+                    <button type="button" class="btn primary" id="submit">提交</button>
+                    <a href="服务商管理-服务商列表.html" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">服务商创建成功！</span>',
+                content : '即将跳转到服务商列表页面',
+            });
+        });
+
+        $("#serviceProviderType").on("change",function(){
+            var code = $("#serviceProviderType").val();
+            if( code ==="1"){
+                $("#setAccount").removeClass("display-none");
+            }else{
+                $("#setAccount").addClass("display-none");
+            }
+        });
+    });
+</script>
+{% endblock %}

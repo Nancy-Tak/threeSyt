@@ -1,0 +1,335 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+<div>
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '管理员账号列表'
+        },
+        {
+        text:'编辑管理员账号'
+        }
+        ]
+        )
+        }}
+
+    {# 编辑信息 #}
+    <div class="form-frame">
+        <div class="form-title">
+            编辑信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <form autocomplete="off" id="form">
+
+                    <!--账号名称-->
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-5">
+                            <b>*
+                            </b>
+                                                    <span>账号名称
+                                                    </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                y1234567
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--登录密码-->
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-example2">
+                            <b>*
+                            </b>
+                            <span>登录密码
+                                                    </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="password" class="form-control" placeholder="*****************">
+                        </div>
+                    </div>
+
+
+                    <!--账号角色-->
+                  <!--
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-5">
+                                                    <span>账号角色
+                                                    </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                超级管理员
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <!--姓名-->
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-example1">
+                            <b>*
+                            </b>
+                            <span>姓名</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="张三">
+                        </div>
+                    </div>
+
+                    <!--手机号码-->
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-example1">
+                            <b> * </b>
+                            <span> 手机号码 </span>
+                            <em> ： </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="***" class="form-control" placeholder="13900000000" />
+                        </div>
+                    </div>
+
+                    <!--邮箱-->
+                    <div class="form-group">
+                        <label class="form-control-label" for="form-control-example1">
+                            <b>*
+                            </b>
+                            <span>邮箱</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="zhangsan@hotmailcom">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    {# 权限 #}
+    <div class="permission-table-wrap">
+        <div class="ptName">
+            <h3>角色控制</h3>
+        </div>
+        <div class="ptb">
+            <table class="table table-border fn-mb-10">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td rowspan="2">
+                        <label class="table-checked-all">
+
+                            账号角色
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-checked-all">
+                            <input type="checkbox" disabled checked>
+                            超级管理员
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td>-->
+                        <!--<label class="table-checked-all">-->
+                            <!--<input type="checkbox" disabled checked>-->
+                            <!--核身认证-->
+                        <!--</label>-->
+                    <!--</td>-->
+                </tr>
+                </tbody>
+            </table>
+            <table class="table table-border">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td rowspan="2">
+                        <label class="table-checked-all">
+
+                            终端角色
+                        </label>
+                    </td>
+                    <td>
+                        <label class="table-checked-all">
+                            <input type="checkbox" checked>
+                            终端POS
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="table-checked-all">
+                            <input type="checkbox" id="t-type">
+                            桌面终端
+                        </label>
+                        <div class="text-align-left fn-ml-20">
+                            <label class="table-checked-alpha">
+                                <input type="checkbox" disabled class="t-detail">
+                                CBS服务
+                            </label>
+                            <label class="table-checked-alpha">
+                                <input type="checkbox" disabled class="t-detail">
+                                融资服务
+                            </label>
+                            <label class="table-checked-alpha">
+                                <input type="checkbox" disabled class="t-detail">
+                                门店服务
+                            </label>
+                            <label class="table-checked-alpha">
+                                <input type="checkbox" disabled class="t-detail">
+                                数据报表服务
+                            </label>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--提交 取消-->
+    <div class="text-align-center plural-btns fn-ma-20">
+        <button id="submit" type="button" class="btn primary">提交</button>
+        <a href="机构管理-机构列表.html" class="btn default" role="button">取消</a>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+{% block jsPage %}
+<script>
+
+//    $(function(){
+//        /**
+//         * 统一显示验证错误信息
+//         */
+//        var $form = $('#form').validation({
+//            // 验证项
+//            rules: {
+//                name: {
+//                    required: true,
+//                    minlength: 16,
+//                    //ajax 验证
+//                    remote: {
+//                        url: "/api?do=validate&filed=name",
+//                        type: "post",
+//                        data: {
+//                            username: function() {
+//                                return $('#Text2').val();
+//                            }
+//                        }
+//                    }
+//                },
+//                password: "required",
+//                repassword: {
+//                    required: true,
+//                    equalTo: '#Password1'
+//                },
+//                telphone: {
+//                    required: true,
+//                    telphone: true
+//                }
+//            },
+//            // 错误提示
+//            messages: {
+//                name: {
+//                    required: "请输入名称",
+//                    minlength: jQuery.validator.format("名称长度不能少于{0}个字"),
+//                    remote: '用户名已存在'
+//                },
+//                password: {
+//                    required: "请输入"
+//                },
+//                repassword: {
+//                    required: "请输入确认密码",
+//                    equalTo: "两次密码不一致"
+//                },
+//                time: {
+//                    required: "请输入时间",
+//                    date: "时间格式有误"
+//                },
+//                telphone: {
+//                    required: "请输入手机号码",
+//                    telphone: "手机号码格式有误"
+//                }
+//            },
+//            // 提交
+//            submitHandler: function(form) {
+//                // 直接提交
+//                // form.submit();
+//            }
+//        });
+//    })
+
+
+
+//checkbox判断
+$("#t-type").on("change",function () {
+    var isChecked = $("#t-type").prop("checked");
+    if(isChecked){
+        $(".t-detail").removeAttr("disabled");
+    } else {
+        $(".t-detail").attr("disabled","disabled");
+        $(".t-detail").attr("checked",false);
+    }
+})
+
+
+$("#submit").on("click",function(){
+    $.tipsModal({
+        close:  close ,
+        // modalTitle:"test",
+        type : 'success',   //  success info error
+        title : '<span class="success-FontColor2">机构管理员账号编辑成功！ </span>',
+        content : ''
+        // buttons : {  //  按钮可以只传ok或cancel
+        //   ok : {
+        //     text : '确定',
+        //     callback : function () {
+        //       console.log('确定');
+        //     }
+        //   },
+        //   cancel : {
+        //     text : '取消',
+        //     callback : function () {
+        //       console.log('取消');
+        //     }
+        //   }
+        // }
+    });
+});
+
+</script>
+{% endblock %}
+
+
+

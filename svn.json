@@ -1,0 +1,5 @@
+{
+	"port": "8251",
+	"path": "./dist/alpha",
+	"staticPath": "/static"
+}

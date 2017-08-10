@@ -1,0 +1,101 @@
+/*
+// alpha 项目页头
+// --------------------------------------------------
+*/
+
+@charset "utf-8";
+
+/* --- style --- */
+#header-alpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: @bgColor-header-alpha;
+    max-width: 100%;
+    min-width: @width-web-alpha;
+
+    .header-main {
+        width: @width-web-alpha;
+        margin: 0 auto;
+        .clearfix();
+
+        > .logo {
+            float: left;
+            height: @height-header-alpha;
+            line-height: @height-header-alpha;
+            font-size: 0;
+
+            > img {
+                .inline-block();
+                vertical-align: middle;
+                height: 60%;
+            }
+
+            > p {
+                .inline-block();
+                vertical-align: middle;
+                font-size: @small-FontSize;
+                color: #fff;
+                line-height: @line-height-base;
+                margin-top: 5px;
+                padding-left: @paddingSize-public-alpha;
+                margin-left: @paddingSize-public-alpha;
+                border-left: 1px solid lighten( @bgColor-header-alpha,15% );
+            }
+        }
+
+        > .user-info {
+            height: @height-header-alpha;
+            line-height: @height-header-alpha;
+            font-size: @smaller-FontSize;
+            color: lighten( @bgColor-header-alpha,45% );
+            float: right;
+            position: relative;
+
+            > a {
+                .link-custom( #fff,#fff,none );
+            }
+
+            > .user-menu {
+                display: none;
+                .clearfix();
+                .reset-list( none,block,@smaller-FontSize,@line-height-base );
+                background-color: @bgColor-userMenu-header-alpha;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                min-width: 200%;
+                z-index: 2;
+                padding: @paddingSize-public-alpha/4 @paddingSize-public-alpha/2;
+                .border-radius( 0,0,@borderRadius-public-alpha,@borderRadius-public-alpha );
+
+                > li {
+                    border-top: 1px solid lighten( @bgColor-userMenu-header-alpha,15% );
+                    padding: @paddingSize-public-alpha/4 0;
+
+                    > a {
+                        .link-custom( darken(#fff,20%),#fff,none );
+                        display: block;
+                        padding: @paddingSize-public-alpha/4 @paddingSize-public-alpha/2;
+
+                        &:hover {
+                            background-color: lighten( @bgColor-userMenu-header-alpha,5% );
+                        }
+                    }
+
+                    &:first-child:not(:last-child) {
+                        border-top: none;
+                    }
+                }
+            }
+
+            &:hover {
+
+                .user-menu {
+                    display: block;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,313 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %} 
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'收单对账管理'
+        },
+        {
+        text: '商户订单列表'
+        }
+        ]
+        )
+        }}
+<div>
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 30%">
+                <col style="width: 30%">
+                <col style="width: 30%">
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>起始日期
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="fliter-inline-width1">
+                            <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                                <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>终止日期
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <div class="fliter-inline-width1">
+                                <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                                    <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>支付方式
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    支付宝
+                                </option>
+                                <option value="">
+                                    微信
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>状态
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    支付宝
+                                </option>
+                                <option value="">
+                                    微信
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>订单号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>机构名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>商户名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>门店名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+          
+                <!-- <td>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部账号角色
+                            </option>
+                            <option value="">
+                                角色1
+                            </option>
+                            <option value="">
+                                角色2
+                            </option>
+                        </select>
+                    </div>
+                </td> -->
+            </tr>
+        <tr>
+        	<td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label" style="width: 90px;">
+                            <span style="max-width: 90px;">付款人帐号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize" style="margin-left: 20px;">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                      <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                        <!--<button type="button" class="btn secondary small-btn" onclick="window.location.href='系统管理-账号管理-添加账号.html'">添加账号</button>-->
+                    </div>
+                </td>
+        </tr>
+        </table>
+    </div>
+
+
+  <!--表格-->
+  <table class="table inverse">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 7%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 12%">
+      <col style="width: 13%">
+      <col style="width: 11%">
+      <col style="width: 10%">
+      <col style="width: 8%">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>订单号
+          <div data-toggle="tooltips" data-pos="bottom-right" title="商户收单系统生成订单号" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+          </th>
+      <th>系统交易金额</th>
+      <th>交易时间</th>
+      <th>商户名称</th>
+      <th>门店名称</th>
+      <th>付款人帐号</th>
+      <th>所属机构</th>
+      <th>支付方式</th>
+      <th>状 态</th>
+      <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>FP2017012154512365</td>
+      <td>357.00</td>
+      <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+      <td>九毛九</td>
+      <td>九毛九体育西店</td>
+      <td>5641565123512</td>
+      <td>一个一级机构</td>
+      <td>支付宝</td>
+      <td>交易成功</td>
+      <td class="text-align-center">
+        <a class="link-standard" href="对账管理-商户订单列表（查看）.html">
+          查看
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

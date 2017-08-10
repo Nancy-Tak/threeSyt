@@ -1,0 +1,292 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'数据报表'
+                },
+                {
+                    text: '订单列表'
+                }
+            ]
+        )
+    }}
+
+
+{# 数据过滤器 #}
+<div class="filter-table-wrap table-w fn-mt-20">
+    <table class="filter-table">
+        <colgroup>
+            <col style="width:30%">
+            <col style="width:35%">
+            <col style="width: 30%">
+        </colgroup>
+        <tr>
+        	 <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>门店名称
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>订单号
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+
+            </tr>
+            <tr>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>支付方式
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                支付宝条码支付
+                            </option>
+                            <option value="">
+                                支付宝扫码支付
+                            </option>
+                            <option value="">
+                                支付宝手机网站支付
+                            </option>
+                            <option value="">
+                                支付宝统一下单
+                            </option>
+                            <option value="">
+                                微信刷卡支付
+                            </option>
+                            <option value="">
+                                微信扫码
+                            </option>
+                            <option value="">
+                                微信公众号支付
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>状态
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                交易成功
+                            </option>
+                            <option value="">
+                                交易失败
+                            </option>
+                            <option value="">
+                                等待处理
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="form-group inline-filter">
+                    <label class="form-control-label ">
+                        <span> 交易日期 </span>
+                        <em> ：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check smallsize">
+                            <label>
+                                今天
+                                <input type="radio" id="certificates1" class="certificates" name="certificates" value="0" checked="checked">
+                            </label>
+                            <label>
+                                最近7天
+                                <input type="radio" id="certificates2" class="certificates" name="certificates" value="1">
+                            </label>
+                            <label>
+                                最近30天
+                                <input type="radio" id="certificates3" class="certificates" name="certificates" value="2">
+                            </label>
+                            <label>
+                                其他
+                                <input type="radio" id="certificates4" class="certificates" name="certificates" value="2">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+     <tr>
+    	    		<td colspan="2">
+						<div class="form-group inline-filter">
+							<label class="form-control-label">
+
+                          <span> 起止日期</span>
+                         <em> ：</em>
+                       </label>
+						<div class="group-time">
+							<div class="form-control-date smallsize float-left">
+								<span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+								<input class="form-control small-btn" value="" type="text" data-toggle="datetimepicker"  readonly='readonly'>
+							</div>
+							<span class="float-left fn-pt-10 fn-pl-15">--</span>
+							<div class="form-control-date smallsize float-right">
+								<span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+								<input class="form-control small-btn" value="" type="text" data-toggle="datetimepicker"  readonly='readonly'>
+							</div>
+
+						</div>
+							</div>
+		</td>
+
+        	<td>
+        		 <div class="text-align-right plural-btns">
+                    <button type="button" class="btn primary small-btn">查找</button>
+                    <button type="button" class="btn secondary small-btn">导出</button>
+                </div>
+        	</td>
+
+
+        </tr>
+    </table>
+
+</div>
+
+
+<br /><br />
+<table class="table inverse">
+    <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col style="width: 10%" />
+        <col />
+        <col />
+    </colgroup>
+    <thead>
+    <tr>
+    	<th>订单号</th>
+        <th>交易金额(元)</th>
+        <th>交易时间</th>
+        <th>门店名称</th>
+        <th>付款人</th>
+        <th>收银员</th>
+        <th>支付方式</th>
+        <th>状态</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>15415615</td>
+
+        <td>九毛九</td>
+        <td>280250</td>
+
+        <td>微信扫码支付</td>
+        <td>
+            2017-01-21 15:45:54
+        </td>
+        <td>九毛九</td>
+        <td>交易成功</td>
+         <td>付款</td>
+         <td><a class="link-standard" href="数据报表-订单列表-订单详情.html">查看</a>
+    </tr>
+    <tr>
+        <td>15415615</td>
+
+        <td>九毛九</td>
+        <td>280250</td>
+
+        <td>微信扫码支付</td>
+        <td>
+            2017-01-21 15:45:54
+        </td>
+        <td>九毛九</td>
+        <td>交易成功</td>
+         <td>付款</td>
+        <td><a class="link-standard" href="数据报表-订单列表-订单详情.html">查看</a>
+
+        </td>
+    </tr>
+
+
+    <!-- 暂无记录 -->
+    <!-- <tr>
+        <td colspan="8" class="empty">&nbsp;
+        </td>
+    </tr> -->
+    </tbody>
+</table>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

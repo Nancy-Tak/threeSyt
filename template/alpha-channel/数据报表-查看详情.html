@@ -1,0 +1,93 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '子商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '交易数据报表'
+                },
+                {
+                    text: '查看详情'
+                }
+            ]
+        )
+    }}
+    <!-- 交易详情-->
+    <div>
+        <div class="tables-title">
+            交易详情
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>交易流水号</th>
+                    <td>LS20170609000</td>
+                    <th>交易时间</th>
+                    <td>2017-06-09  13:45:16</td>
+                </tr>
+                <tr>
+                	   <th>订单号</th>
+                    <td>40,000</td>
+                   
+                    <th>支付方式</th>
+                    <td>支付宝</td>
+                </tr>
+                <tr>
+                	 <th>交易金额（元）</th>
+                    <td>40,000</td>
+                     <th>收款方式</th>
+                    <td>商户扫码</td>
+                </tr>
+                <tr>
+                	<th>状态</th>
+                    <td>成功</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<br />
+<hr style="background: #ccc; width: 100%; height: 1px; border: none;"/>
+<br />
+    <!-- 商户主体信息-->
+    <div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>门店名称</th>
+                    <td>天河店</td>
+                    <th>收银员</th>
+                    <td>李树仁</td>
+                </tr>		
+                <tr>
+                    <th>付款方</th>
+                    <td>百佳超市</td>
+                    <th>关联收款订单号</th>
+                    <td>DD20170609000</td>
+                </tr>
+                <tr>
+                    <th>收款备注</th>
+                    <td>实际收货4000件</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="text-align-center">
+        <a href="数据报表-交易数据报表.html" class="btn default">返回</a>
+         <a href="数据报表-交易数据报表（发起退款）.html" class="btn primary">退款</a>
+    </div>
+{% endblock %}

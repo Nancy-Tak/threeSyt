@@ -1,0 +1,113 @@
+.pay-modal {
+  &-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    color: @heading-FontColor;
+    line-height: 24px;
+    border-bottom: 1px solid @base-BorderColor;
+  }
+
+  > ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    .clearfix;
+
+    > li {
+      float: left;
+      list-style: none;
+
+      h2 {
+        margin-bottom: 15px;
+        font-size: 18px!important;
+        color: @default-FontColor!important;
+        font-weight: 700;
+      }
+
+      .pay-modal-box{
+        padding: 15px;
+        border: 3px solid @base-BorderColor;
+        border-radius: 4px;
+      }
+
+      &.pay-modal-ul-l,
+      &.pay-modal-ul-r {
+        width: 296px;
+      }
+
+      &.pay-modal-ul-r{
+        float: right;
+
+        .pay-modal-box {
+          border-color:#f5dfb1;
+          background-color: #fef3cc;
+        }
+
+        h2 {
+          color: ~"@{warning-FontColor}!important";
+        }
+      }
+
+      .bank-wrap {
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        font-size: 0;
+        //padding-left: 25px;
+
+        .bank-icon{
+          position: static;
+          left: 0;
+          top: 0;
+          margin-top: 5px;
+          margin-right: 5px;
+          vertical-align: top;
+        }
+
+        > span {
+          font-size: @base-FontSize;
+        }
+      }
+
+      &.pay-modal-ul-arrow{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -20px;
+        color: #ebebeb;
+        font-size: 40px;
+
+        > i {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          &.b {
+            left: 10px;
+          }
+
+        }
+      }
+
+      .pay-modal-item{
+        margin: 0;
+        line-height: 30px;
+        .clearfix;
+
+        > dt{
+          float: left;
+          width: 70px;
+        }
+        dd {
+          margin: 0;
+          float: left;
+          width: 190px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: @heading-FontColor;
+        }
+      }
+    }
+  }
+}

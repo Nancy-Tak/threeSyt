@@ -1,0 +1,81 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'关联终端管理'
+},
+{
+text: '二维码收款管理'
+}
+]
+)
+}}
+
+
+{# frame 爷爷样式 #}
+<img class="frame-img fn-mt-20" src="{{ static }}/images/demo/二维码收款管理-商户.png" alt="二维码收款管理" />
+
+<!--表格-->
+<table class="table inverse">
+    <colgroup>
+        <col style="width: 16%">
+        <col style="width: 16%">
+        <col style="width: 16%">
+        <col style="width: 20%">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>门店编号</th>
+        <th>门店名称</th>
+        <th>所在地区</th>
+        <th>门店地址</th>
+        <th>门店电话</th>
+        <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>111111</td>
+        <td>体育中心店</td>
+        <td>广东-广州</td>
+        <td>体育西路170号</td>
+        <td>020-54216541</td>
+        <td class="text-align-center">
+            <a class="link-standard" href="javascript:void(0);">
+                预览
+            </a> &nbsp;&nbsp;
+            <a class="link-standard" href="javascript:void(0);">
+                下载
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>111111</td>
+        <td>体育中心店</td>
+        <td>广东-广州</td>
+        <td>体育西路170号</td>
+        <td>020-54216541</td>
+        <td class="text-align-center">
+            <a class="link-standard" href="javascript:void(0);">
+                预览
+            </a> &nbsp;&nbsp;
+            <a class="link-standard" href="javascript:void(0);">
+                下载
+            </a>
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+
+{% endblock %}

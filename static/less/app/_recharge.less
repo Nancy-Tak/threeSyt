@@ -1,0 +1,71 @@
+// 充值
+// -----
+
+.form-recharge {
+    position: relative;
+    padding-bottom: 0;
+    .center-block();
+    width: 680px;
+    border: none;
+    background: url('@{images-url}recharge-bg.png') no-repeat right bottom;
+    
+    legend{
+        display: block;
+        margin-bottom: 60px;
+        height: 34px;
+        width: 180px;
+        font-size: 0;
+        text-indent: -9999px;
+        background: url('@{images-url}recharge-solgan.png') no-repeat;
+    }
+
+    .recharge-hd {
+        position: absolute;
+        left: 200px;
+        top: 8px;
+        
+        b{
+            font-size: @larger-FontSize;
+        }
+    }
+    
+    .form-group{
+        padding-left: 6em;
+        
+        p{
+            margin-top: 14px;
+        }
+
+        &.plain-text {
+            line-height: 24px;
+
+            .form-control-label {
+                height: 24px;
+
+                em {
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+
+    .form-control {
+        display: inline;
+        margin-right: 10px;
+        width: 260px;
+    }
+
+    .form-control-wrap {
+        max-width: 300px;
+    }
+
+    .form-btns{
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .form-control-label {
+        width: 84px;
+        text-align: left;
+    }
+}

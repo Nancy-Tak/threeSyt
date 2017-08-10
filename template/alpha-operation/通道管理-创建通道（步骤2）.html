@@ -1,0 +1,383 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+<link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text: '通道管理'
+},
+{
+text: '创建通道'
+}
+]
+)
+}}
+
+<div class="form-frame">
+    <form autocomplete="off">
+        <!-- 基础信息-->
+        <div class="form-title">
+            基础信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通道名称 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通道名称 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 支付平台 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>支付平台</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            支付宝
+                        </div>
+                    </div>
+                </div>
+                {# 机构名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>机构名称</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            招商银行总行
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 参数配置-->
+        <div class="form-title">
+            参数配置
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通道成本 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通道成本 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" /> <a style="cursor: default;" class="form-control-tools-link">%</a>
+                    </div>
+                </div>
+
+                {# PID #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> PID </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# AppID #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> AppID </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- 收单行业分类-->
+       <!--
+        <div class="form-title">
+            收单行业分类
+        </div>
+        <div>
+            <table class="table  table-border table-view fn-mb-20">
+                <tbody>
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        美食
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        超市便利店
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        K歌
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        休闲娱乐
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        美发/美容/美甲
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        运动健身
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        宠物
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        结婚
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        摄影
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        亲子
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        洗衣
+                    </td>
+                    <td class="text-align-left" colspan="2">
+                        <input type="checkbox">
+                        书店
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        -->
+
+        <!-- 合约附件-->
+        <div class="form-title">
+            合约附件
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <!-- 通道logo -->
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span>通道logo</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl1" value="" id="GetUrl1" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName1" value="">
+                            <input type="hidden" name="Key1" value="">
+                            <input type="hidden" name="uploadNam1" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="upload-img-wrap">
+                            <div class="upload-img-box" >
+                                <div class="upload-del">
+                                    <span class="upload-del-btn">&times;</span>
+                                    <img src="./static/images/black10.png" class="upload-img-detail">
+                                </div>
+                                <div class="upload-del">
+                                    <span class="upload-del-btn">&times;</span>
+                                    <img src="./static/images/black10.png" class="upload-img-detail">
+                                </div>
+                                <div class="upload-del">
+                                    <span class="upload-del-btn">&times;</span>
+                                    <img src="./static/images/black10.png" class="upload-img-detail">
+                                </div>
+                                <div class="upload-del">
+                                    <span class="upload-del-btn">&times;</span>
+                                    <img src="./static/images/black10.png" class="upload-img-detail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+                <!-- 合约照片或扫描件 -->
+                <div class="form-group">
+                    <label class="form-control-label form-control-label-alpha">
+                        <b>*</b>
+                        <span>合约照片或扫描件</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName2" value="">
+                            <input type="hidden" name="Key2" value="">
+                            <input type="hidden" name="uploadNam2" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <a href="通道管理-创建通道（步骤1）.html" role="button" class="btn default">取消</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        $(".j-type").on("change",function(){
+            var isPrivateChecked = $("#private").prop("checked");
+            if(isPrivateChecked){
+                $("#identity").removeClass("display-none");
+            }else{
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">通道创建成功！</span>',
+                content : ''
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+            });
+        });
+
+    });
+</script>
+{% endblock %}

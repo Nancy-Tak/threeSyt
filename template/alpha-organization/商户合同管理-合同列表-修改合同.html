@@ -1,0 +1,443 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+<link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'商户合同管理'
+                },
+                {
+                    link:'javascript:void(0);',
+                    text:'合同列表'
+                },
+                {
+                    text:'修改合同'
+                }
+
+            ]
+        )
+    }}
+
+{# 主体信息商户分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <form autocomplete="off">
+        <div class="form-title">
+            支付宝(招商银行总行)合同主体信息
+        </div>
+
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 子商户名称 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span>商户名称</span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <!-- <input type="***" class="form-control" id="***" placeholder="" value="123-456"/>
+                        <a href="#selectChildChannel" data-toggle="modal" class="form-control-tools-link">选择子商户</a> -->
+                        <div class="form-control-data word-wrap">
+                            红旗连锁有限公司
+                        </div>
+                    </div>
+                </div>
+
+               {# 合同编号 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span>合同编号</span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="****" class="form-control" id="***" placeholder="" value="123-456"/>
+                        <!--<a href="#selectChildChannel" data-toggle="modal" class="form-control-tools-link">选择子商户</a> -->
+                        <!--<div class="form-control-data word-wrap">-->
+                            <!--123456-->
+                        <!--</div>-->
+                    </div>
+                </div>
+
+                {# 合同签署日期 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 合同签署日期 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date" style="width: auto;">
+                                <span class="form-control-date-btn">
+                                    <i></i>
+                                </span>
+                            <input
+                                id="dateInput"
+                                class="form-control"
+                                value=""
+                                type="text"
+                                data-toggle="datetimepicker"
+                                data-istime="true"
+                                placeholder="YYYY-MM-DD"
+                                data-format="YYYY-MM-DD"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                {# 合同名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span> 合同名称 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder=""  value="" />
+                    </div>
+                </div>
+
+                {# 合同生效日期 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 合同生效日期 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date" style="width: auto;">
+                                <span class="form-control-date-btn">
+                                    <i></i>
+                                </span>
+                            <input class="form-control" value="2016-01-01" type="text" data-toggle="datetimepicker" data-istime="true" data-format="YYYY-MM-DD"  placeholder="YYYY-MM-DD">
+                        </div>
+                    </div>
+                </div>
+
+                {# 合同到期日期 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 合同到期日期 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date" style="width: auto;">
+                                <span class="form-control-date-btn">
+                                    <i></i>
+                                </span>
+                            <input class="form-control" value="2016-01-01" type="text" data-toggle="datetimepicker" data-istime="true" data-format="YYYY-MM-DD" placeholder="YYYY-MM-DD">
+                        </div>
+                    </div>
+                </div>
+
+                {# 是否自动续签 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 是否自动续签 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                是
+                                <input type="radio" name=""/>
+                            </label>
+                            <label>
+                                否
+                                <input type="radio" name=""/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-title">
+            支付宝（招商银行总行）结算账户信息
+        </div>
+
+        <div class="form-layer1">
+            <div class="form-layer2">
+
+                {# PID #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> PID </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <span class="form-control-data word-wrap" >xxx</span>
+                    </div>
+                </div>
+                {# AppID #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> AppID </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <span class="form-control-data word-wrap">xxx</span>
+                    </div>
+                </div>
+
+                {# 商户封顶 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> 商户封顶 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <!-- <input type="***" class="form-control" id="***" placeholder=""  value="100" />
+                        <span class="form-control-tools-link" style="cursor: default;">元</span> -->
+                        <div class="form-control-data">
+                            100 元
+                        </div>
+                    </div>
+                </div>
+
+                {# 行业分类 #}
+                <!--
+                 <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 行业分类 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <select class="form-control">
+                            <option value="0">线下实体商户</option>
+                        </select>
+                    </div>
+                </div>
+                -->
+
+                {# 签约扣率 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> 签约扣率 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder=""  value="0.6" />
+                        <span class="form-control-tools-link" style="cursor: default;">‰ <span class="fn-pl-10 info-FontColor">范围:0.6‰-0.6‰</span></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-title">
+            扫描附件信息
+        </div>
+
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <!-- 合同附件 -->
+                <div class="form-group">
+
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span>合同附件</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl1" value="" id="GetUrl1" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName1" value="">
+                            <input type="hidden" name="Key1" value="">
+                            <input type="hidden" name="uploadNam1" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+                <!-- 补充资料 -->
+                <div class="form-group">
+
+                    <label class="form-control-label">
+
+                        <span>补充资料</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName1" value="">
+                            <input type="hidden" name="Key1" value="">
+                            <input type="hidden" name="uploadNam1" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <a href="商户合同管理-合同列表.html" class="btn default">取消</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        $(".j-type").on("change",function(){
+            var isPrivateChecked = $("#private").prop("checked");
+            if(isPrivateChecked){
+                $("#identity").removeClass("display-none");
+            }else{
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                //close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">合同修改成功 ！</span>',
+               // content : '合同创建成功',
+                buttons : {  //  按钮可以只传ok或cancel
+                    ok : {
+                        text : '确定',
+                        callback : function () {
+                            console.log('确定');
+                            window.location.href="商户合同管理-合同列表.html"
+                        }
+                    }
+//                 ,
+//               cancel : {
+//                 text : '取消',
+//                 callback : function () {
+//                   console.log('取消');
+//                 }
+//               }
+                }
+            });
+        });
+
+    });
+
+    // 弹窗-静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+</script>
+{% endblock %}

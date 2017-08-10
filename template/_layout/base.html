@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        {# 不需要SEO #}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="copyright" content="本页版权归www.frontpay.cn所有·All Rights Reserved" />
+
+        {# 阻止百度转码 #}
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+        {# 页面 title #}
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+
+        {# IE7及以下，平稳退化 #}
+        <!--[if lte IE 7]>
+            <script >
+                window.onload = function(){ location.href='upgrade.html'; }
+            </script>
+        <![endif]-->
+
+        {# 加载公共样式表 #}
+        {% block globalCss %}{% endblock %}
+
+        {# 加载页面专有样式表 #}
+        {% block css %}{% endblock %}
+
+        {# H5 dom 兼容解决方案 #}
+        <!-- html5 Dom 替换方案 以支持IE7 -->
+        <!--[if lte IE 9]>
+		    <script type="text/javascript" src="{{ bower_components }}/html5shiv/dist/html5shiv.min.js?v={{ version }}"></script>
+        <![endif]-->
+        <!--[if IE 9]>
+		    <script type="text/javascript" src="{{ bower_components }}/respond/dest/respond.min.js?v={{ version }}"></script>
+        <![endif]-->
+
+        {# 样式兼容IE8 #}
+        <!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="{{ static }}/css/ie-8.css?v={{ version }}">
+        <![endif]-->
+
+        {# 加载页面样式 #}
+        {% block stylePage %}{% endblock %}
+
+        <script>
+            // 统一域名
+            document.domain = 'frontpay.cn';
+        </script>
+
+    </head>
+
+    {# 加载页面 body 类 #}
+    <body {% block bodyClass %}{% endblock %}>
+
+        {# 编写主体内容结构 #}
+        {% block body %}{% endblock %}
+
+        {# 编写弹窗内容结构 #}
+        {% block modal %}{% endblock %}
+
+        {# 加载公共脚本文件 #}
+        {% block globalJs %}{% endblock %}
+
+        {# 加载页面专有脚本文件 #}
+        {% block js %}{% endblock %}
+
+        {# 编写页面内的脚本 #}
+        {% block jsPage %}{% endblock %}
+
+    </body>
+
+</html>

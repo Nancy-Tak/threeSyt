@@ -1,0 +1,118 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    text: '修改密码'
+                }
+            ]
+        )
+    }}
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>新密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>再次确认新密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>短信验证码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <div class="form-control-verify">
+                                    <input type="text" class="form-control">
+                                    <button id="getCode" class="btn verify-btn-alpha form-control-verify-btn" type="button">获取验证码</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                    <button type="button" class="btn primary" id="submit">提交</button>
+                    <a href="系统管理-账号管理-编辑账号.html" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将返回账号编辑页面',
+                // buttons : {  //按钮可以只传ok或cancel
+                //     ok : {
+                //     text : '确定', callback : function () {
+                //             console.log('确定');
+                //         }
+                //     }
+                // }
+            });
+        });
+    });
+
+    // 调用获取验证码方法
+    $(function() {
+         var btn = document.getElementById( "getCode" );
+         //调用监听
+         monitor( $(btn) );
+         //点击click
+         btn.onclick = function() {
+             //倒计时效果  getCode回调函数  获取验证码api
+             countDown($( this ), getCode);
+         };
+         function getCode() {
+             alert( "验证码发送成功" );
+         }
+     });
+</script>
+{% endblock %}

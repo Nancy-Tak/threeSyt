@@ -1,0 +1,25 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'数据报表'
+},
+{
+text: '交流记录'
+}
+]
+)
+}}
+
+{# 页面跳转 #}
+{{ frameLoadingAlpha.default()}}
+
+
+{% endblock %}

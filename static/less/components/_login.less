@@ -1,0 +1,143 @@
+.bg-f9f9f9{
+  background: #f9f9f9;
+}
+.login-main-bg{
+  background: url("@{images-url}login-wrap/bg-main.jpg") no-repeat center top;
+
+}
+
+//登录注册页
+.form-section-head {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #999;
+}
+
+.login-main{
+  background: #f9f9f9;
+  &.no-bg{
+    background: none;
+  }
+  .login-entrance{
+    padding: 314px 0 314px 0;
+    .btn{
+      width: 265px;
+      &.btn-register{
+        border: 1px solid #f37e28;
+        background: @base-BgColor;
+        color: @warning-FontColor;
+      }
+    }
+  }
+  .mod-steps{
+    position: relative;
+    width: 500px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-top: 5px solid #cfcfcf;
+    .steps-bar{
+      position: absolute;
+      left: 0;
+      top: -5px;
+      height: 5px;
+      width: 100%;
+      .bar{
+        width: 50%;
+        height: 5px;
+      }
+    }
+    .steps{
+      background: url("@{images-url}login-wrap/steps.png") no-repeat 0 0;
+      width: 40px;
+      height: 46px;
+      line-height: 46px;
+      color: #fff;
+      text-align: center;
+      font-size: @larger-FontSize;
+      position: absolute;
+      top: -25px;
+      &.steps-1{
+        left: -60px;
+      }
+      &.steps-2{
+        right: -60px;
+      }
+    }
+    .steps-title{
+      position: absolute;
+      width: 50%;
+      top: 30px;
+      font-size: @base-FontSize+2px;
+      color: @default-FontColor;
+      &.title1{
+        left: -60px;
+        text-align: left;
+      }
+      &.title2{
+        right: -70px;
+        text-align: right;
+      }
+    }
+    &.mod-steps-1{
+      .steps-1{
+        background: url("@{images-url}login-wrap/steps-cur.png") no-repeat 0 0;
+      }
+      .bar1{
+        background: #f37e28;
+      }
+      .title1{
+        color: #f37e28;
+      }
+    }
+    &.mod-steps-2{
+      .steps{
+        background: url("@{images-url}login-wrap/steps-cur.png") no-repeat 0 0;
+      }
+      .steps-bar{
+        background: #f37e28;
+      }
+      .steps-title{
+        color: #f37e28;
+      }
+    }
+  }
+  .tooltips{
+    width: 250px;
+    height: 200px;
+    line-height: 20px;
+    white-space: normal;
+    text-align: left;
+    top: -215px;
+    padding: 10px;
+  }
+  .login-page{
+    width: 690px;
+    margin: 0 auto;
+    padding-top: 80px;
+    .login-box{
+      background: @base-BgColor;
+    }
+    .code-input{
+      display: inline-block;
+      width: 200px;
+    }
+    .code-pic{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 0 0 5px;
+    }
+  }
+
+  .register-page{
+    width: 1138px;
+    margin: 0 auto;
+    padding-top: 40px;
+    .register-box{
+      background: @base-BgColor;
+    }
+  }
+
+}
+

@@ -1,0 +1,177 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'合同管理'
+                },
+                {
+                    text: '商户合同列表'
+                }
+            ]
+        )
+    }}
+
+    <form class="filterBox-Alpha" action="#" method="post">
+        <div class="fliter-inline-wrap">
+            <div class="fliter-inline-item">
+                <label>商户名称：</label>
+                <div class="fliter-inline-width1">
+                    <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" placeholder="请输入商户名称" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>合同编号：</label>
+                <div class="fliter-inline-width1">
+                    <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" placeholder="请输入合同编号" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>商户名称：</label>
+                <div class="fliter-inline-width1">
+                    <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" placeholder="输入商户名称" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>状态：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">生效</option>
+                        <option value="1">待生效</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>合同模板：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">支付宝(招商银行总行)</option>
+                        <option value="1">微信支付(招商银行总行)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>类型：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">收单</option>
+                        <option value="1">分润</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <button type="submit" class="btn secondary small-btn">添加合同</button>
+                <button type="submit" class="btn primary small-btn">查找</button>
+                <button type="submit" class="btn secondary small-btn">重置</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col width="130px;" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>合同编号</th>
+                <th>合同名称</th>
+                <th>子商户名称</th>
+                <th>合同模板</th>
+                <th>类型</th>
+                <th>关联门店</th>
+                <th>结算通道名称</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>233433</td>
+                <td>-</td>
+                <td>阿迪达斯成都分公司</td>
+                <td>商户分润收单合同</td>
+                <td>收单</td>
+                <td>2</td>
+                <td>招商银行总行
+                    支付宝</td>
+                <td>2016-10-10  18:00:00</td>
+                <td>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">查看</a>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">修改</a>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">关联商户</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>233435</td>
+                <td>一级商户分润合同</td>
+                <td>阿迪达斯成都分公司</td>
+                <td>商户分润收单合同</td>
+                <td>收单</td>
+                <td>2</td>
+                <td>招商银行总行
+                    支付宝</td>
+                <td>2016-10-10  18:00:00</td>
+                <td>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">查看</a>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">修改</a>
+                    <a class="link-standard text-nowrap" href="javascript:void(0);">关联商户</a>
+                </td>
+            </tr>
+
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

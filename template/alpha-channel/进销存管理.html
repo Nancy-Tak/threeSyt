@@ -1,0 +1,27 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'进销存管理'
+},
+{
+text:'进销存管理'
+}
+]
+)
+}}
+
+{# frame 爷爷样式 #}
+<img class="frame-img" src="{{ static }}/images/demo/进销存管理.png" alt="进销存管理" />
+
+
+
+
+{% endblock %}

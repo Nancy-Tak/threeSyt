@@ -1,0 +1,249 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'对账管理'
+                },
+                {
+                    text: '挂销账管理'
+                }
+            ]
+        )
+    }}
+    {# 页面跳转按钮 #}
+    {{
+        pageTabAlpha.default(
+            list = [
+                {
+                    link: '对账管理-总账报表.html',
+                    text:'总账报表'
+                },
+                {
+                	link: '对账管理-挂销账管理.html',
+                    text: '挂销账管理',
+                    isActive:1
+                },
+                {
+                	link: '对账管理-对账单.html',
+                    text: '对账单'
+                },
+                {
+                    link: 'xxx',
+                    text: '历史记录'
+                }
+            ]
+        )
+    }}
+
+    <form class="filterBox-Alpha" action="#" method="post">
+        <div class="fliter-inline-wrap">
+            <div class="fliter-inline-item">
+                <label>起始日期：</label>
+                <div class="fliter-inline-width1">
+                    <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                        <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>终止日期：</label>
+                <div class="fliter-inline-width1">
+                    <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                        <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>挂载状态：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">已挂帐</option>
+                        <option value="1">已消账</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>支付通道：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">支付宝</option>
+                        <option value="1">微信</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <label>商户名称：</label>
+                <div class="fliter-inline-width1">
+                    <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <button type="submit" class="btn primary small-btn">查询</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>订单号</th>
+                <th>交易时间</th>
+                <th>商户名称</th>
+                <th>支付通道</th>
+                <th>挂账状态</th>
+                <th>挂账时间</th>
+                <th>销账时间</th>
+                <th>挂账/销账金额</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2FP2017012154512365</td>
+                <td>
+                    2017-01-21 15:45:54
+                </td>
+                <td>
+                    九毛九
+                </td>
+                <td>支付宝</td>
+                <td>已挂账</td>
+                <td>2017-01-22 10:00:00</td>
+                <td>
+
+                </td>
+                <td>355.00/0.00</td>
+                <td>
+                    <a class="link-standard" tabindex="1" data-toggle="modal" data-target="#cancelAccount" href="javascript:void(0);">销账</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2FP2017012154512365</td>
+                <td>
+                    2017-01-21 15:45:54
+                </td>
+                <td>
+                    九毛九
+                </td>
+                <td>支付宝</td>
+                <td>已销账</td>
+                <td>2017-01-22 10:00:00</td>
+                <td>
+                    2017-01-22 10:00:00
+                </td>
+                <td>285.12/285.12</td>
+                <td>
+                    <span class="viceText-FontColor">销账</span>
+                </td>
+            </tr>
+
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{% block modal %}
+{{
+    modalAlpha.normal(
+        'cancelAccount',
+        '销帐操作',
+        '
+            <form action="">
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span>挂账金额</span>
+                        <em>:</em>
+                    </label>
+
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            <span id="companyName">355.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span> 销账金额 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input style="width: 258px;" type="text" class="form-control" id="***" placeholder="***" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span> 销账说明 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <textarea style="width: auto;height: auto;" class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="text-align-center">
+                    <button type="button" class="btn primary">销账</button>
+                </div>
+
+            </form>
+        '
+    )
+}}
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

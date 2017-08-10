@@ -1,0 +1,24 @@
+.tooltips-icon-alpha {
+    position: relative;
+    .squareFontBox( @heading-FontColor,@smallest-FontSize,@bgColor-default,16px,4px,none,block );
+    border: 1px solid #adc3d6;
+    .inline-block();
+    margin: 0 5px;
+    cursor: default;
+    vertical-align: text-top;
+    padding: 0 5px;
+
+    > .tooltips{
+        .tooltips(@tooltips-bgColor1, @tooltips-BorderColor1);
+    }
+
+
+
+
+    &:hover {
+
+        > .tooltips {
+            display: block;
+        }
+    }
+}

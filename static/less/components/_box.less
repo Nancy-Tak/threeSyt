@@ -1,0 +1,167 @@
+.box {
+  &-border {
+    border: 3px solid #e4e7ec;
+  }
+
+  &-hd {
+    padding: 7px 15px;
+    background: #f4f5f5;
+    > h2 {
+      font-size: 14px!important;
+      color: #666!important;
+    }
+  }
+
+  &-bd {
+    padding: 20px;
+  }
+  
+  &-ft {
+    margin-top: 35px;
+    padding: 20px;
+    background: #f4f5f5;
+    text-align: center;
+    line-height: 18px;
+
+    .btn {
+      margin-top: 12px;
+    }
+  }
+}
+
+
+// 进度条
+.process {
+  position: relative;
+  margin: 5px 25px;
+  padding: 0;
+  list-style: none;
+
+  .clearfix;
+
+  > li {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 33.33%;
+
+    .process-item {
+      width: 134px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 24px;
+      color: #999;
+
+      h3 {
+        color: #999!important;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    &.has-correct {
+      .process-item {
+        h3 {
+          color: #54d393!important;
+        }
+      }
+    }
+
+    &.has-error {
+      .process-item {
+        h3 {
+          color: #d85e33!important;
+        }
+      }
+    }
+
+    &.left{
+      .process-item {
+        float: left;
+      }
+    }
+
+    &.right {
+      .process-item {
+        float: right;
+      }
+    }
+    &.center {
+      .process-item {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .process-bg,
+  .process-dot,
+  .apply-icon-edit,
+  .apply-icon-process,
+  .apply-icon-money,
+  .apply-error{
+    background: url(../images/sprite/sprite-apply.png?v=3.1.0) no-repeat;
+  }
+  .process-bg-wrap {
+    position: absolute;
+    top: 23px;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+
+
+
+    .process-bg{
+      margin: 0 100px;
+      height: 6px;
+      background-position: center 0;
+      background-repeat: repeat-x;
+    }
+  }
+  .process-dot{
+    margin: 0 auto;
+    width: 52px;
+    height: 52px;
+    background-color:#fff;
+    text-align: center;
+    line-height: 46px;
+
+    background-position: 3px -26px;
+
+    > i {
+      display: inline-block;
+      vertical-align: middle;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .apply-circle-success {
+    background-position: -129px -26px;
+  }
+
+  .apply-circle-error {
+    background-position: -64px -26px;
+  }
+
+  .apply-icon-edit{
+    background-position: -192px -23px;
+  }
+
+  .apply-icon-process {
+    background-position: -36px -87px;
+  }
+
+  .apply-icon-money{
+    background-position: 6px -92px;
+  }
+
+  .apply-error {
+    position: absolute;
+    top: 13px;
+    left: 72%;
+    margin-left: -12px;
+    background-position: 0px -143px;
+    width: 23px;
+    height: 24px;
+  }
+}

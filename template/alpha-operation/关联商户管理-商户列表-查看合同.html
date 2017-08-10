@@ -1,0 +1,103 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户列表'
+                },
+                {
+                    text: '查看合同'
+                }
+            ]
+        )
+    }}
+
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '合同编号'
+                    },
+                    {
+                        inner: '商户名称'
+                    },
+                    {
+                        inner: '通道名称'
+                    },
+                    {
+                        inner: '关联商户'
+                    },
+                    {
+                        inner: '通道机构名称'
+                    },
+                    {
+                        inner: '创建时间'
+                    },
+                    {
+                        inner: '合同状态'
+                    },
+                    {
+                        inner: '操作'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '365443'
+                        },
+                        {
+                            inner: '北京爱时尚女装有限公司'
+                        },
+                        {
+                            inner: '支付宝（招商银行总行）'
+                        },
+                        {
+                            inner: '3'
+                        },
+                        {
+                            inner: '招商银行总行'
+                        },
+                        {
+                            inner: '2016-10-10  18:00:00'
+                        },
+                        {
+                            inner: '生效'
+                        },
+                        {
+                            inner: '
+                                <div class="table-ctrls">
+                                    查看<span class="caret-down"></span>
+                                    <div class="ctrls">
+                                        <a href="商户合同管理-合同列表-查看合同.html" class="link-standard">
+                                            查看
+                                        </a>
+                                        <a href="商户合同管理-合同列表-修改合同.html" class="link-standard">
+                                            修改
+                                        </a>
+                                        <a href="商户合同管理-合同列表-查看关联门店.html" class="link-standard">
+                                            关联商户
+                                        </a>
+                                    </div>
+                                </div>
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20'
+        )
+    }}
+
+{% endblock %}

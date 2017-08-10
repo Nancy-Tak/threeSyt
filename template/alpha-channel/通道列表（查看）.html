@@ -1,0 +1,116 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'通道查看'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '通道列表'
+        },
+        {
+        text:'查看通道详情'
+        }
+        ]
+        )
+        }}
+
+<div>
+<!--基础信息-->
+<div>
+    <div class="tables-title">
+        基础信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>通道编号</th>
+            <td>768423</td>
+            <th>通道名称</th>
+            <td>支付宝（招商银行总行）</td>
+        </tr>
+        <tr>
+            <th>支付平台</th>
+            <td>支付宝</td>
+            <th>机构名称</th>
+            <td>招商银行总行</td>
+        </tr>
+        <tr>
+            <th>创建时间</th>
+            <td>
+                <span>2016-10-10</span>
+                <span>18:00:00</span>
+            </td>
+            <th>状 态</th>
+            <td>启用</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--详情-->
+<div>
+    <div class="tables-title">
+        详情
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>通道费率</th>
+            <td>0.55%</td>
+            <!--<th>日清时间</th>-->
+            <!--<td>15:00:00</td>-->
+            <th>商户分润</th>
+            <td>0.15%</td>
+        </tr>
+        <tr>
+            <th>商户结算账户</th>
+            <td>6222000012000000390
+            <th>商户结算开户行</th>
+            <td>招商银行</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--合约附件-->
+<div>
+        <div class="tables-title">
+            合约附件
+        </div>
+        <table class="table inverse bordered table-view fn-mb-20">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="table-img-container text-align-left ">
+                        <a href="https://www.baidu.com/img/bd_logo1.png">
+                            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                        </a>
+                        <a href="https://www.baidu.com/img/bd_logo1.png">
+                            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<!--返回-->
+<div class="text-align-center fn-ma-20">
+    <a href="通道列表.html">
+         <button type="button" class="btn default">返回</button>
+    </a>
+</div>
+
+
+</div>
+{% endblock %}

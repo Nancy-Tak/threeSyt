@@ -1,0 +1,76 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '付款人名单管理'
+                },
+                {
+                    text: '付款人详情'
+                }
+            ]
+        )
+    }}
+
+    <div class="form-frame">
+        <form autocomplete="off">
+
+            <div class="form-title">
+                付款人详情
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {# 付款人名称 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 付款人名称 </span>
+                          <em> : </em>
+                       </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                <span>百佳超市体育西路店</span>
+                            </div>
+                        </div>
+                    </div>
+                    {# 所属门店 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 所属门店 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                <span>店1，门店2，门店3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# 备注 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 备注 </span>
+                          <em> : </em>
+                       </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                <span>长期客户</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 按钮 -->
+            <div class="text-align-center fn-mt-20">
+                <a href="收款管理-管理收款对象.html" type="button" class="btn default">返回</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '系统管理-角色管理.html',
+                    text: '系统管理'
+                },
+                {
+                    link: '系统管理-角色管理.html',
+                    text: '角色管理'
+                },
+                {
+                    text: '查看角色'
+                }
+            ]
+        )
+    }}
+
+
+
+{# 基本信息 #}
+    <div>
+        <div class="tables-title">
+           	 基本信息
+        </div>
+       
+
+    <p class="fn-mt-20 fn-mb-10">
+        <span class="viceText-FontColor">角色名称：</span>运营后台普通人员
+    </p>
+    <p class="fn-mb-20">
+        <span class="viceText-FontColor">描述：</span>
+      运营后台普通人员角色，供客服、运营登录运营后台进行日常业务操作使用。
+    </p>
+</div>
+{# 权限配置 #}
+    <div>
+        <div class="tables-title">
+           	 权限配置
+        </div>
+       
+
+    <p class="fn-mt-20 fn-mb-10">
+        <span class="viceText-FontColor">角色分类：</span>机构角色
+    </p>
+    <p class="fn-mb-10">
+        <span class="viceText-FontColor">角色类型：</span>
+      机构超级管理员
+    </p>
+    <p class="fn-mb-10">
+        <span class="viceText-FontColor">所属商户/机构/门店：</span>
+      华润万家
+    </p>
+</div>
+    {# 权限 #}
+    <div class="permission-table-wrap fn-mb-10">
+        <div class="ptName">
+            <h3>支付通道管理</h3>
+        </div>
+        <div class="ptb">
+            <table class="table table-border fn-mb-10">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                通道列表 
+                            </label>
+                        </td>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                查看
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                编辑
+                            </label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                启用/禁用
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-border">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                创建通道
+                            </label>
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="permission-table-wrap">
+        <div class="ptName">
+            <h3>机构管理</h3>
+        </div>
+        <div class="ptb">
+            <table class="table table-border fn-mb-10">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td rowspan="5">
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                机构详情
+                            </label>
+                        </td>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                查看
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                管理员
+                            </label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                启用/禁用
+                            </label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                编辑
+                            </label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                收音费率
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-border">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <label class="table-checked-all">
+                                <input type="checkbox" disabled checked>
+                                创建子机构
+                            </label>
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-align-center fn-pt-20">
+        <button class="btn secondary" onclick="window.location.href='系统管理-角色管理.html'">
+            返回
+        </button>
+    </div>
+
+{% endblock %}

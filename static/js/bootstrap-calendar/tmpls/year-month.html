@@ -1,0 +1,10 @@
+<div class="cal-cell-month<% if (events.length > 0) { %> has-event<%}%>">
+  <span class="pull-right" data-cal-date="<%= data_day %>" data-cal-view="month"><%= month_name %></span>
+  <div class="events-list" data-cal-start="<%= start %>" data-cal-end="<%= end %>">
+    <% _.each(events, function(event) { %>
+      <% if(event.type === 2){ %>
+        <a href="#download-file" data-toggle="smooth-scroll" class="pull-left event link-standard j-download <%= event['class'] %>" data-cal-date="<%= data_day.slice(0,7) %>"><i class="icon-arrow-small-down fs-28 vert-m"></i> 下载账单</a>
+      <% } %>
+    <% }); %>
+  </div>
+</div>

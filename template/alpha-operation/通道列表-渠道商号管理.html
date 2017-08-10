@@ -1,0 +1,259 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: 'javascript:void(0);',
+                    text: '通道管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '通道列表'
+                },
+                {
+                    text: '渠道商号管理'
+                }
+            ]
+        )
+    }}
+
+    {# 数据过滤器 #}
+
+    <form class="filterBox-Alpha" action="#" method="post">
+        <div class="fliter-inline-wrap">
+
+        <div class="fliter-inline-item">
+            <label>渠道商名称：</label>
+            <div class="fliter-inline-width1">
+                <div class="fliter-inline-width1">
+                    <input type="text" class="form-control smallsize" placeholder="请输入渠道商名称" />
+                </div>
+            </div>
+        </div>
+
+        <div class="fliter-inline-item">
+            <label>渠道商编号：</label>
+            <div class="fliter-inline-width1">
+                <div class="fliter-inline-width1">
+                    <input type="text" class="form-control smallsize" placeholder="请输入渠道商编号" />
+                </div>
+            </div>
+        </div>
+        <div class="fliter-inline-item">
+            <button type="button" class="btn primary small-btn">搜索</button>
+            <button type="button" class="btn secondary small-btn" data-toggle="modal" data-target="#myModal">添加</button>
+        </div>
+                      
+                
+    </div>
+    
+    </form>
+
+
+
+
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '渠道商名称'
+                    },
+                    {
+                        inner: '渠道商编号'
+                    },
+                    {
+                        inner: '关联商户数'
+                    },
+                    {
+                        inner: '创建时间'
+                    },
+                    {
+                        inner: '操 作'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: 'TTG'
+                        },
+                        {
+                            inner : '1111111111111'
+                        },
+                        {
+                            inner: '0'
+                        },
+                        {
+                            inner: '2016-10-10  18:00:00'
+                        },
+                        {
+                            inner: '
+                                <div class="table-ctrls">
+                                    
+                                    <div class="ctrls2">
+                                   
+                                        <a href="javascript:;"  class="link-standard text-nowrap " data-toggle="modal" data-target="#myModal2">编辑</a>
+                           
+                                    </div>
+                                </div>
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20'
+        )
+    }}
+
+    {# 分页 #}
+    {{ paginationAlpha.default( id='p1' ) }}
+    
+    
+	<!-- 模拟弹框 -->
+	<div class="modal-background fade display-none" id="myModal" role="dialog">
+		<div class="modal-layer">
+			<div class="modal-position">
+				<div class="modal-wrap">
+					<div class="modal-head">
+						新增渠道商号
+			
+						<button class="modal-close" title="关闭">
+                                <i></i>
+                            </button>
+					</div>
+					<div class="modal-body">
+						<div>
+
+							<div class="form-layer2">
+								
+								<div class="form-group">
+									<label class="form-control-label">
+                      
+                            <span>渠道商名称
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+									<div class="form-control-wrap">
+										<input type="text" class="form-control" value="">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="form-control-label">
+                          
+                            <span>渠道商编号
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+									<div class="form-control-wrap">
+										<input type="text" class="form-control" value="">
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="text-align-center margin-top-40px">
+							<div class="btn-with-viceLink text-align-center plural-btns">
+								<button type="button" class="btn primary">确定</button>
+							
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 模拟弹框 -->
+	<div class="modal-background fade display-none" id="myModal2" role="dialog2">
+		<div class="modal-layer">
+			<div class="modal-position">
+				<div class="modal-wrap">
+					<div class="modal-head">
+				
+						编辑渠道商号
+						<button class="modal-close" title="关闭">
+                                <i></i>
+                            </button>
+					</div>
+					<div class="modal-body">
+						<div>
+
+							<div class="form-layer2">
+								
+								<div class="form-group">
+									<label class="form-control-label">
+                      
+                            <span>渠道商名称
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+									<div class="form-control-wrap">
+										<input type="text" class="form-control" value="">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="form-control-label">
+                          
+                            <span>渠道商编号
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+									<div class="form-control-wrap">
+										<input type="text" class="form-control" value="">
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="text-align-center margin-top-40px">
+							<div class="btn-with-viceLink text-align-center plural-btns">
+								<button type="button" class="btn primary">确定</button>
+							
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

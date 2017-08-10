@@ -1,0 +1,168 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '系统管理-账号管理.html',
+                    text: '系统管理'
+                },
+                {
+                    link: '系统管理-账号管理.html',
+                    text: '账号管理'
+                },
+                {
+                    text: '查看账号'
+                }
+            ]
+        )
+    }}
+
+
+    {# 表格标题 #}
+    <h5 class="fn-mt-20 fn-mb-10">账号信息</h5>
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            cols='
+                <colgroup>
+                    <col style="width: 20%">
+                    <col style="width: 30%">
+                    <col style="width: 20%">
+                    <col style="width: 30%">
+                </colgroup>
+            ',
+            data={
+                tbodyList: [
+                    [
+                        {
+                            inner: '<b>UserID</b>'
+                        },
+                        {
+                            inner: '12345678923429'
+                        },
+                        {
+                            inner: '<b>账号名称</b>'
+                        },
+                        {
+                            inner: '23asdf'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>创建人</b>'
+                        },
+                        {
+                            inner: '张三'
+                        },
+                        {
+                            inner: '<b>创建平台</b>'
+                        },
+                        {
+                            inner: '运营后台'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>创建时间</b>'
+                        },
+                        {
+                            inner: '2017-05-09 14:58:15'
+                        },
+                        {
+                            inner: '<b>姓名</b>'
+                        },
+                        {
+                            inner: '张三'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>状态</b>'
+                        },
+                        {
+                            inner: '  <span class="success-FontColor2">
+                                    启用
+                                </span>'
+                        },
+                        {
+                            inner: '<b>手机号码</b>'
+                        },
+                        {
+                            inner: '13800138000'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>邮箱</b>'
+                        },
+                        {
+                            inner: '6572342@qq.com'
+                        },
+                        {
+                            inner: '<b>账号角色</b>'
+                        },
+                        {
+                            inner: '商户角色  商户业务人员'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>角色类型</b>'
+                        },
+                        {
+                            inner: '普通角色'
+                        },
+                        {
+                            inner: '<b>所属商户/机构/门店</b>'
+                        },
+                        {
+                            inner: '华润万家'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>上次登录IP</b>'
+                        },
+                        {
+                            inner: '192.18.1.1'
+                        },
+                        {
+                            inner: '<b>上次登录时间</b>'
+                        },
+                        {
+                            inner: '2017-05-09 14:58:15'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>备注</b>'
+                        },
+                        {
+                            inner: '商户业务人员账号'
+                        },
+                        {
+                            inner: '<b></b>'
+                        },
+                        {
+                            inner: ''
+                        }
+                    ]
+                     
+                ]
+            },
+            fixedClass='table-border'
+        )
+    }}
+
+    <div class="text-align-center fn-pt-20">
+        <button class="btn secondary" onclick="window.location.href='系统管理-账号管理.html'">
+            返回
+        </button>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,420 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'收单对账管理'
+                },
+                {
+                    text: '收银流水表'
+                }
+            ]
+        )
+    }}
+
+{# 数据过滤器 #}
+<div class="filter-table-wrap fn-mt-20">
+    <table class="filter-table">
+        <colgroup>
+            <col style="width: 30%">
+            <col style="width: 30%">
+            <col style="width: 24%">
+        </colgroup>
+        <tr>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>起始日期
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                            <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>终止日期
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <div class="fliter-inline-width1">
+                            <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                                <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>订单号
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+        	            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>交易号
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label" style="width: 90px;">
+                            <span style="max-width: 90px;">关联订单号
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="" style="margin-left: 20px;">
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>支付通道
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                支付宝
+                            </option>
+                            <option value="">
+                                微信
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>机构名称
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+                        <td>
+                <!-- <div class="form-control-wrap smallsize">
+                    <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                </div> -->
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>商户名称
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+
+            <!-- <td>
+                <div class="form-control-wrap smallsize">
+                    <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                        <option value="">
+                            全部账号角色
+                        </option>
+                        <option value="">
+                            角色1
+                        </option>
+                        <option value="">
+                            角色2
+                        </option>
+                    </select>
+                </div>
+            </td> -->
+
+        </tr>
+        <tr>
+        	                    	<td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label" style="width: 90px;">
+                            <span style="max-width: 90px;">付款人帐号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize" style="margin-left: 20px;">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+            <td>
+                <div class="text-align-right plural-btns">
+                    <button type="button" class="btn primary small-btn">查找</button>
+                    <button type="button" class="btn secondary small-btn">重置</button>
+                    <button type="button" class="btn secondary small-btn">下载</button>
+                    <!--<button type="button" class="btn secondary small-btn" onclick="window.location.href='系统管理-账号管理-添加账号.html'">添加账号</button>-->
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+    {{
+        contentBoxAlpha.default(
+            list = [
+                {
+                    title:'付款交易金额',
+                    content:'714'
+                },
+                {
+                    title:'退款交易金额',
+                    content:'8.56'
+                },
+                {
+                    title:'付款交易机构总分润费',
+                    content:'714'
+                },
+                {
+                    title:'退款交易机构总分润费',
+                    content:'8.56'
+                }
+            ]
+        )
+    }}
+
+
+
+{{
+  tableAlpha.forDemo(
+    data={
+      theadList: [
+      {
+        inner: '
+          订单号
+          <div data-toggle="tooltips" data-pos="bottom-left" title="商户收单系统生成订单号" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+        '
+      },
+      {
+        inner: '
+          交易号
+          <div data-toggle="tooltips" data-pos="bottom-left" title="系统内唯一识别号，可用于与支付系统对账" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+        '
+      },
+      {
+        inner: '
+          关联订单号
+          <div data-toggle="tooltips" data-pos="bottom-left" title="关联的商户收单订单号" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+        '
+      },
+      {
+      	inner: '付款人帐号'
+      },
+
+      {
+        inner: '系统交易金额'
+      },
+       {
+        inner: '平台总分润金额'
+      },
+      {
+        inner: '服务商总分润金额'
+      },
+      {
+        inner: '机构总分润金额'
+      },
+      {
+        inner: '商户总分润金额'
+      },
+
+      {
+        inner: '通道成本'
+      },
+      {
+        inner: '商户实收金额'
+      },
+      {
+        inner: '交易时间'
+      },
+      {
+        inner: '所属机构'
+      },
+      {
+        inner: '商户名称'
+      },
+      {
+        inner: '支付通道'
+      },
+      {
+        inner: '交易类型'
+      },
+        {
+        inner: '状态'
+        },
+        {
+        inner: '操作人'
+        },
+        {
+        inner: '交易备注'
+        }
+      ],
+      tbodyList: [
+      [
+        {
+          inner: '2333535436222222'
+        },
+        {
+          inner: '2333535436222222'
+        },
+        {
+          inner: '2333535436222222'
+        },
+        {
+          inner: '1225445552155500'
+        },
+        {
+          inner: '356.00'
+        },
+         {
+          inner: '256.22'
+        },
+        {
+          inner: '356.00'
+        },
+        {
+          inner: '0.258'
+        },
+        {
+          inner: '0.256'
+        },
+        {
+          inner: '0.365'
+        },
+        {
+          inner: '365.255'
+        },
+        {
+          inner: '<span class="text-nowrap">2015-05-25</span><span class="text-nowrap viceText-FontColor">10:25:36</span>'
+        },
+        {
+          inner: '九毛九'
+        },
+        {
+          inner: '九毛九'
+        },
+        {
+          inner: '支付宝'
+        },
+        {
+          inner: '退款'
+        },
+        {
+        inner: '成功'
+        },
+        {
+        inner: '777'
+        },
+        {
+        inner: '<div style="width: 160px;">听说这有十个字的要求，多了就换行啦啦啦啦啦啦啦</div>'
+        }
+      ]
+      ]
+    },
+    fixedClass="fn-mt-20 kkk"
+  )
+}}
+
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

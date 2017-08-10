@@ -1,0 +1,169 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+link: 'javascript:void(0);',
+                    text: '数据报表'
+                },
+                {
+link: 'javascript:void(0);',
+                    text: '交易数据报表'
+                },
+
+                {
+                    text: '退款'
+                }
+            ]
+        )
+    }}
+
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-title">
+                退款操作
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 当前订单金额 (元)</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                <span id="money">378.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-control-label" for="***">
+                                <span>退款金额(元)
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                        <div class="form-control-wrap">
+                             <input type="number" class="form-control" id="money-input" placeholder="请输入金额" />
+
+                        </div>
+                          <p class="input-err-msg"></p>
+                        </div>
+
+                    <div class="form-group">
+                            <label class="form-control-label">
+                                <span>退款说明
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <textarea class="form-control" rows="5" id="refundInfo" placeholder='请输入不超过50字的退款原因' style="max-width: 100%; width: 100%; height: auto"></textarea>
+                            </div>
+                              <p class="infoMsg"></p>
+                        </div>
+
+                </div>
+            </div>
+
+            <div class="text-align-center">
+                <div class="plural-btns btn-with-viceLink fn-mt-20">
+                	   <a href="数据报表-交易数据报表.html" class="btn default">取消</a>
+                    <button type="button" class="btn primary" id="submit">提交</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                // modalTitle:"test",
+                type : 'success',   //success info error
+               //  title : '<p class="success-FontColor2">预计<span class="dTime warning-FontColor h3 fn-pl-5 fn-pr-5"> </span>秒后返回结果</p>',
+                title : '<p class="success-FontColor2">退款成功！ </p><p>支付机构已受理，一般会在0-7个工作日内</p><p>退回至用户支付账户</p>',
+             //   title : '<p class="warning-FontColor">退款失败! </p>',
+             //  title : '<p class="warning-FontColor">当前订单不符合退款条件! </p>',
+                content : '<div><a href="数据报表-交易数据报表.html" class="btn secondary" role="button">确定</a></div>',
+//                 buttons : {  //按钮可以只传ok或cancel
+//                     ok : {
+//                     text : '确定', callback : function () {
+//                             console.log('确定');
+//                             clearInterval(timers)
+//                             window.location.href='数据报表-交易数据报表.html';
+//                         }
+//                     }
+//                 }
+            });
+            var c = 35;
+            var timers = setInterval(function(){
+                if(c>0){
+                    c--;
+                    $(".dTime").text(c);
+                } else {
+                    clearInterval(timers)
+                }
+            },1000)
+        });
+
+
+
+
+        //退款
+        var moneyVal=$('#money').html();
+        $('#money-input').blur(function(){
+        	var inputVal=$(this).val();
+        	var pointLength=0;
+        	if(!inputVal.toString().split(".")){
+
+        	}else{
+        		pointLength=inputVal.toString().split(".")[1].length
+        	}
+
+        	if(inputVal-0<0.01){
+        		$('.input-err-msg').text('退款金额 ，请修改').addClass('err-p');
+        		$(this).addClass('err-p');
+        	}else if(inputVal-0>moneyVal){
+        		$('.input-err-msg').text('退款金额不能大于当前订单金额，请修改').addClass('err-p');;
+        		$(this).addClass('err-p');
+        	}else if(pointLength>2){
+        		$('.input-err-msg').text('只能最多输入2位小数').addClass('err-p');;
+        		$(this).addClass('err-p');
+        		}else{
+        		$('.input-err-msg').removeClass('err-p').text('');
+        		$(this).removeClass('err-p');
+
+        	}
+        })
+
+        //说明
+        var refundVal=$('#refundInfo').html();
+        $('#refundInfo').blur(function(){
+        	var inputVal=$(this).val().length;
+        	console.log(inputVal)
+        	if(inputVal>=50){
+        		$(this).addClass('err-p');
+        		$('.infoMsg').addClass('err-p').text('输入请不要超过50字')
+        	}else{
+        		$(this).removeClass('err-p');
+        		$('.infoMsg').removeClass('err-p').text('')
+        	}
+        })
+
+    });
+</script>
+{% endblock %}

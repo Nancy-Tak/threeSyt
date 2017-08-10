@@ -1,0 +1,28 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'财务报表查询'
+},
+{
+link: 'javascript:void(0);',
+text:'交易数据统计'
+},
+{
+text: '按支付方式统计'
+}
+]
+)
+}}
+{# frame 爷爷样式 #}
+<img class="frame-img" src="{{ static }}/images/demo/交易数据统计-支付方式.png" alt="交易数据统计-支付方式" />
+
+
+{% endblock %}

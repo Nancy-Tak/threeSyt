@@ -1,0 +1,41 @@
+{% extends "_layout/alpha/base-alpha.html" %}
+
+{% block title %}FT智能管理系统{% endblock %}
+
+{% block globalCss %}
+	<link rel="stylesheet" href="{{ static }}/css/main.css?v={{ version }}">
+{% endblock %}
+
+{# 载入组件模板 #}
+{% import "_components/alpha/header-alpha.html" as headerAlpha %}
+{% import "_components/alpha/nav-alpha.html" as navAlpha %}
+{% import "_components/alpha/breadCrumb-alpha.html" as breadCrumbAlpha %}
+{% import "_components/alpha/pageTab-alpha.html" as pageTabAlpha %}
+{% import "_components/alpha/contentBox-alpha.html" as contentBoxAlpha %}
+{% import "_components/alpha/modal-alpha.html" as modalAlpha %}
+{% import "_components/alpha/table-alpha.html" as tableAlpha %}
+{% import "_components/alpha/pagination-alpha.html" as paginationAlpha %}
+{% import "_components/alpha/frameLoading-alpha.html" as frameLoadingAlpha %}
+{% import "_components/alpha/tipsModal-alpha.html" as tipsModalAlpha %}
+
+{# 通用布局 #}
+{% block body %}
+    <div id="layoutNoNavAlpha">
+
+		{# 内容位置 #}
+		{% block content %}
+		{% endblock %}
+
+        <div class="alpha-foot">
+        <!--&copy; 2017广东钱途互联商户服务有限公司-->
+        &copy; E+账户
+        </div>
+    </div>
+{% endblock %}
+
+{% block globalJs %}
+    <script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
+    <script src="{{ static }}/js/ui.js"></script>
+    <script src="{{ static }}/js/common.js"></script>
+    <script src="{{ static }}/js/datetimepicker/datetimepicker.js"></script>
+{% endblock %}

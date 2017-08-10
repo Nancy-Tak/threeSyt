@@ -1,0 +1,142 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '数据报表'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '交易数据报表'
+                },
+                {
+                    text: '查看详情'
+                }
+            ]
+        )
+    }}
+    <!-- 交易详情-->
+    <div>
+        <div class="tables-title">
+            交易详情
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>交易号</th>
+                    <td>LS20170609000</td>
+                    <th>交易时间</th>
+                    <td>2017-06-09  13:45:16</td>
+                </tr>
+                <tr>
+                	   <th>交易金额（元）</th>
+                    <td>40,000</td>
+                   
+                    <th>支付方式</th>
+                    <td>支付宝</td>
+                </tr>
+                <tr>
+                	   <th>累计退款金额（元）
+</th>
+                    <td>20.00</td>
+                   
+                    <th>当前订单金额（元）</th>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                	 <th>门店名称</th>
+                    <td>40,000</td>
+                     <th>收款方式</th>
+                    <td>商户扫码</td>
+                </tr>
+                <tr>
+                	<th>付款人</th>
+                    <td>成功</td>
+                    <th>收银员</th>
+                    <td>xx</td>
+                </tr>
+                <tr>
+                	<th>收款备注</th>
+                    <td>10件</td>
+                    <th>关联收款订单号</th>
+                    <td>GLSK00000001</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+      <br />
+      <div >
+            操作日志
+        </div>
+        <br />
+    <table class="table inverse">
+    <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />  
+    </colgroup>
+    <thead>
+    <tr>
+    	<th>交易号</th>
+        <th>操作类型</th>
+        <th>金额</th>
+        <th>执行结果</th>
+        <th>操作人</th>
+        <th>操作时间</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>15415615</td>
+
+        <td>九毛九</td>
+        <td>280250</td>
+ 
+        <td>微信扫码支付</td>
+        <td>
+            2017-01-21 15:45:54
+        </td>
+        <td>九毛九</td>
+         <td>退款说明</td>
+         	  </tr>
+    <tr>
+        <td>15415615</td>
+        <td>九毛九</td>
+        <td>280250</td>
+ 
+        <td>微信扫码支付</td>
+        <td>
+            2017-01-21 15:45:54
+        </td>
+        <td>九毛九</td>
+         <td>退款说明</td>
+         	
+    </tr>
+
+
+    <!-- 暂无记录 -->
+    <!-- <tr>
+        <td colspan="8" class="empty">&nbsp;
+        </td>
+    </tr> -->
+    </tbody>
+</table>
+<br /><br />
+
+
+
+    <div class="text-align-center">
+        <a href="数据报表-交易数据报表.html" class="btn default">返回</a>
+      
+    </div>
+{% endblock %}

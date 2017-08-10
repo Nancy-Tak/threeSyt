@@ -1,0 +1,105 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '服务方案列表'
+        },
+        {
+        text:'查看服务方案'
+        }
+        ]
+        )
+        }}
+
+<div>
+
+<!--方案信息-->
+<div>
+    <div class="tables-title">
+        方案信息
+    </div>
+
+    <div class="form-layer1">
+        <div class="form-layer2">
+            <div class="form-group inline-block">
+                <label class="form-control-label" for="form-control-5">
+                    <span>方案名称</span>
+                    <em> : </em>
+                </label>
+                <div class="form-control-wrap">
+                    <div class="form-control-data  word-wrap">
+                        方案1
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group inline-block">
+                <label class="form-control-label" for="form-control-5">
+                    <span>软件服务商</span>
+                    <em> : </em>
+                </label>
+                <div class="form-control-wrap">
+                    <div class="form-control-data word-wrap">
+                        TTG
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group inline-block">
+                <label class="form-control-label" for="form-control-5">
+                    <span>硬件服务商</span>
+                    <em> : </em>
+                </label>
+                <div class="form-control-wrap">
+                    <div class="form-control-data word-wrap">
+                        联迪-A9
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>分润方</th>
+            <th>分润占比</th>
+        </tr>
+        <tr>
+            <th>本机构</th>
+            <td>
+                   50%
+                <button type="button" class="btn primary small-btn">默认分润方</button>
+            </td>
+        </tr>
+        <tr>
+            <th>机构1</th>
+            <td>
+                50%
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--返回-->
+<div>
+    <div class="text-align-center fn-mb-20">
+        <a href="机构管理-服务方案列表.html" class="btn default" role="button">返回</a>
+    </div>
+</div>
+
+</div>
+{% endblock %}

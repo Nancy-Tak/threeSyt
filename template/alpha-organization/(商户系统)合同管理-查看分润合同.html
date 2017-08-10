@@ -1,0 +1,194 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'合同管理'
+                },
+                {
+                    text: '查看分润合同'
+                }
+            ]
+        )
+    }}
+
+{# 主体信息商户分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <form autocomplete="off">
+        <div class="form-title">
+            主体信息商户分润合同主体信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 子商户名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b></b>
+                        <span> 子商户名称 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder="新建的子商户" />
+                        <a class="form-control-tools-link">选择子商户</a>
+                    </div>
+                </div>
+                {# 合同编号 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span> 合同编号 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder="" />
+                        <a class="form-control-tools-link">自动生成</a>
+                    </div>
+                </div>
+
+                {# 合同签署日期 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同签署日期</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***">
+                    </div>
+                </div>
+
+                {# 合同名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span>合同名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***">
+                    </div>
+                </div>
+
+                {# 合同生效日期 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同生效日期</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***">
+                    </div>
+                </div>
+
+                {# 合同到期日期 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同到期日期</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***">
+                    </div>
+                </div>
+
+                {# 商户联系人 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="王二小">
+                    </div>
+                </div>
+
+                {# 商户联系人手机 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>商户联系人手机</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="13800138000">
+                    </div>
+                </div>
+
+                {# 签购单位名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>签购单位名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="子商户公司">
+                    </div>
+                </div>
+
+                {# 是否自动续签 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 是否自动续签 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                是
+                                <input type="radio" name=""/>
+                            </label>
+                            <label>
+                                否
+                                <input type="radio" name=""/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-title">
+            商户分润结算账户信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 签约分润比例 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span> 签约分润比例 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder="" value="2:1" />
+                        <span class="form-control-tools-link">≈本商户分润比率：<span>0.1%</span>；子商户分润比率：<span>0.05%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-control-wrap text-align-left margin-top-20px">
+                <a href="偿债方式-个人偿债-验证结果.html" class="btn primary" role="button">下一步</a>
+            </div>
+        </div>
+
+    </form>
+
+
+
+</div>
+
+{% endblock %}
+

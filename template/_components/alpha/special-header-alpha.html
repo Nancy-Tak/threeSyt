@@ -1,0 +1,9 @@
+{% macro default( projectName='机构管理后台', indexTo='首页.html', static='/static' ) %}
+    <div id="header-alpha">
+        <div class="header-main">
+            <a class="logo" href="{{ indexTo }}">
+                <img src="{{ static }}/images/logoAlpha.png" alt="logo">
+            </a>
+        </div>
+    </div>
+{% endmacro %}

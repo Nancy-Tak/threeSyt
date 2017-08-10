@@ -1,0 +1,159 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'清分管理'
+                },
+                {
+                    text: '清分文件'
+                }
+            ]
+        )
+    }}
+    {# 页面跳转按钮 #}
+    {{
+        pageTabAlpha.default(
+            list = [
+                {
+                    text:'清分文件',
+                    isActive: 1
+                },
+                {
+                	link: '清分管理-机构清分配置.html',
+                    text: '机构清分配置'
+                }
+            ]
+        )
+    }}
+
+
+    {# 数据过滤器 #}
+    <form>
+        <div class="filter-table-wrap fn-mt-20">
+            <table class="filter-table">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col style="width: 30%">
+                    <col style="width: 40%">
+                </colgroup>
+                <tr>
+                    <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>账号名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <div class="form-control-date smallsize">
+                                    <span class="form-control-date-btn">
+                                        <i></i>
+                                    </span>
+                                    <input class="form-control smallsize" type="text" value="" data-toggle="datetimepicker" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span style="max-width:none;">机构/商户
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        招行深圳分行
+                                    </option>
+                                    <option value="">
+                                        招行广州分行
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-align-right plural-btns">
+                            <button type="button" class="btn primary small-btn">查找</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col style="width: 78px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>账单日期</th>
+                <th>账单名称</th>
+                <th>机构/商户</th>
+                <th>清分笔数</th>
+                <th>清分金额</th>
+                <th>生成时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2016-12-30</td>
+                <td>
+                    szcmb001_20161230_1_1100.txt
+                </td>
+                <td>
+                    招行深圳分行
+                </td>
+                <td>19827</td>
+                <td>20,154,325,002.00</td>
+                <td>2016-12-31 10:30:01</td>
+                <td>
+                    <a href="javascript:void(0);" class="link-standard">下载文件</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2016-12-30</td>
+                <td>
+                    szcmb001_20161230_1_1100.txt
+                </td>
+                <td>
+                    招行广州分行
+                </td>
+                <td>19827</td>
+                <td>20,154,325,002.00</td>
+                <td>2016-12-31 10:30:01</td>
+                <td>
+                    <a href="javascript:void(0);" class="link-standard">下载文件</a>
+                </td>
+            </tr>
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+{% endblock %}

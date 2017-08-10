@@ -1,0 +1,334 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '机构列表'
+        },
+        {
+        text:'查看详情'
+        }
+        ]
+        )
+        }}
+
+<div>
+<!--基础信息-->
+<div>
+    <div class="tables-title">
+        基础信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>进件编号</th>
+            <td>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</td>
+            <th>机构编号</th>
+            <td>1086</td>
+        </tr>
+        <tr>
+            <th>机构全称</th>
+            <td>
+                <div>
+                    ??????????????????????????????????
+                </div>
+            </td>
+            <th>机构简称</th>
+            <td>招商银行济南分行</td>
+        </tr>
+        <tr>
+            <th>所在省份</th>
+            <td>山东省</td>
+            <th>所在城市</th>
+            <td>济南市</td>
+        </tr>
+        <tr>
+            <th>所在区县</th>
+            <td>济宁区</td>
+            <th>证件类型</th>
+            <td>普通营业执照</td>
+        </tr>
+        <tr>
+            <th>营业执照注册号</th>
+            <td>654236765365324373</td>
+            <th>营业执照有效期</th>
+            <td>2010-07-08至2020-07-07</td>
+        </tr>
+        <tr>
+            <th>组织机构代码证</th>
+            <td>654236765365324373</td>
+            <th>税务登记证编号</th>
+            <td>654236765365324373</td>
+        </tr>
+        <tr>
+            <th>企业法人</th>
+            <td>蔡蔓</td>
+            <th>法人身份证号</th>
+            <td>450000000000000000</td>
+        </tr>
+        <tr>
+            <th>机构代码</th>
+            <td>1120087</td>
+            <th></th>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--联系方式-->
+<div>
+    <div class="tables-title">
+        联系方式
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>联系人</th>
+            <td>张琳琳</td>
+            <th>联系电话</th>
+            <td>13800000000</td>
+        </tr>
+        <tr>
+            <th>联系邮箱</th>
+            <td>123@gmail.com
+            </td>
+            <th>
+            </th>
+            <td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--合同信息-->
+<!--
+<div>
+    <div class="tables-title">
+        合同信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>合同编号
+            </th>
+            <td>ZS1</td>
+            <th>合同签署日期
+            </th>
+            <td>2017-01-18
+            </td>
+        </tr>
+        <tr>
+            <th>合同生效日期
+            </th>
+            <td>2017-02-01
+            </td>
+            <th>合同到期日期
+            </th>
+            <td>2020-01-31
+            </td>
+        </tr>
+        <tr>
+            <th>是否自动续签
+            </th>
+            <td>是
+            </td>
+            <th></th>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+-->
+
+<!--应用权限-->
+<!-- <div>
+    <div class="tables-title">
+        应用权限
+    </div>
+    <table class="table  inverse table-border table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <td colspan="2">收银台</td>
+            <td colspan="2">数据报表</td>
+        </tr>
+        <tr>
+            <td colspan="2">企业投资CBS
+            </td>
+            <td colspan="2">企业融资
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<!--  结算账户-->
+
+<div>
+    <div class="tables-title">
+        结算账户
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>开户行
+            </th>
+            <td>招商银行广州分行
+            </td>
+            <th>开户名
+            </th>
+            <td>江梨妍
+            </td>
+        </tr>
+        <tr>
+            <th>开户行所在省份</th>
+            <td>广东省</td>
+            <th>开户行所在城市</th>
+            <td>广州市</td>
+
+        </tr>
+        <tr>
+            <th>分支行</th>
+            <td>招商银行广州分行广州大道支行</td>
+            <th>结算账号</th>
+            <td>6222 8888 8888 8888</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!--图片资料-->
+<div>
+    <div class="tables-title">
+        图片资料
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>营业执照扫描件
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="https://www.baidu.com/img/bd_logo1.png">
+                        <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                    </a>
+                </div>
+            </td>
+            <th>组织机构代码证扫描件
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>税务登记证扫描件
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+            <th>签署合同
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>法人身份证正面
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+            <th>法人身份证反面
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>其他资料
+            </th>
+            <td>
+                <div class="table-img-container">
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                    <a href="javascript:void(0);">
+                        <img src="" />
+                    </a>
+                </div>
+            </td>
+            <th>
+            </th>
+            <td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+    <!--层级信息-->
+    <!--
+    <div class="tables-title">
+        层级信息
+    </div>
+    <div>
+        img
+    </div>
+   -->
+
+<!--返回-->
+<div class="text-align-center fn-ma-20">
+    <a href="机构管理-机构列表.html" class="btn default" role="button">返回</a>
+</div>
+
+
+</div>
+{% endblock %}

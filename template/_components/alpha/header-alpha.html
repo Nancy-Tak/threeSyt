@@ -1,0 +1,39 @@
+{% macro default( projectName='机构管理后台', indexTo='首页.html', static='/static',logo='organization.png' ) %}
+    <div id="header-alpha">
+        <div class="header-main">
+            <a class="logo" href="{{ indexTo }}">
+                <img src="{{ static }}/images/{{ logo }}" alt="logo">
+                <p>{{ projectName }}</p>
+            </a>
+            <div class="user-info">
+                您好！
+                <b>
+                    戴斯炜
+                </b>
+                <ul class="user-menu">
+                    <li>
+                        <a href="系统管理-账号管理-修改密码.html">
+                            修改密码
+                        </a>
+                    </li>
+                    <li>
+                        <a href="登录.html">
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro defaultNOuserInfo( projectName='机构管理后台', indexTo='首页.html', static='/static',logo='organization.png' ) %}
+    <div id="header-alpha">
+        <div class="header-main">
+            <a class="logo" href="{{ indexTo }}">
+                <img src="{{ static }}/images/{{ logo }}" alt="logo">
+                <p>{{ projectName }}</p>
+            </a>
+        </div>
+    </div>
+{% endmacro %}

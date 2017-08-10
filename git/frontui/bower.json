@@ -1,0 +1,25 @@
+{
+  "name": "frontui",
+  "version": "1.1.2",
+  "homepage": "https://github.com/frontui/frontui",
+  "authors": [
+    "frontpay"
+  ],
+  "main": [
+    "js/ui.js",
+    "less/_share.less"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~1.11.1",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2"
+  }
+}

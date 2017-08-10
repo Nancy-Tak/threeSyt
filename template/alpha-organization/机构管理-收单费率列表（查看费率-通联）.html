@@ -1,0 +1,90 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+link: 'javascript:void(0);',
+text:'收单费率'
+},
+{
+text: '查看费率'
+}
+]
+)
+}}
+
+<div class="form-frame">
+    <div class="form-title fn-mb-10">
+        支付通道 - 通联支付（重庆招行）
+    </div>
+
+    <form action="">
+        {#商户签约扣费及分润计算结果 #}
+        <table  class="table-alpha table inverse fn-mt-10 ">
+            <colgroup>
+                <col />
+                <col style="width:75%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th colspan="2">商户签约扣费及分润计算结果</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style='border-right: 1px solid #E8E8E8;'>B2C代收</td>
+                <td>
+                    <div> 0万 ——  5 万（含）  商户签约扣费 1.80 元/笔 - 通道成本 1.50 元/笔 = 分润 <span class='error-FontColor1' style='font-weight: 900;'> 0.30 </span> 元/笔</div>
+                    <div class='fn-mt-5 '> 5万 ——  20 万（含）  商户签约扣费 3.50 元/笔 - 通道成本 3.00 元/笔 = 分润<span class='error-FontColor1' style='font-weight: 900;'> 0.50 </span>  元/笔</div>
+                    <div class='fn-mt-5 '> 20万 ——  100 万（含）  商户签约扣费 6.00元/笔 - 通道成本 5.00 元/笔 = 分润 <span class='error-FontColor1' style='font-weight: 900;'> 1.00 </span> 元/笔</div>
+                </td>
+            </tr>
+            <tr>
+                <td style='border-right: 1px solid #E8E8E8;'>B2B代收</td>
+                <td>
+                    <div class='fn-mt-5 '>商户签约扣费 12.00元/笔- 通道成本 10.00 元/笔 = 分润  <span class='error-FontColor1' style='font-weight: 900;'> 2.00 </span> 元/笔</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<!--提示-->
+<div class="fn-mt-20">
+    <div class="alert alert-warning" style='border: 1px solid transparent; background-color: transparent;'>
+        <i></i>
+        <em></em>
+        商户签约扣费不能小于通道成本
+    </div>
+</div>
+
+<!--提交 取消-->
+<div class="text-align-center plural-btns fn-ma-20">
+    <a href="机构管理-机构列表（收单费率）.html" class="btn default" role="button">取消</a>
+</div>
+
+</div>
+{% endblock %}
+
+
+{% block jsPage %}
+<script type="text/javascript">
+
+    $(function(){
+    });
+</script>
+{% endblock %}

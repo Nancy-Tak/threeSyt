@@ -1,0 +1,282 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'商户管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text:'商户列表'
+        },
+        {
+        text: '收银员列表'
+        }
+        ]
+        )
+        }}
+<div>
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 30%">
+                <col style="width: 30%">
+                <col/>
+            </colgroup>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>姓名
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>门店名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="text-align-left plural-btns">
+                        <button type="button" class="btn secondary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">添加收银员</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+  <!--表格-->
+  <table class="table inverse">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col style="width: 10%">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>账号</th>
+      <th>真实姓名</th>
+      <th>角色</th>
+      <th>商户名称</th>
+      <th>门店名称</th>
+      <th>状 态</th>
+      <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>ll001</td>
+      <td>陆素琴</td>
+      <td>收银员,主管</td>
+      <td>昌隆零售有限公司</td>
+      <td>隆零售门店1</td>
+      <td>启用</td>
+      <td class="text-align-left">
+          <a class="link-standard text-nowrap" href="关联商户管理-商户列表-编辑收银员.html">
+              编辑
+          </a>&nbsp;&nbsp;
+          <a href="javascript:void(0);" class="link-standard text-nowrap opt-disable">禁用</a>
+        <a href="javascript:void(0);" class="link-standard opt-disable-del text-nowrap">删除</a>
+      </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>ll001</td>
+        <td>陆素琴</td>
+        <td>收银员,主管</td>
+        <td>昌隆零售有限公司</td>
+        <td>隆零售门店1</td>
+        <td>待启用</td>
+        <td class="text-align-left">
+
+        </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>ll001</td>
+        <td>陆素琴</td>
+        <td>收银员,主管</td>
+        <td>昌隆零售有限公司</td>
+        <td>隆零售门店1</td>
+        <td>停用</td>
+        <td class="text-align-left">
+            <a class="link-standard text-nowrap" href="关联商户管理-商户列表-编辑收银员.html" style="color:red;">
+                编辑
+            </a>
+
+            <!--另一种做法-->
+            <div data-toggle="tooltips" data-pos="bottom-left" title="信息编辑未成功,
+                   请编辑后重新提交。
+                    如多次提交失败请联系客服电话95039" class="inline-block text-align-center" style="width:16px; height:16px; line-height: 16px; background-color:#009DD9; border-radius: 8px; color: white;"> ? </div>
+
+
+            <!--<div class="tooltips-icon" style="background-color:#009DD9;color:white; margin-left: -3px" >-->
+                <!--?-->
+                <!--<div class="tooltips">-->
+                    <!--信息编辑未成功，-->
+                    <!--请编辑后重新提交。-->
+                    <!--如多次提交失败请联系客服电话95039-->
+                    <!--<span class="tips-arrow-border"></span>-->
+                    <!--<span class="tips-arrow"></span>-->
+                <!--</div>-->
+            <!--</div>-->
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard text-nowrap opt-disable">禁用</a>
+            <a href="javascript:void(0);" class="link-standard text-nowrap opt-disable-del">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>ll001</td>
+        <td>陆素琴</td>
+        <td>收银员,主管</td>
+        <td>昌隆零售有限公司</td>
+        <td>隆零售门店1</td>
+        <td>禁用</td>
+        <td class="text-align-left">
+            <a class="link-standard text-nowrap" href="关联商户管理-商户列表-编辑收银员.html">
+                编辑
+            </a>&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard opt-active">启用</a>&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard text-nowrap opt-disable-del">删除</a>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+    $('.table').on('click','.opt-disable-del',function(){
+        $.tipsModal({
+           // close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">删除</span>',
+            content : '删除后，该收银员将不登录POS机。确定删除？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该机构及关联的商户将正常可用。确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            // close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该商户及关联的商户将不可用，确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+
+</script>
+{% endblock %}

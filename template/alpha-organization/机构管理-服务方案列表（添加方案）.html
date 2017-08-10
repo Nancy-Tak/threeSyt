@@ -1,0 +1,464 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text: '服务方案列表'
+},
+{
+text:'添加服务方案'
+}
+]
+)
+}}
+
+<div>
+
+    <!--方案信息-->
+    <div class="tables-title">
+        方案信息
+    </div>
+
+    {# 表单 #}
+        <div class="form-frame">
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {#方案名称#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b>*
+                            </b>
+                            <span>方案名称
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" value="">
+                        </div>
+                    </div>
+                    {#硬件服务商#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>硬件服务商
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <select class="form-control" style="padding-top: 8px;">
+                                <option value="">联迪-A9</option>
+                            </select>
+                        </div>
+                    </div>
+                    {#软件服务商#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>软件服务商
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <select class="form-control" style="padding-top: 8px;">
+                                <option value="">TTG</option>
+                                <option value="">钱途</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fliter-inline-item text-align-center">
+                        <a href="#myOrganization" data-toggle="modal" class="btn secondary small-btn">选择机构 </a>
+                        <a href="#myFacilitator" data-toggle="modal" class="btn secondary small-btn addPlatBtn">选择分润服务商 </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+		<div class="tabs-wrap type1 ">
+			<ul class="tabs">
+				<li class="active fn-mb-5">
+					<a href="#ttp1" class="tabs-btn" aria-expanded="true">
+						固定分润
+					</a>
+				</li>
+				<li class="fn-mb-5">
+					<a href="#ttp2" class="tabs-btn" aria-expanded="false">
+						比例分润
+					</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="tabs-content tab-mb-2">
+			<div class="tabs-panel active" id="ttp1">
+				    <table class="table inverse bordered table-view fn-mb-20">
+        <colgroup>
+            <col style="width: 40%">
+            <col style="width: 40%">
+            <col style="">
+        </colgroup>
+            <tbody>
+            <tr>
+                <th>分润方</th>
+                <th>分润值</th>
+                <th class="th-ctrls">操作</th>
+            </tr>
+            <tr>
+                <th>本机构</th>
+                <td>
+                    <div>
+                        <input type="text" class="text-align-center" style="width: 30%; height: 24px;" value="100">
+                        ‰
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn primary small-btn">默认分润方</button>
+                </td>
+            </tr>
+            <tr>
+                <th>商户总分润</th>
+                <td>
+                    <div>
+                        <input type="text" class="text-align-center" style="width: 30%; height: 24px;" value="0">
+                        ‰
+                    </div>
+                </td>
+                <td class="text-align-center">
+                   <a href="javascript:void(0);" class="link-standard">删除</a>&nbsp;&nbsp;
+                   <a href="javascript:void(0);" class="link-standard">设为默认</a>
+                </td>
+            </tr>
+            <!--<tr>
+                <th>机构1</th>
+                <td>
+                    <div>
+                        <input type="text" class="text-align-center" style="width: 30%; height: 24px;" value="0">
+                        %
+                    </div>
+                </td>
+                <td class="text-align-center">
+                    <a href="javascript:void(0);" class="link-standard">删除</a>
+                </td>
+            </tr>-->
+            </tbody>
+            </table>
+			</div>
+
+			<div class="tabs-panel" id="ttp2">
+				    <table class="table inverse bordered table-view fn-mb-20">
+        <colgroup>
+            <col style="width: 40%">
+            <col style="width: 40%">
+            <col style="">
+        </colgroup>
+            <tbody>
+            <tr>
+                <th>分润方</th>
+                <th>分润占比</th>
+                <th class="th-ctrls">操作</th>
+            </tr>
+            <tr>
+                <th>本机构</th>
+                <td>
+                    <div>
+                        <input type="text" class="text-align-center" style="width: 30%; height: 24px;" value="100">
+                        %
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>商户总分润</th>
+                <td>
+                    <div>
+                        <input type="text" class="text-align-center" style="width: 30%; height: 24px;" value="0">
+                        %
+                    </div>
+                </td>
+                <td class="text-align-center">
+                    <a href="javascript:void(0);" class="link-standard">删除</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+			</div>
+		</div>
+
+
+
+
+    <!--按钮-->
+    <div>
+        <div class="text-align-center fn-mb-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <a href="机构管理-服务方案列表.html" class="btn default" role="button">返回</a>
+        </div>
+    </div>
+</div>
+
+<!--选择机构弹层-->
+<div class="modal-background fade display-none in" id="myOrganization" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center">
+                        <form class="filterBox-Alpha" action="#" method="post">
+                            <div class="fliter-inline-wrap">
+                                <div class="fliter-inline-item">
+                                    <label>机构名称：</label>
+                                    <div class="fliter-inline-width1">
+                                        <div class="form-control-date smallsize">
+                                            <input type="text" class="form-control" placeholder="输入机构名称" data-toggle="searchInput">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--搜索按钮-->
+                                <div class="fliter-inline-item">
+                                    <button type="button" class="btn primary small-btn">查找</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--机构列表-->
+                        <table class="table inverse">
+                            <colgroup>
+                                <col style="width: 10%">
+                                <col style="width: 15%">
+                                <col style="width:  8%">
+                                <col style="width: 15%">
+                                <col style="width: 15%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>机构编号</th>
+                                <th>机构名称</th>
+                                <th>层级</th>
+                                <th>所在地</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div style="padding-left:20px; padding-top: 0px;">
+                            {# 分页 #}
+                            {{ paginationAlpha.default( id='p1' ) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择服务商弹层-->
+<div class="modal-background fade display-none in" id="myFacilitator" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>服务商名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="输入服务商名称" data-toggle="searchInput">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--服务商列表-->
+                    <table class="table inverse">
+                        <colgroup>
+                            <!--<col style="width: 40%">-->
+                            <!--<col style="width: 60%">-->
+                            <col />
+                            <col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <!--<th>服务商编号</th>-->
+                            <th>服务商名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <!--<td>004</td>-->
+                            <td>淘淘谷科技有限公司</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <!--<td>003</td>-->
+                            <td>淘淘谷科技有限公司</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <!--<td>002</td>-->
+                            <td>淘淘谷科技有限公司</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <!--<td>001</td>-->
+                            <td>淘淘谷科技有限公司</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p2' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script type="text/javascript">
+
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1, #p2').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1, #p2').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        $(".j-type").on("change",function(){
+            var isPrivateChecked = $("#private").prop("checked");
+            if(isPrivateChecked){
+                $("#identity").removeClass("display-none");
+            }else{
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+               // close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">添加方案成功 ！ </span>',
+                content : '<div><a href="机构管理-服务方案列表.html" class="btn secondary" role="button">确定</a></div>'
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+            });
+        });
+
+
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,333 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'审核管理'
+},
+{
+text: '已审核列表'
+}
+]
+)
+}}
+<div>
+
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-10 fn-mb-10">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 33%">
+                <col style="width: 33%">
+                <col style="width: 33%">
+        
+            </colgroup>
+            <tr>
+            	<td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>机构名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="请输入">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>商户名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="请输入">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>状态
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize"  >
+                            <select name="" id="**" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+             <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>进件来源
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize" >
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>操作账号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="请输入">
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+             <td colspan='2'>
+                    <div class="form-group inline-filter" style="min-height: 40px;">
+                        <label class="form-control-label">
+                            <span>查询时间
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+
+                        <div class="fliter-inline-width1">
+                            <div class="form-control-date smallsize inline-block"  style="width:45%;">
+                                <span class="form-control-date-btn"><i></i></span>
+                                <input class="form-control" type="text" value="" data-toggle="datetimepicker" placeholder="YYYY-MM-DD"/>
+                            </div>
+                            <span> -- </span>
+                            <div class="form-control-date smallsize inline-block"  style="width:45%;">
+                                    <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                                <input class="form-control" type="text" value="" data-toggle="datetimepicker" placeholder="YYYY-MM-DD"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                   <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                          <button type="button" class="btn secondary small-btn">重置</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 8%">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 10%">
+            <col style="width: 15%">
+            <col />
+        </colgroup>
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>机构名称</th>
+            <th>商户名称</th>
+            <th>进件来源</th>
+            <th>提交时间</th>
+            <th>审核状态</th>
+            <th>操作账号</th>
+            <th>状态更新</th>
+            <th class="th-ctrls">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>芝麻开门有限公司</td>
+            <td>芝麻开门有限公司</td>
+            <td>公众号</td>
+            <td><span>2016-09-21</span> <span>08:50:08</span></td>
+            <td>已通过</td>
+            <td>管理员001</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+            <td>
+                <a href="审核管理-已审核列表-审核商户.html" class="link-standard text-nowrap"  >查看</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>芝麻开门有限公司</td>
+            <td>芝麻开门有限公司</td>
+            <td>机构后台</td>
+            <td><span>2016-09-21</span> <span class="text-nowrap viceText-FontColor">08:50:08</span></td>
+            <td>已驳回</td>
+            <td>管理员001</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+            <td>
+                <a href="审核管理-已审核列表-审核商户.html" class="link-standard text-nowrap"  >查看</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>芝麻开门有限公司</td>
+            <td>芝麻开门有限公司</td>
+            <td>XX商户后台</td>
+            <td><span>2016-09-21</span> <span>08:50:08</span></td>
+            <td>已驳回</td>
+            <td>管理员001</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+            <td>
+                <a href="审核管理-已审核列表-审核商户.html" class="link-standard text-nowrap"  >查看</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--<div class="display-none">-->
+    <!--&lt;!&ndash;禁用弹层&ndash;&gt;-->
+    <!--<div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >-->
+    <!--<div class="modal-layer">-->
+    <!--<div class="modal-position">-->
+    <!--<div class="modal-wrap">-->
+    <!--<div class="modal-body text-align-center">-->
+    <!--<div>-->
+    <!--禁用后，该机构及关联的商户将不可用。确定禁用？-->
+    <!--</div>-->
+    <!--<div class="fn-ma-30">-->
+    <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>-->
+    <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;启用弹层&ndash;&gt;-->
+    <!--<div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >-->
+    <!--<div class="modal-layer">-->
+    <!--<div class="modal-position">-->
+    <!--<div class="modal-wrap">-->
+    <!--<div class="modal-body text-align-center">-->
+    <!--<div>-->
+    <!--启用后，该机构及关联的商户将正常可用。确定启用？-->
+    <!--</div>-->
+    <!--<div class="fn-ma-30">-->
+    <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>-->
+    <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该机构及关联的商户将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该机构及关联的商户将正常可用。确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+
+</script>
+{% endblock %}

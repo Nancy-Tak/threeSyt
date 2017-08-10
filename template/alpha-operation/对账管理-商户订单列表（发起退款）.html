@@ -1,0 +1,123 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+link: 'javascript:void(0);',
+                    text: '对账管理'
+                },
+                {
+link: 'javascript:void(0);',
+                    text: '商户订单列表'
+                },
+{
+link: 'javascript:void(0);',
+text: '订单详情'
+},
+                {
+                    text: '发起退款'
+                }
+            ]
+        )
+    }}
+
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-title">
+                订单操作
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 当前订单金额 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">
+                                <span>378.00</span><span>元</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-control-label" for="***">
+                                <span>退款金额
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                        <div class="form-control-wrap">
+                             <input type="***" class="form-control" id="***" placeholder=""  value="378.00" />
+                             <span class="form-control-tools-link" style="cursor: default;">元</span>
+                        </div>
+                        </div>
+
+                    <div class="form-group">
+                            <label class="form-control-label">
+                                <span>退款说明
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <textarea class="form-control" rows="5" placeholder='请输入不超过50字的退款原因' style="max-width: 100%; width: 100%; height: auto"></textarea>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+
+            <div class="text-align-center">
+                <div class="plural-btns btn-with-viceLink fn-mt-20">
+                    <button type="button" class="btn primary" id="submit">提交</button>
+                    <a href="对账管理-商户订单列表（查看）.html" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                 title : '<p class="success-FontColor2">预计<span class="dTime warning-FontColor h3 fn-pl-5 fn-pr-5"> </span>秒后返回结果</p>',
+             //   title : '<p class="success-FontColor2">退款成功！ </p>',
+             //   title : '<p class="warning-FontColor">退款失败! </p>',
+              // title : '<p class="warning-FontColor">当前订单不符合退款条件! </p>',
+                content : '<div><a href="对账管理-商户订单列表.html" class="btn secondary" role="button">确定</a></div>',
+//                 buttons : {  //按钮可以只传ok或cancel
+//                     ok : {
+//                     text : '确定', callback : function () {
+//                             console.log('确定');
+//                             clearInterval(timers)
+//                             window.location.href='对账管理-商户订单列表.html';
+//                         }
+//                     }
+//                 }
+            });
+            var c = 35;
+            var timers = setInterval(function(){
+                if(c>0){
+                    c--;
+                    $(".dTime").text(c);
+                } else {
+                    clearInterval(timers)
+                }
+            },1000)
+        });
+    });
+</script>
+{% endblock %}

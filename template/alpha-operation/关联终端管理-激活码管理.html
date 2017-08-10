@@ -1,0 +1,25 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'关联终端管理'
+},
+{
+text: '激活码管理'
+}
+]
+)
+}}
+
+{# frame 爷爷样式 #}
+<img class="frame-img" src="{{ static }}/images/demo/激活码管理.png" alt="激活码管理" />
+
+
+{% endblock %}

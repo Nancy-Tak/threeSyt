@@ -1,0 +1,678 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '系统管理-角色管理.html',
+                    text: '系统管理'
+                },
+                {
+                    text: '角色管理'
+                }
+            ]
+        )
+    }}
+
+
+<div class="tabs-wrap-alpha type1 fn-mt-20">
+    <ul class="tabs">
+        <li class="active">
+            <a class="tabs-btn" href="#shxx">
+                运营角色 
+                <div data-toggle="tooltips" data-pos="bottom-right" title="是指在运营后台创建的角色" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+
+            </a>
+            
+        </li>
+        <li>
+            <a class="tabs-btn" href="#zshxx">
+               默认角色
+                 <div data-toggle="tooltips" data-pos="bottom-right" title="是指系统初始化好的默认角色" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+
+            </a>
+        </li>
+          <li>
+            <a class="tabs-btn" href="#gptjs">
+               各平台角色
+                 <div data-toggle="tooltips" data-pos="bottom-right" title="是指用户在商户、机构后台创建的角色" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="tabs-content">
+    <div class="tabs-panel active " id="shxx">
+ 		    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="width: 34%">
+                <col style="">
+            </colgroup>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入角色名称">
+                        </div>
+                    </div>
+                </td>
+                      <td>
+                	    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色分类
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                </td>
+<!--                <td>
+                     <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色类型
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>-->
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                        <button type="button" class="btn secondary small-btn" onclick="window.location.href='系统管理-角色管理-添加角色.html'">添加账号</button>
+                    </div>
+                </td>
+           
+            </tr>
+        </table>
+    </div>
+    
+    {# 表格 #}
+    {{
+        tableAlpha.forDemo(
+            data={
+                theadList: [
+                    {
+                        inner: '角色名称'
+                    },
+                    {
+                        inner: '角色分类'
+                    },
+           
+                    {
+                        inner: '创建平台',
+                        thWidth: '180px'
+                    },
+                    {
+                        inner: '创建时间'
+                        
+                    },
+                    {
+                        inner: '所属商户/机构/门店'
+                    },
+                    {
+                        inner: '状态'
+                    },
+                    {
+                        inner: '角色描述'
+                    },
+                    {
+                        inner: '操作'
+                    }  
+                    
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '运营人员'
+                        },
+                        {
+                            inner: '运营角色'
+                        },
+                     
+                        {
+                            inner: '运营后台'
+                        },
+                        {
+                            inner: '2017-05-09 14:58:15'
+                        },
+                        {
+                            inner: '-'
+                        },
+                        {
+                            inner: '启用'
+                        },
+                        {
+                            inner: ''
+                        },
+                        {
+                            inner: '
+                                       <a href="系统管理-角色管理-查看角色.html" class="link-standard">
+                                    查看
+                                </a>
+                                &nbsp;
+                                <a href="系统管理-角色管理-编辑角色.html" class="link-standard">
+                                    编辑
+                                </a>
+                                &nbsp;
+                                <a href="javascript:void(0);" class="link-standard turnOn">
+                                    启用
+                                </a>
+        
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20 kkk'
+        )
+    }}
+
+    {# 分页 #}
+    {{ paginationAlpha.default( id='p1' ) }}
+
+
+    </div>
+
+
+    <div class="tabs-panel" id="zshxx">
+ 		   		    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="">
+            </colgroup>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入角色名称">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                	    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色分类
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                </td>
+<!--                <td>
+                     <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色类型
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>-->
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+
+                    </div>
+                </td>
+           
+            </tr>
+        </table>
+    </div>
+    
+    {# 表格 #}
+    {{
+        tableAlpha.forDemo(
+            data={
+                theadList: [
+                    {
+                        inner: '角色名称'
+                    },
+                    {
+                        inner: '角色分类'
+                    },
+                
+                    {
+                        inner: '创建平台',
+                        thWidth: '180px'
+                    },
+                    {
+                        inner: '创建时间'
+                        
+                    },
+                    {
+                        inner: '所属商户/机构/门店'
+                    },
+                    {
+                        inner: '状态'
+                    },
+                    {
+                        inner: '角色描述'
+                    },
+                    {
+                        inner: '操作'
+                    }  
+                    
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '运营人员'
+                        },
+                        {
+                            inner: '运营角色'
+                        },
+                      
+                        {
+                            inner: '运营后台'
+                        },
+                        {
+                            inner: '2017-05-09 14:58:15'
+                        },
+                        {
+                            inner: '-'
+                        },
+                        {
+                            inner: '启用'
+                        },
+                        {
+                            inner: ''
+                        },
+                        {
+                            inner: '
+                                       <a href="系统管理-角色管理-查看角色.html" class="link-standard">
+                                    查看
+                                </a>
+                        
+        
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20 kkk'
+        )
+    }}
+
+    {# 分页 #}
+    {{ paginationAlpha.default( id='p2' ) }}
+
+
+    
+    </div>
+    <div class="tabs-panel" id="gptjs">
+ 		    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="">
+            </colgroup>
+            <tr>
+                <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入角色名称">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                              
+                	    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色分类
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                </td>
+              <!--  <td>
+                     <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>角色类型
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>-->
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+
+                    </div>
+                </td>
+           
+            </tr>
+        </table>
+    </div>
+    
+    {# 表格 #}
+    {{
+        tableAlpha.forDemo(
+            data={
+                theadList: [
+                    {
+                        inner: '角色名称'
+                    },
+                    {
+                        inner: '角色分类'
+                    },
+                   
+                    {
+                        inner: '创建平台',
+                        thWidth: '180px'
+                    },
+                    {
+                        inner: '创建时间'
+                        
+                    },
+                    {
+                        inner: '所属商户/机构/门店'
+                    },
+                    {
+                        inner: '状态'
+                    },
+                    {
+                        inner: '角色描述'
+                    },
+                    {
+                        inner: '操作'
+                    }  
+                    
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '运营人员'
+                        },
+                        {
+                            inner: '运营角色'
+                        },
+                     
+                        {
+                            inner: '运营后台'
+                        },
+                        {
+                            inner: '2017-05-09 14:58:15'
+                        },
+                        {
+                            inner: '深分'
+                        },
+                        {
+                            inner: '启用'
+                        },
+                        {
+                            inner: ''
+                        },
+                        {
+                            inner: '
+                                       <a href="系统管理-角色管理-查看角色.html" class="link-standard">
+                                    查看
+                                </a>
+                               
+        
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20 kkk'
+        )
+    }}
+
+  
+  {# 分页 #}
+    {{ paginationAlpha.default( id='p3' ) }}
+
+
+</div>
+
+
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+        function ajaxData2(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p2').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p2').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData2();
+        function ajaxData3(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p3').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p3').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData3();
+
+    // $('#case').modalLayer({
+    //     title: '自定义title',
+    //     icon: 'error',
+    //     content: '我是副标题可以是html代码',
+    //     buttons: [
+    //                 {
+    //                     text: '确定',
+    //                     ok: function(){
+    //                         alert('我是个2b');
+    //                         // 使用return false，则点击按钮不关闭层
+    //                         //return false;
+    //                     }
+    //                 },
+    //                 {
+    //                     text: '返回修改',
+    //                     href: 'pagination.html',
+    //                     style: 'btn links'
+    //                 }
+    //             ]
+    //  });
+
+    // 启用item
+    $('.turnOn').on('click', function(){
+         $.tipsModal({
+             close:  close ,
+             // modalTitle:"test",
+             title: '<span class="warning-FontColor">确定启用？</span>',
+             content: '启用后，该账号可正常登录机构管理后台操作',
+             type: 'info',
+             buttons : {
+                 ok : {
+                     text : '确定',
+                     callback : function () {
+                         console.log('触发事件');
+                     }
+                 },
+                 cancel : {
+                     text : '取消',
+                     style: 'btn secondary'
+                 }
+             }
+         });
+     });
+
+    // 禁用item
+     $('.turnOff').on('click', function(){
+         $.tipsModal({
+             close:  close ,
+             // modalTitle:"test",
+             title: '<span class="warning-FontColor">确定禁用？</span>',
+             content: '禁用后，该账号将不可登录机构管理后台',
+             type: 'info',
+             buttons : {
+                 ok : {
+                     text : '确定',
+                     callback : function () {
+                         console.log('触发事件');
+                     }
+                 },
+                 cancel : {
+                     text : '取消',
+                     style: 'btn secondary'
+                 }
+             }
+         });
+    });
+</script>
+{% endblock %}

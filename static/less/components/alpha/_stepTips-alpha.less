@@ -1,0 +1,34 @@
+/*
+// alpha 步骤提示
+// --------------------------------------------------
+*/
+
+@charset "utf-8";
+
+/* --- style --- */
+.step-tips-table-alpha {
+    //.reset-list( left,block,@smallest-FontSize,@line-height-base );
+    .clearfix();
+    //display: block;
+    //padding: 8px;
+    //border: 1px solid @base-BorderColor;
+    //.rounded( @borderRadius-public-alpha );
+      .border-th {
+          position: relative;
+          //border: 1px solid @base-BorderColor;
+          border: 1px solid @base-BorderColor;
+          //width : 20%;
+          height:35px;
+          color: @viceText-FontColor;
+          font-weight: normal;
+
+        > i {
+                //margin-left: 5px;
+                position: absolute;
+                line-height:20px;
+                right:10px;
+                color: #ccc;
+                font-size: floor( @smallest-FontSize*0.9 ) ;
+            }
+    }
+}

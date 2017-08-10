@@ -1,0 +1,155 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %} 
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '商户合同管理-合同列表.html',
+text:'商户合同管理'
+},
+{
+link: '商户合同管理-合同列表.html',
+text:'合同列表'
+},
+{
+text: '查看合同'
+}
+]
+)
+}}
+
+{# 主体信息商户分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <form autocomplete="off">
+        <div class="form-title">
+            某个商户名称合同主体信息
+        </div>
+
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20 table-view">
+                <tbody>
+                <tr>
+                    <th>商户名称</th>
+                    <td>某个商户公司</td>
+                    <th>合同编号</th>
+                    <td>1122-09</td>
+                </tr>
+                <tr>
+                    <th>合同签署日期</th>
+                    <td>2017-01-01</td>
+                    <th>合同名称</th>
+                    <td>阿迪达斯与招行支付宝的合同</td>
+                </tr>
+                <tr>
+                    <th>合同生效日期</th>
+                    <td>2017-01-01</td>
+                    <th>合同到期日期</th>
+                    <td>2017-01-01</td>
+                </tr>
+                <tr>
+                    <th>是否自动续签</th>
+                    <td colspan="3">是</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-title">
+            通联支付（招商银行总行）结算账户信息扣率
+        </div>
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20 table-view">
+                <tbody>
+                <tr>
+                    <th>B2C代收</th>
+                    <td colspan='3'>
+                        <div>
+                            0万 - 5万（含）&nbsp;&nbsp; 扣率 <span class='error-FontColor1' style='font-weight: 900 '>1.80</span> 元/笔 &nbsp;&nbsp; 可分润额： 0.30 元/笔
+                        </div>
+                        <div>
+                             5万 - 20万（含）&nbsp;&nbsp; 扣率 <span class='error-FontColor1' style='font-weight: 900 '>1.80</span> 元/笔 &nbsp;&nbsp; 可分润额： 0.30 元/笔
+                        </div>
+                        <div>
+                            20万 - 100万（含）&nbsp;&nbsp; 扣率 <span class='error-FontColor1' style='font-weight: 900 '>1.80</span> 元/笔 &nbsp;&nbsp; 可分润额： 0.30 元/笔
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>B2B代收</th>
+                    <td colspan='3'>
+                        <div>
+                           扣率 <span class='error-FontColor1' style='font-weight: 900 '>1.80</span> 元/笔 &nbsp;&nbsp; 可分润额： 0.30 元/笔
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-title">
+            扫描附件信息
+        </div>
+
+        <div class="fn-pa-5">
+            <table class="table bordered inverse table-view fn-mb-20">
+                <tbody>
+                <tr>
+                    <th>合同附件</th>
+                    <td colspan="3">
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>补充资料</th>
+                    <td colspan="3">
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                        <div class="table-img-container fn-ml-5 float-left">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="text-align-center fn-mt-20">
+            <a href="商户合同管理-合同列表.html" class="btn default">返回</a>
+        </div>
+
+    </form>
+
+
+</div>
+
+{% endblock %}

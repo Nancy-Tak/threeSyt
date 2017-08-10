@@ -1,0 +1,1043 @@
+/*!
+* @project: 卖家标准版 v3.0
+* @author : tommyshao <jinhong.shao@frontpay.cn>
+* @date   : 2015-08-18
+*/
+
+// log:
+// 2015-08-18 初始化项目
+
+@import '_share';
+@import '_sprite_all';
+
+
+
+// wrapper global
+// --------------
+// .wrapper{
+//   /*margin: 20px;*/
+// }
+
+// Function mixin
+// -----------------
+@import "app/_mixin";
+
+
+// 全局重置
+// -------
+@import "app/_global";
+
+// alert
+// -----
+@import "app/_alert";
+
+
+//
+//--- 充值
+//
+@import "app/_recharge";
+
+//
+// --- frontui 补丁
+//
+@import "app/_hotfix";
+
+//
+// --- 格式化银行卡
+//
+@import "app/_formtcard";
+
+
+//
+// --- 表单
+//
+.drop-select-province,
+.drop-select-city {
+  width: 49%;
+}
+.drop-select-province{
+  margin-right: 2%;
+}
+.drop-select-city{
+  margin-left: -4px;
+}
+
+.vert-m {
+  vertical-align: middle;
+}
+
+.btn {
+  &-auto {
+    padding: 0 .5em;
+    width: auto;
+  }
+
+  > i {
+    .vert-m;
+  }
+}
+
+.alert {
+  &.alert-files {
+    line-height: 30px;
+
+    > span {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      font-size: 24px;
+    }
+  }
+}
+
+// layout
+.row {
+  .clearfix;
+  width: 100%;
+}
+.col-md-3 {
+  width: 25%;
+}
+
+//
+// --- 账户资料
+//
+.info-list {
+  margin: 0;
+  padding: 0 10px;
+  font-size: @small-FontSize;
+  .clearfix();
+  //
+  overflow: hidden;
+
+  li{
+    float: left;
+    list-style: none;
+    width: 50%;
+    line-height: 40px;
+
+    > dl {
+      margin: 0;
+
+      dt,dd{
+        float: left;
+        margin: 0;
+      }
+
+      dt{
+        margin-right: 10px;
+        padding-left: 20px;
+        min-width: 130px;
+        text-align: right;
+        color: @viceText-FontColor;
+        white-space: nowrap;
+
+        &.default-FontColor {
+          color: @default-FontColor;
+        }
+
+        &.longest {
+          min-width: 210px;
+        }
+      }
+    }
+  }
+}
+
+//
+// --- 重置双色球 ray 20150821
+//
+.ar-data-box {
+
+    > h2 {
+        line-height: 1.8;
+        font-size: @small-FontSize !important;
+    }
+}
+
+//
+// --- 旧版public
+//
+@import "app/_public";
+
+//
+//--- 收银台
+//
+.s-casher-bd{
+    margin: 0 70px;
+
+    .form-control-label{
+        width: 220px;
+    }
+
+    .form-group{
+        padding-left: 230px;
+    }
+
+    .form-control-wrap{
+        width: 370px;
+    }
+}
+
+
+// 测试银行
+.bank-example{
+    background: url("@{images-url}example.jpg") no-repeat 0 3px;
+}
+.icon-example{
+    background: url("@{images-url}icon-example.png") no-repeat 0 0;
+}
+
+//添加“步骤”样式有四步
+.steps-wrap {
+
+    &.foursteps {
+
+        .step {
+
+            &.step1 {
+                left: 0;
+            }
+
+            &.step2 {
+                left: 33.33%;
+                margin-left: -27px;
+            }
+
+            &.step3 {
+                left: 66.66%;
+                margin-left: -27px;
+            }
+
+            &.step4 {
+                right: 0;
+            }
+        }
+
+        .step-bars {
+
+            > div {
+                width: 16.66%;
+            }
+        }
+
+        .step-title {
+
+            &.title1 {
+                left: 0;
+            }
+
+            &.title2 {
+                left: 33.33%;
+                text-align: center;
+                margin-left: -67px;
+            }
+
+            &.title3 {
+                left: 66.66%;
+                text-align: center;
+                margin-left: -67px;
+            }
+
+            &.title4 {
+                right: 0;
+                text-align: right;
+            }
+        }
+
+        &.pass3 {
+
+            .step {
+
+                &.step4 {
+                    background-color: @steps-bgColor1;
+                    color: #fff;
+                }
+            }
+
+            .step-bars {
+
+                > div.bar1,
+                > div.bar2,
+                > div.bar3 {
+                    .rounded( 0 );
+                }
+
+                > div.bar5 {
+                    background-color: @steps-bgColor2;
+                    .rounded( 30px );
+                }
+
+                > div.bar6 {
+                    background-color: @steps-bgColor1;
+                }
+            }
+
+            .step-title {
+                color: @steps-bgColor2;
+
+                &.title4 {
+                    color: @steps-bgColor1;
+                }
+            }
+        }
+
+        &.pass4 {
+
+            .step {
+                background-color: @steps-bgColor2;
+                color: #fff;
+            }
+
+            .step-bars > div {
+                background-color: @steps-bgColor2;
+                .rounded( 0 );
+            }
+
+            .step-title {
+                color: @steps-bgColor2;
+            }
+        }
+    }
+}
+
+//注册开通
+.login-wrap{
+  background: url("@{images-url}login-bg.jpg") no-repeat center center;
+  width: 880px;
+  .h2-title{
+    padding: 240px 0 0 0;
+  }
+  .info-title{
+    border-bottom:1px solid #e0e0e0;
+    padding: 120px 0 5px 0;
+    margin: 0 0 10px 0;
+  }
+  .h3-title{
+    padding: 140px 0 55px 0;
+    font-weight: bold;
+  }
+  .repay-method{
+    padding: 0 0 60px 105px;
+    >a{
+      width: 255px;
+      height: 125px;
+      line-height: 125px;
+      padding: 0 0 0 115px;
+      float: left;
+      margin: 0 35px 0 35px;
+      color: @base-BgColor;
+      font-size: @base-FontSize+10px;
+      text-decoration: none;
+      position: relative;
+      >i{
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        display: block;
+      }
+      &.company{
+        background: #8daadd;
+        border: 5px solid #8daadd;
+        border-bottom-color: #6c90d3;
+        >i{
+          background: url("@{images-url}icon-company.png") no-repeat 0 0;
+          width: 72px;
+          height: 50px;
+        }
+        &.active{
+          background: #5777b4;
+          border: 5px solid #9ab3e1;
+        }
+      }
+      &.personal{
+        background: #81b76c;
+        border: 5px solid #81b76c;
+        border-bottom-color:#5da14b ;
+        >i{
+          background: url("@{images-url}icon-personal.png") no-repeat 0 0;
+          width: 67px;
+          height: 58px;
+        }
+        &.active{
+          background: #53943a;
+          border: 5px solid #81b76c;
+        }
+      }
+    }
+  }
+  .repay-agreement{
+    width: 240px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+  }
+  .repay-btn{
+    margin: 0 140px 0 140px;
+    padding: 30px 0 75px 0;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+
+//20151109 ray
+.form-control-bar {
+    position: absolute;
+    top: 0;
+    left: 350px;
+    width: 235px;
+    line-height: 40px;
+}
+
+// 强制不换行
+.nowrap {
+  white-space: nowrap;
+}
+
+//收银台-收银台验证重置
+.casher-notice-width{
+  width: 440px;
+}
+.ebank-info{
+  .form-group{
+    padding-left: 80px;
+    .form-control-label{
+      span{
+        font-size: @smaller-FontSize;
+        color: @default-FontColor;
+      }
+    }
+  }
+}
+
+//3.2版本----账户管理
+.modal-wrap{
+  .bankcard-layer{
+    position: relative;
+    padding: 0 0 20px 270px;
+    border-bottom: 1px solid @base-BorderColor;
+    .bankcard-list{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    h2{
+      line-height: 110px;
+    }
+    .h2-other{
+      padding: 20px 0 50px 0;
+      h2{
+        line-height: 40px;
+      }
+    }
+  }
+  .form-control-float{
+    label{
+      float: none;
+    }
+  }
+
+}
+
+.border-none {
+  border: none!important;
+}
+
+//3.2版本报错页
+.errorpage-width{
+  width: 800px;
+  .form-frame{
+    border: none;
+  }
+  .form-group{
+    padding-left: 75px;
+    padding-bottom: 0px;
+  }
+  .form-control-label{
+    width: 75px;
+    height: 30px;
+    em{
+      line-height: 30px;
+    }
+  }
+  .form-control-data{
+    height: 30px;
+    line-height: 30px;
+  }
+  .form-control{
+    height: 30px;
+    line-height: 26px;
+  }
+  .form-control-verify-btn{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    line-height: 26px;
+    min-width: 80px;
+    width: auto;
+    right: 38px;
+  }
+  .form-control-wrap{
+    min-height: 34px;
+  }
+
+}
+
+
+// # 3.3版本
+// 文章内容样式
+.article {
+  &-header {
+    margin-bottom: 20px;
+  }
+
+  &-content {
+    line-height: 1.8;
+    text-indent: 2em;
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  &-footer {
+    margin-top: 50px;
+    padding-right: 20px;
+  }
+}
+
+//第三方框架成功结果页背景颜色为白色
+.bg-fff{
+  background: @base-BgColor;
+}
+
+//提现明细 选择公司名
+.select-company-name {
+  > .form-control-check {
+    label {
+      width: 100%;
+      padding: 4px 10px 4px 20px;
+      > i {
+        font-style: normal;
+      }
+    }
+  }
+  > p {
+    color: @domColor1;
+  }
+}
+
+
+// calendar start------
+#calendar {
+  .event {
+    &.link-standard {
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      box-shadow: none;
+    }
+  }
+  .cal-cell-month {
+    .clearfix;
+    width: 100%;
+    height: 60px;
+  }
+  .has-event {
+    background: #faece1;
+  }
+  .cal-month-day {
+    &.has-event {
+      .has-event;
+      height: 100px;
+    }
+  }
+}
+
+#cal-day-tick,
+#cal-week-box {
+  display: ~'none!important';
+}
+// calendar end -----
+
+
+// -----
+// 多平台兼容导航主题
+// -----
+.nav-hover() {
+  background-color: #7b8592;
+  border-bottom-color: darken(#7b8592, 15%);
+}
+.main-nav {
+  > li {
+    &.current {
+      > a {
+        .nav-hover;
+      }
+    }
+
+    > a {
+      &:hover {
+        .nav-hover;
+      }
+    }
+  }
+}
+
+// --
+// 收银台增加订单详情
+.casher-bill-topic-wrap{
+  &-detail {
+    margin-bottom: 10px;
+
+    .casher-bill-amount {
+      bottom: auto;
+      top: 15px;
+    }
+
+    .casher-bill-dropdown{
+      text-align: right;
+
+      span {
+        margin-right: 5px;
+      }
+
+      a {
+        display: inline-block;
+        position: relative;
+        padding-right: 16px;
+      }
+      i {
+        position: absolute;
+        top: 3px;
+        right: 0;
+        transition: transform .3s ease-out;
+      }
+
+
+      a.active {
+        i {
+          transform:rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+.casher-bill-order-detail {
+  display: none;
+  padding: 10px 0 20px;
+  border-top: 1px solid @primary-BorderColor;
+  line-height: 1.8;
+}
+
+.noborder{
+  border: ~"none!important";
+}
+
+.form-frame-bordered {
+  margin: 0 50px;
+  border-bottom: 1px solid @primary-BorderColor;
+
+  .form-layer2 {
+    margin-left: -290px;
+  }
+
+  .form-control-label {
+    input[type="radio"] {
+      position: absolute;
+      top: 14px;
+      left: 75px;
+    }
+  }
+}
+
+// 银行列表特殊样式
+// 收银台-付款
+.form-dropdown-menu-bank-gray {
+  .form-control-bank-card{
+    color: @viceText-FontColor;
+    font-size: @smallest-FontSize;
+  }
+}
+
+//气泡弹窗
+.bubble-tip-wrap {
+  position: absolute;
+  *left: 80px;
+  _left: 80px;
+  bottom: 4px;
+  border-radius: 4px;
+  border: 1px solid @domColor1;
+  border-bottom-width: 2px;
+  text-align: left;
+  font-size: 14px;
+  .bubble-tip {
+    position: relative;
+    padding: 6px 18px 6px 8px;
+    i {
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      display: inline-block;
+      min-width: 14px;
+      min-height: 14px;
+      cursor: pointer;
+      font-style: normal;
+      font-size: 0;
+      *font-size: 14px;
+      _font-size: 14px;
+      color: @domColor1;
+      &:after {
+        .form-notice-icon-font-family();
+        content: '\e070';
+        color: @domColor1;
+        font-size: 14px;
+      }
+    }
+    &:after {
+      .form-notice-icon-font-family();
+      content: '\e600';
+      color: @domColor1;
+      background: #fff;
+      position: absolute;
+      text-align: left;
+      text-indent: -1px;
+      width: 12px;
+      bottom: -11px;
+      left: 10%;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+}
+
+ // alpha 项目报错页面布局
+ .note-alpha {
+     display: table;
+     height: 100%;
+     width: 100%;
+
+     > div {
+         display: table-cell;
+         vertical-align: middle;
+
+         > .errorpage-box {
+             margin: 0 auto;
+         }
+     }
+
+    //  > div {
+    //      margin-top: -25%;
+    //  }
+ }
+
+// alpha 项目首页
+@index-panel-alpha-color1: #4492d4;
+@index-panel-alpha-color2: #5dd396;
+@index-panel-alpha-color3: #f17c6b;
+@index-panel-alpha-color4: #fb6a01;
+@index-panel-alpha-color5: #90933d;
+@index-panel-alpha-color6: #9f5b66;
+
+.ipab-custom( @color ) {
+    > h5 {
+        background-color: @color;
+    }
+
+    > h3 {
+        border-color: @color;
+    }
+}
+
+.index-panel-alpha {
+    .clearfix();
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    padding: @paddingSize-public-alpha 0;
+    border: 1px solid @primary-BorderColor;
+
+    > div {
+        .inline-block();
+        width: 20%;
+        border: 1px solid transparent;
+        margin: 0 2%;
+
+        > h5 {
+            font-size: @small-FontSize;
+            height: 54px;
+            line-height: 54px;
+            color: #fff;
+            .border-radius( @borderRadius-public-alpha,@borderRadius-public-alpha,0,0 );
+        }
+
+        > h3 {
+            font-size: @large-FontSize;
+            height: 42px;
+            line-height: 42px;
+            color: @default-FontColor;
+            border: 1px solid @primary-BorderColor;
+            border-top: none;
+            .border-radius( 0,0,@borderRadius-public-alpha,@borderRadius-public-alpha );
+        }
+
+        &.one {
+            .ipab-custom( @index-panel-alpha-color1 );
+        }
+
+        &.two {
+            .ipab-custom( @index-panel-alpha-color2 );
+        }
+
+        &.three {
+            .ipab-custom( @index-panel-alpha-color3 );
+        }
+
+        &.four {
+            .ipab-custom( @index-panel-alpha-color4 );
+        }
+    }
+
+    &.in-channel {
+        padding: @paddingSize-public-alpha/2 0;
+
+        > div {
+            width: 18%;
+            margin: 0 1%;
+
+            &.five {
+                .ipab-custom( @index-panel-alpha-color5 );
+            }
+        }
+    }
+}
+
+.index-panel-qf-alpha {
+    .clearfix();
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    padding: @paddingSize-public-alpha 0;
+    border: 1px solid @primary-BorderColor;
+
+    > div {
+        .inline-block();
+        width: 12%;
+        border: 1px solid transparent;
+        margin: 0 2%;
+        vertical-align: middle;
+
+        > h5 {
+            padding-top:10px;
+            font-size: @small-FontSize;
+            height: 54px;
+            line-height: 20px;
+            color: #fff;
+            .border-radius( @borderRadius-public-alpha,@borderRadius-public-alpha,0,0 );
+        }
+
+        > h3 {
+            font-size: @large-FontSize;
+            height: 42px;
+            line-height: 42px;
+            color: @default-FontColor;
+            border: 1px solid @primary-BorderColor;
+            border-top: none;
+            .border-radius( 0,0,@borderRadius-public-alpha,@borderRadius-public-alpha );
+        }
+
+        &.one {
+            .ipab-custom( @index-panel-alpha-color1 );
+        }
+
+        &.two {
+            .ipab-custom( @index-panel-alpha-color2 );
+        }
+
+        &.three {
+            .ipab-custom( @index-panel-alpha-color3 );
+        }
+
+        &.four {
+            .ipab-custom( @index-panel-alpha-color4 );
+        }
+        &.five {
+            .ipab-custom( @index-panel-alpha-color5 );
+        }
+        &.six {
+            .ipab-custom( @index-panel-alpha-color6 );
+        }
+    }
+
+    &.in-channel {
+        padding: @paddingSize-public-alpha/2 0;
+
+        > div {
+            width: 18%;
+            margin: 0 1%;
+
+            &.five {
+                .ipab-custom( @index-panel-alpha-color5 );
+            }
+        }
+    }
+}
+// 补丁3.0弹窗按钮结构样式
+#j-modal-4 {
+    .in-modal-btns.text-align-center {
+        .btn {
+            margin: 0 5px;
+        }
+    }
+}
+
+// 补丁3.0表单小尺寸样式（连label）
+@width-label-inline-filter: 75px;
+
+.form-group {
+
+    &.inline-filter {
+        padding-left: @width-label-inline-filter;
+        padding-bottom: 0;
+
+        .form-control-label {
+            width: @width-label-inline-filter;
+            height: 30px;
+
+            > em {
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+// 临时的演示用表格
+.overflowAuto-table {
+    width: 868px;
+    overflow-x: auto;
+
+    > table {
+        border-collapse: collapse;
+        width: 100%;
+        line-height: @line-height-base;
+
+        th {
+            text-align: center;
+            color: #666;
+            background-color: #f3f3f3;
+            word-break: keep-all;
+            word-wrap: normal;
+            white-space: nowrap;
+        }
+
+        td,th {
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+        }
+    }
+}
+
+// 临时欢迎页背景
+.jpg {
+    background: url( '@{images-url}indexbanner.jpg' ) transparent center center no-repeat;
+    background-size: cover;
+}
+
+// 协议
+.agreement-list-1 {
+  .reset-list(none,block,@smaller-FontSize,@line-height-base);
+
+  > li {
+    position: relative;
+    padding: 10px 0 10px 80px;
+    margin-bottom: 30px
+  }
+
+  > li .count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .rounded(50%);
+    .square(40px);
+    text-align: center;
+    line-height: 40px;
+    background-color: #fff;
+    border: 1px solid #999;
+  }
+}
+
+
+.agreement-table-1 {
+  background-color: #f4f4f4;
+  padding: 5px;
+  border: 1px solid #ddd;
+
+  > table {
+
+    td {
+      padding: 5px 10px;
+    }
+  }
+}
+
+// 收单收款流程示意图样式
+// #firstDiv {
+//   //margin: 0 -200px;
+//   width: 960px;
+//   margin-left: -134px;
+//   padding-bottom: 20px;
+// }
+
+// .tree {
+//   .reset-list(left,block,0,0);
+//   .clearfix();
+//   text-align: center;
+//   display: block;
+//   background: url("@{images-url}treeStepLine.png") left center repeat-x;
+//   margin: 0 70px;
+
+//   > li {
+//     font-size: 14px;
+//     line-height: 1.4;
+//     color: #fff;
+//     .rounded(5px);
+    
+//     &.type1 {
+//       background: url("@{images-url}treeStepBgType1.png") repeat-x;
+//     }
+
+//     &.type2 {
+//       background: url("@{images-url}treeStepBgType2.png") repeat-x;
+
+//       > div {
+//         padding-left: 20px;
+//       }
+//     }
+
+//     &.type3 {
+//       background: url("@{images-url}treeStepBgType3.png") repeat-x;
+//     }
+    
+//     &.cash-bag > div {
+//       background: url("@{images-url}treeStepIconCashBag.png") 10px center no-repeat;
+//     }
+
+//     &.cashier > div {
+//       background: url("@{images-url}treeStepIconCashier.png") 10px center no-repeat;
+//     }
+
+//     > div {
+//       display: block;
+//       padding-left: 70px;
+//       padding-right: 20px;
+//       height: 70px;
+//       line-height: 70px;
+//       overflow: hidden;
+
+//       > span {
+
+//       }
+//     }
+//   }
+// }

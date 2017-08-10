@@ -1,0 +1,140 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'收单对账管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '商户订单列表'
+        },
+        {
+        text:'订单详情'
+        }
+        ]
+        )
+        }}
+
+<div>
+    {#基础信息#}
+<div>
+    <div class="tables-title">
+        基础信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>订单号</th>
+            <td>FP2017012154512364</td>
+            <th>支付方式</th>
+            <td>支付宝</td>
+        </tr>
+        <tr>
+            <th>交易号</th>
+            <td>2333535436222222</td>
+            <th>系统交易金额</th>
+            <td>258.00 元</td>
+        </tr>
+        <tr>
+            <th>交易时间</th>
+            <td>
+                <span>2016-09-17</span>
+                <span>08:50:08</span>
+            </td>
+            <th>累计退款金额</th>
+            <td>30.00 元</td>
+        </tr>
+        <tr>
+            <th>商户所属机构</th>
+            <td>这是一个一级机构全称（这里是简称）</td>
+            <th>当前订单金额</th>
+            <td>228.00</td>
+            </tr>
+        <tr>
+            <th>商户名称</th>
+            <td>2这是一个商户全称（这里是简称）</td>
+            <th>门店名称</th>
+            <td>这是一个门店全称（这里是简称）</td>
+        </tr>
+        <tr>
+            <th>付款人账号类型</th>
+            <td>个人</td>
+            <th>付款人银行账号</th>
+            <td>5345345</td>
+        </tr>
+        <tr>
+            <th>付款人账号</th>
+            <td>564645645</td>
+            <th>付款人开户行</th>
+            <td>招行</td>
+        </tr>
+        <tr>
+            <th>付款人开户行所在省市</th>
+            <td>广东广州</td>
+            <th></th>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{#操作日志#}
+
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 12%">
+            <col style="width: 15%">
+            <col style="width: 15%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>操作类型</th>
+            <th>金额（元）</th>
+            <th>执行结果</th>
+            <th>操作人</th>
+            <th>操作时间</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>退款</td>
+            <td>357.00</td>
+            <td class='warning-FontColor'>失败</td>
+            <td>迎曦（cmmmy）</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+            <td>这是一段描述，关于这个应用的描述</td>
+        </tr>
+        <tr>
+            <td>退款</td>
+            <td>357.00</td>
+            <td>成功</td>
+            <td>迎曦（cmmmy）</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+            <td>这是一段描述，关于这个应用的描述</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<!--返回-->
+<div class="text-align-center fn-ma-20">
+    <a href="对账管理-商户订单列表（发起退款）.html" class="btn primary" role="button">退款</a>
+    <a href="机构管理-机构列表.html" class="btn default fn-ml-10" role="button">返回</a>
+
+</div>
+
+
+</div>
+{% endblock %}
+

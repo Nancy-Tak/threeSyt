@@ -1,0 +1,351 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'清分管理'
+                },
+                {
+                    text: '清分状态管理'
+                }
+            ]
+        )
+    }}
+
+
+    {# 数据过滤器 #}
+    <form>
+        <div class="filter-table-wrap fn-mt-20">
+            <table class="filter-table">
+                <colgroup>
+                    <col style="width: 30%">
+                    <col style="width: 30%">
+                    <col style="width: 40%">
+                </colgroup>
+                <tr>
+                	<td>
+					 <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>商户名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <div class="form-control-date smallsize">
+                                    <div class="form-control-wrap smallsize">
+                                        <input type="text" class="form-control smallsize">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                		
+                	</td>
+                    <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>清分日期
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <div class="form-control-date smallsize">
+                                    <span class="form-control-date-btn">
+                                        <i></i>
+                                    </span>
+                                    <input class="form-control smallsize" type="text" value="" data-toggle="datetimepicker" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span style="max-width:none;">清分类型
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        商户清分
+                                    </option>
+                                    <option value="">
+                                        手续费清分
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                  
+                </tr>
+                <tr>
+                	       <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label" style="width: 90px;">
+                                <span style="max-width: 90px;">是否有销账
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize" style="margin-left: 20px;">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        是
+                                    </option>
+                                    <option value="">
+                                        否
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                           <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label" style="width: 100px;">
+                                <span style="max-width: 100px;">是否完成销账
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize" style="margin-left: 35px;">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        是
+                                    </option>
+                                    <option value="">
+                                        否
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                 	   <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label" style="width: 100px;">
+                                <span style="max-width:100px;">清分数据状态
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize" style="margin-left: 35px;">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        成功
+                                    </option>
+                                    <option value="">
+                                        失败
+                                    </option>
+                                    <option value="">
+                                        待执行
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	   <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label" style="width:100px;">
+                                <span style="max-width:100px;">清分文件状态
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize" style="margin-left: 35px;">
+                                <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        成功
+                                    </option>
+                                    <option value="">
+                                        失败
+                                    </option>
+                                      <option value="">
+                                        待执行
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                	 <td>
+                        <div class="text-align-right plural-btns">
+                            <button type="button" class="btn primary small-btn">查找</button>
+                            <button type="button" class="btn secondary small-btn">重置</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th style="padding: 0; width: 85px;">清分机构名称</th>
+                <th style="width: 90px; padding: 0;">清分日期</th>
+                <th>清分类型</th>
+                <th>对账状态</th>
+                <th>是否有销账</th>
+                <th>销账条数</th>
+                <th style="width: 50px;  padding: 0;">是否完<br />成销账</th>
+                <th>销账状态</th>
+                <th>分润状态</th>
+                <th>清分数据状态</th>
+                <th>清分文件状态</th>
+                <th style="width:70px; padding: 0;">备注</th>
+                <th style="width: 90px;padding: 0;">更新时间</th>
+                <th style="width: 60px; padding: 0;">下载文件</th>
+                <th style="width: 60px; padding: 0;">允许下载</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            	<td>中国银行</td>
+                <td>2016-12-30</td>
+                <td>
+                    商户清分
+                </td>
+                <td>
+                    成功
+                </td>
+                <td>否</td>
+                <td>0</td>
+                
+                <td>否</td>
+                <td>成功</td>
+                <td>成功</td>
+                <td>
+                	成功
+                </td>
+                <td>成功</td>
+                <td>清分文件已经生成。</td>
+                <td>2017-08-03 15:13:10</td>
+                <td>
+                	  <a href="javascript:void(0);" class="link-standard">下载</a>&nbsp;&nbsp;
+                </td>
+                <td>
+                  
+                    <a href="javascript:void(0);" class="link-standard" id="submit">允许</a>
+                </td>
+            </tr>
+ 
+    <tr>
+            	<td>中国银行</td>
+                <td>2016-12-30</td>
+                <td>
+                    商户清分
+                </td>
+                <td>
+                    成功
+                </td>
+                <td>否</td>
+                <td>0</td>
+                
+                <td>否</td>
+                <td>成功</td>
+                <td>成功</td>
+                <td>
+                	成功
+                </td>
+                <td>成功</td>
+                <td>清分文件已经生成。</td>
+                <td>2017-08-03 15:13:10</td>
+                <td>
+                	  <a href="javascript:void(0);" class="link-standard">下载</a>&nbsp;&nbsp;
+                </td>
+                <td>
+                   
+                    <span>已允许</span>
+                </td>
+            </tr>
+ 
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %} {% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+<script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
+{% endblock %} {% block jsPage %}
+<script type="text/javascript">
+	
+	$(function() {
+
+            $("#submit").on("click",function(){
+              $.tipsModal({
+                  close:  close ,
+                   modalTitle:"是否允许下载",
+             //   type : 'success',   //  success info error
+               // title : '<span class="success-FontColor2">子商户编辑成功！</span>',
+               //  content: '<div><a href="关联商户管理-商户列表.html" class="btn secondary" role="button">确定</a></div>',
+                type : 'info',   //  success info error
+                title : '<h3>允许下载</h3>允许下载后，该机构可在机构后台下载对应的清分流水表。是否确认允许下载？',
+                 content: '<div><a href="javascript:;" class="btn secondary" role="button">确定</a><a href="javascript:;" class="btn default" role="button" style="margin-left:5px">取消</a></div>',
+            
+            //content : '<div >编辑创建成功</div>'
+                // buttons : {  //  按钮可以只传ok或cancel
+                   //ok : {
+                   //  text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+               //  }
+              });
+            });
+	
+		
+	});
+</script>
+{% endblock %}-->

@@ -1,0 +1,134 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'清分管理'
+                },
+                {
+                    text: '机构清分配置'
+                }
+            ]
+        )
+    }}
+    {# 页面跳转按钮 #}
+    {{
+        pageTabAlpha.default(
+            list = [
+                {
+                    link: '清分管理-清分文件.html',
+                    text:'清分文件'
+                },
+                {
+                    text: '机构清分配置',
+                    isActive: 1
+                }
+            ]
+        )
+    }}
+
+    <div class="form-frame fn-mb-10">
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <form autocomplete="off">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>机构/商户</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <select style="height:40px;">
+                                <option value="0">招行深圳分行</option>
+                                <option value="1">招行广州分行</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>格式要求</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    csv格式
+                                    <input type="radio" name="format" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    txt文本格式
+                                    <input type="radio" name="format" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>文件分类</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    不分类(单个文件)
+                                    <input type="radio" name="type" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    按清分类型分类(多个文件)
+                                    <input type="radio" name="type" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>文件请求</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    接口获取
+                                    <input type="radio" name="req" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    sftp上传
+                                    <input type="radio" name="req" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>字段定义</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    默认全部字段
+                                    <input type="radio" name="field" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    自定义字段
+                                    <input type="radio" name="field" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left margin-top-20px">
+                            <a href="清分管理-机构清分配置.html" class="btn primary" >保存</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

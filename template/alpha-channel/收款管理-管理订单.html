@@ -1,0 +1,661 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+    <link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+    <link rel="stylesheet" href="{{ static }}/js/clockpicker/jquery-clockpicker.min.css">
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text: '收款管理'
+},
+{
+text: '管理订单'
+}
+]
+)
+}}
+
+{# 数据过滤器 #}
+<div class=" filter-table-wrap fn-mt-10">
+    <table class="filter-table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <tr>
+            <td colspan='2'>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label" style="width:95px;">
+                                <span>商户订单号
+                                </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize fn-ml-20">
+                        <div class="form-control-date smallsize">
+                            <div class="form-control-wrap smallsize">
+                                <input type="text" class="form-control smallsize">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td colspan='2'>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                                <span>状态
+                                </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="*" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                启用
+                            </option>
+                            <option value="">
+                                禁用
+                            </option>
+                            <option value="">
+                                待审核
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3'>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>更新日期
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize inline-block"  style="width:45%;">
+                            <span class="form-control-date-btn"><i></i></span>
+                            <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly='readonly' />
+                        </div>
+                        <span> -- </span>
+                        <div class="form-control-date smallsize inline-block"  style="width:45%;">
+                                    <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                            <input class="form-control" type="text" value="" data-toggle="datetimepicker"readonly='readonly' />
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+
+            <td colspan='3'>
+                <div class="form-group inline-filter">
+                    <div class="form-control-wrap smallsize">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button style='width: 100px;' type="button" class="btn secondary small-btn">下载excel模板</button>
+                        <button style='width: 100px;' id='clickDr' type="button" class="btn secondary small-btn">批量导入订单</button>
+                        <a href="收款管理-添加订单.html"   data-toggle="modal" type="button" class="btn secondary small-btn" >
+                            添加订单
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{# 表格#}
+<table class="table inverse fn-mt-10 ">
+    <colgroup>
+        <col style="width: 8%">
+        <col style="width: 10%">
+        <col style="width: 10%">
+        <col style="width: 12%">
+        <col style="width: 12%">
+        <col style="width: 10%">
+        <col style="width: 8%">
+        <col style="width: 10%">
+        <col style="width: 10%">
+        <col style="width: 10%">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>
+            <label class="table-checked-all">
+                <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox" />
+                全选
+            </label>
+        </th>
+        <th>商户订单号</th>
+        <th>更新时间</th>
+        <th>订单金额（元）</th>
+        <th>实收金额（元）</th>
+        <th>所属门店</th>
+        <th>状态</th>
+        <th>付款人名称</th>
+        <th>备注</th>
+        <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody id="j-checkall-demo">
+    <tr>
+        <td class="text-align-left">
+            <input type="checkbox" disabled/>
+        </td>
+        <td>4543543</td>
+        <td><span>2017-06-09</span><span> 13:45:16</span></td>
+        <td>102.00</td>
+        <td> 102.22</td>
+        <td>门店1</td>
+        <td>已收款</td>
+        <td>张三</td>
+        <td>订单备注</td>
+        <td class="text-align-center" >
+            <a class="link-standard" style='color:#999' href="javascript:void(0);">
+                编辑
+            </a> &nbsp;&nbsp;
+            <a href="javascript:void(0);" style='color:#999' class="link-standard">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="text-align-left">
+            <input type="checkbox"/>
+        </td>
+        <td>4543543</td>
+        <td><span>2017-06-09</span><span> 13:45:16</span></td>
+        <td>102.00</td>
+        <td> 102.22</td>
+        <td>门店1</td>
+        <td>已收款</td>
+        <td>张三</td>
+        <td>订单备注</td>
+        <td class="text-align-center">
+            <a class="link-standard" href="收款管理-编辑订单.html">
+                编辑
+            </a> &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard opt-disable-del">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class=" filter-table-wrap">
+    <table class="filter-table-coco">
+        <colgroup>
+            <col style="width: 80%">
+        </colgroup>
+        <tr>
+            <td>
+                <div class="text-align-left plural-btns">
+                    <button style='width: 100px;' id='selectShop' type="button" class="btn secondary small-btn">指定所属门店</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--导入弹层-->
+<div class="modal-background fade display-none in" id="daoru1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>批量导入订单</span>
+                    <button class="modal-close" id='closeDr' title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <div class="alert alert-warning ">
+                        <i></i>
+                        <em></em>
+                        请下载excel模板，按照模板格式填写后导入（当前只支持xls格式）
+                    </div>
+
+                    <div class="form-frame">
+                        <form autocomplete="off">
+                            <div class="form-layer1">
+                                <div class="form-layer2">
+                                    <div class="form-group">
+
+                                        <label class="form-control-label">
+                                            <span>文件</span>
+                                            <em>：</em>
+                                        </label>
+                                        <div class="form-control-wrap text-align-left">
+                                            <div class="form-control-data form-control-check">
+                                                <span class="upload-name"></span>
+                                                <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                                <div class="upload-box upload-img">点击上传
+                                                </div>
+                                                <input type="hidden" name="FileName2" value="">
+                                                <input type="hidden" name="Key2" value="">
+                                                <input type="hidden" name="uploadNam2" class="uploadName">
+                                            </div>
+                                            <div class="alert alert-warning upload-img-alert">
+                                                <i></i>
+                                                <div class="alert-body">
+                                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                                    <ul>
+                                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!--<div class="upload-img-wrap">
+                                                <div class="upload-img-box">
+                                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                                    <p>您的图片</p>
+                                                </div>
+                                                <div class="upload-img-box">
+                                                    <img src="./static/images/idcard.jpg" alt="">
+                                                    <p>正确示例图</p>
+                                                </div>
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-control-data text-align-left picture-detail">
+                                            支持xls格式，文件大小1M以内 <button >下载excel模板</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                        <button type="button" id="qxdr" class="btn secondary small-btn">
+                            取消
+                        </button>
+                        <button type="button" id='qrdr' class="btn secondary small-btn off1">
+                            确认
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--提示弹层-->
+<div class="modal-background fade display-none in" id="tishi1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>提示</span>
+                    <button class="modal-close" id='closeTs' title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha fn-pb-10">
+                     <!-- 二选一 -->
+                    <div class="text-align-left fn-pt-20 fn-ml-20"  >
+                        <div>
+                            <span>导入成功</span>：<span>1000</span>条
+                        </div>
+                    </div>
+
+                    <div class='fn-ml-30 fn-mr-30 fn-mt-10 '>
+                        <div>
+                            您的文件有以下错误：
+                        </div>
+                        <table class='tipsTable-alpha' border='1' cellpadding='0' cellspacing='0'>
+                            <thead>
+                            <th>第几行</th>
+                            <th>错误提示</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>3</td>
+                                <td>订单号与第一行重复订单号与第一行重复 </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                        <button type="button" id='closeTips' class="btn secondary small-btn off1">
+                            知道了
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--删除弹层-->
+<div class="modal-background fade display-none in" id="delete1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>删除订单</span>
+                    <button class="modal-close" id='closeSc' title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pa-20">
+
+                    <div class='h3 fn-ma-10'>是否确定删除以下信息？</div>
+
+                    <div class='fn-mb-50 fn-ml-30 '>
+                        <div class="float-left text-align-left" style="width:50%">
+                            <div>
+                                <span>商户订单号</span>：<span>42452545245</span>
+                            </div>
+                            <div>
+                                <span>所属门店</span>：<span>门店1</span>
+                            </div>
+                            <div>
+                                <span>备注</span>：<span>备注222</span>
+                            </div>
+                        </div>
+                        <div class="float-left text-align-left" style=" width :50%;">
+
+                            <div>
+                                <span>订单金额（元）</span>：<span>44.00</span>
+                            </div>
+                            <div>
+                                <span>付款人名称</span>：<span>名称</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='text-align-right fn-pt-50 ' >
+                        <button type="button" id="qxsc" class="btn secondary small-btn">
+                            取消
+                        </button>
+                        <button type="button" id='qrsc' class="btn secondary small-btn off1">
+                            确认
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# 选择所属门店弹层 #}
+<div class="modal-background fade display-none in" id="selectShopName" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>指定订单所属门店</span><span class='warning-FontColor'>（若不指定，则所有门店都可以看到该订单信息）</span>
+                    <button class="modal-close" id='closeSelectShop' title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>门店名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>门店编号</th>
+                                <th>门店名称</th>
+                                <th>所在地</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn singleChoose">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn singleChoose">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn singleChoose">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn singleChoose">选择</a></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='choosePage' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--确定订单所属门店-->
+<div class="modal-background fade display-none in" id="makeSureShopsName" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>确认订单所属门店</span>
+                    <button class="modal-close" id='closeZdFkr' title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pa-20">
+                    <div class='h3 fn-ma-10'>确认将所选订单指定到此门店吗？</div>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>门店编号</th>
+                                <th>门店名称</th>
+                                <th>所在地</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                            <button type="button" id="qxZdFkr" class="btn secondary small-btn">
+                                取消
+                            </button>
+                            <button type="button" id='qrZdFkr' class="btn secondary small-btn off1">
+                                确认
+                            </button>
+                        </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ static }}/js/webuploader/webuploader.js"></script>
+    <!--<script src="{{ static }}/js/webuploader/uploader.js"></script>-->
+    <script src="{{ static }}/js/webuploader/fileUpload.js"></script>
+    <script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+    <script type="text/javascript">
+
+        // 静态分页
+        function ajaxData(e, index, instance){
+            index = index || 1;
+            // 自定义总页码模板
+            $('#p1, #choosePage').pagination({
+                currentPage: index,
+                items: 100,
+                itemsOnPage: 10,
+                pageStr: {
+                    show: true,
+                    template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+                }
+            });
+            $('#p1, #choosePage').on('select.ui.pagination', ajaxData);
+        }
+        ajaxData();
+
+        /**
+         * uploadSuccess 上传成功后回调
+         * @return {[type]} [description]
+         */
+        function uploadSuccess(el, file, data) {
+            /*var names = data.name.split('.');
+            var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+            $(el).siblings(".uploadName").val(data.name);
+            $(el).siblings(".upload-name").text(name + "." + names[1]);
+            $(el).siblings(".upload-path").val(data.path);
+            $(el).siblings(".upload-size").val(data.size);*/
+            // todo: test
+            $(el).siblings(".upload-name").html(file.name);
+
+        }
+
+        $(function(){
+            //初始化上传控件
+            $('.upload-img').fileUpload({
+                swf: '/static/js/webuploader/Uploader.swf',
+                sendurl: '/static/js/webuploader/fileupload.php',
+                //fileVal: 'FileData',
+                success: uploadSuccess
+            });
+            $('.clockpicker').clockpicker();
+
+            //点击导入
+            $("#clickDr").on('click',function () {
+                console.log('clickDr')
+                $("#daoru1").removeClass('display-none')
+            })
+              //取消-qxdr  关闭-closeDr  确认-qrdr  导入
+            $("#qxdr, #closeDr, #qrdr").on('click',function () {
+                $("#daoru1").addClass('display-none')
+            })
+
+            //提示  知道了
+            $("#closeTips, #closeTs").on('click',function () {
+                $("#tishi1").addClass('display-none')
+            })
+
+            //点击删除
+            $(".opt-disable-del").on('click',function () {
+                $("#delete1").removeClass('display-none')
+            })
+
+            //取消-qxsc  关闭-closeSc  确认-qrsc  删除
+            $("#qxsc, #closeSc, #qrsc").on('click',function () {
+                $("#delete1").addClass('display-none')
+            })
+
+            //点击指定门店
+            $("#selectShop").on('click',function () {
+                console.log('selectShop')
+                $("#selectShopName").removeClass('display-none')
+            })
+
+            //取消指定门店
+            $("#closeSelectShop").on('click',function () {
+                $("#selectShopName").addClass('display-none')
+            })
+
+            //选择single门店
+            $(".singleChoose").on('click',function () {
+                $("#makeSureShopsName").removeClass('display-none')
+                $("#selectShopName").addClass('display-none')
+            })
+
+            //取消-qxZdFkr   关闭-closeZdFkr   single门店
+            $("#closeZdFkr, #qxZdFkr").on('click',function () {
+                $("#makeSureShopsName").addClass('display-none')
+                $("#selectShopName").removeClass('display-none')
+            })
+
+            // 确认-qrZdFkr  single门店
+            $("#qrZdFkr").on('click',function () {
+                $("#makeSureShopsName").addClass('display-none')
+            })
+
+        });
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,217 @@
+{% extends "_layout/layout.html" %}
+
+{# 菜单导航 #}
+{% import "_components/navigator.html" as navigator %}
+
+{# 提示 #}
+{% import "_components/alert.html" as Alert %}
+
+{# 步骤 #}
+{% import "_components/step.html" as Step %}
+
+{# 表单 #}
+{% import "_components/form.html" as Form %}
+
+{# 过滤 #}
+{% import "_components/filter.html" as Filter %}
+
+{# 下载 #}
+{% import "_components/download.html" as download %}
+
+{# 分页 #}
+{% import "_components/pagination.html" as Pager %}
+
+{# 提示 #}
+{% import "_components/notice.html" as Notice %}
+
+{# 我的银行 #}
+{% import "_components/myBanks.html" as MyBanks %}
+
+{# 弹框 #}
+{% import "_components/modal.html" as Modal %}
+
+{# 双色球 #}
+{% import "_components/amountRemind.html" as Amount %}
+
+
+{% block globalCss %}
+<link rel="stylesheet" href="{{static}}/css/main.css?v={{ version }}">
+<link rel="stylesheet" href="{{static}}/thirdPart/css/{{ theme }}?v={{ version }}">
+<script>
+  // 第三方页面代理地址
+   window['proxyUrl'] = 'http://localbank.me/proxy.html';
+</script>
+<script src="{{static}}/thirdPart/js/iframeProxy.js"></script>
+{% endblock %}
+
+
+{# 第三方可配置样式参数 #}
+{% block stylePage %}
+{% if newVer %}
+<style>
+  /**
+  * 商户自定配色
+  */
+  /* 网页背景颜色 */
+  body {
+    background: #f8f8f8;
+  }
+  .frame-wrap-bg {
+    background: #f8f8f8;
+  }
+  /* 用户端顶部样式 */
+  .main-frm-header{
+    /* 用户端顶部背景颜色 */
+    background-color: #eee;
+    /* 用户端顶部背景图片 (绝对地址) */
+    background-image:url("{{static}}/thirdPart/images/yunsheng_hdbg.png");
+  }
+  /* 左侧菜单 */
+  .frame-sidebar {
+    /* 背景颜色 */
+    background: #ececec;
+    /* 边框颜色 */
+    border-right-color: #e0e0e0;
+  }
+  .frame-sidebar .frame-sidebar-wrap {
+    /* 背景颜色 */
+    background: #ececec;
+  }
+  /* 用户信息(profile) 头像背景色 */
+  .frame-profile{
+    background-color: #ececec;
+  }
+
+  /* 选中（当前）菜单项 */
+  .frame-menu ul > li a.active {
+    /* 边框颜色 */
+    border-left-color: #da251c;
+  }
+  /* 菜单产品（xx宝）分类标题 */
+  .frame-menu h2{
+    /* 字体颜色 - 同选中菜单项边框颜色 */
+    color: #da251c;
+    /* 背景颜色 */
+    background-color: #dedede;
+    /* 底部边框颜色 */
+    border-bottom-color: #d3d3d3;
+  }
+  /* 菜单项底部边框颜色 */
+  .frame-menu ul > li {
+    border-bottom-color: #dbdbdb;
+  }
+</style>
+{% endif %}
+{% endblock %}
+
+
+{# 通用布局 #}
+{% block body %}
+<div class="main-frm main-frm2">
+  {% if noHeader != 1  %}
+  <header class="main-frm-header">
+    <div class="frm-header-inner">
+      <div class="frm-logo">
+        <a href="###">
+          <!-- TODO: 后台读取logo url 地址 -->
+          <img src="{{static}}/thirdPart/images/{{logo_image}}">
+        </a>
+      </div>
+    </div>
+  </header>
+  {% endif %}
+  <main class="frame-wrap-bg">
+    <div class="frame-wrap">
+      {% if sidebar%}
+      <!-- 侧边导航 -->
+      <aside class="frame-sidebar">
+        <div class="frame-sidebar-wrap">
+          <div class="frame-profile">
+            <div class="frame-profile-avatar">
+              {% if newVer %}
+              <!-- TODO: 后台读取用户logo url 地址 -->
+              <!-- 新版隐藏frame-profile-mask,加上class="hidden" -->
+              <span class="frame-profile-mask hidden"></span>
+              <img src="{{static}}/thirdPart/images/avatar.png" height="106" width="106" alt="">
+              {% else %}
+              <span class="frame-profile-mask"></span>
+              <img src="{{static}}/thirdPart/images/user-head.jpg" height="160" width="160" alt="">
+              {% endif %}
+            </div>
+            <div class="frame-profile-info">jinhong.shao@frontpay.cn，您好！</div>
+          </div>
+          <div class="frame-menu">
+            <h2>{{ logo }}</h2>
+            <ul class="frame-menu-list">
+              <li>
+                <a href="#" class="active">
+                  <i class="fm-icon-account"></i>
+                  <span>账户总览</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-money"></i>
+                  <span>交易明细</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-exchange"></i>
+                  <span>提现明细</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-setting"></i>
+                  <span>账户管理</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-help"></i>
+                  <span>服务台</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <!-- 主内容区 -->
+      <div class="frame-main" id="J-frame-main">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!-- /主内容区 -->
+      {% else %}
+        {% block content %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="main-ft-inner">
+      <div class="main-ft-copyright">
+        Powered by： <a href="#"><img src="{{static}}/thirdPart/images/logo-qt.png"></a>
+      </div>
+      <div class="foot-line"></div>
+      <div class="main-ft-bank">合作机构：<span class="bank-bg bank-cmb"></span></div>
+      <div class="main-ft-helper">
+        <ul>
+          <li class="has-r-line">
+            <i class="icon-msg"></i>
+            <a href="##">帮助中心</a>
+          </li>
+          <li class="tel"><i class="icon-telphone"></i>客服热线<b>400-106-6998</b></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock %}

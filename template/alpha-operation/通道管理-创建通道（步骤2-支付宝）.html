@@ -1,0 +1,641 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+<link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text: '通道管理'
+},
+{
+link: 'javascript:void(0);',
+text: '通道列表'
+},
+{
+text: '创建通道'
+}
+]
+)
+}}
+
+<div class="form-frame">
+    <form autocomplete="off">
+        <!-- 基础信息-->
+        <div class="form-title">
+            基础信息
+        </div>
+<!--
+        <table class="table border table-view ">
+        <tbody>
+        <tr>
+            <th>通道编号</th>
+            <td>768423</td>
+            	<th>通道名称</th>
+            <td><input type="text" class="form-control" value="支付宝（招商银行总行）" /></td>
+        </tr>
+        <tr>
+            <th>支付平台</th>
+            <td>支付宝</td>
+             <th>机构名称</th>
+            <td>招商银行总行</td>
+
+        </tr>
+                <tr>
+            <th>创建时间</th>
+            <td>2016-10-10  18:00:00</td>
+             <th>状 态</th>
+            <td>启用</td>
+
+        </tr>
+
+        </tbody>
+    </table>-->
+
+
+
+
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通道名称 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通道名称 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" value="支付宝（招商银行总行）" />
+                    </div>
+                </div>
+                {# 支付平台 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>支付平台</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            支付宝
+                        </div>
+                    </div>
+                </div>
+                {# 机构名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>机构名称</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                              <input type="text" class="form-control" value="招商银行总行" />
+                        </div>
+                        <div>
+                        	<br />
+                        	 <a href="#myOrganization" data-toggle="modal" class="btn secondary small-btn">选择机构 </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+<div class="form-title">
+            参数配置
+        </div>
+        <!-- 参数配置-->
+        <!--
+
+          <table class="table border table-view ">
+        <tbody>
+        <tr>
+            <th>通道模式</th>
+            <td>授权模式</td>
+            	<th>通道成本</th>
+            <td>2‰</td>
+        </tr>
+        <tr>
+            <th>合作者身份（PID）</th>
+            <td>mm_12345678_0_0</td>
+             <th>应用编号（APPID）</th>
+            <td>201505214235435170</td>
+
+        </tr>
+                <tr>
+            <th>安全校验码（MD5密钥）</th>
+            <td>1111111111111</td>
+             <th></th>
+            <td></td>
+
+        </tr>
+        <tr>
+        	<th>机构RSA/RSA2私钥</th>
+        	<td colspan="3">
+        		<textarea name="" rows="10" cols="90">
+        			-----BEGIN CERTIFICATE-----
+MIIFIzCCBAugAwIBAgIQSf6Vlz5jiTp9TB9ZhJhMXzANBgkqhkiG9w0BAQsFADB+
+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE1MDQxNjAwMDAwMFoX
+DTE3MDUxNTIzNTk1OVowgaExCzAJBgNVBAYTAkNOMRIwEAYDVQQIEwlHdWFuZ2Rv
+bmcxEjAQBgNVBAcUCWd1YW5nemhvdTE8MDoGA1UEChQzR3Vhbmdkb25nIFVDU01Z
+IEluZm9ybWF0aW9uICYgQ29tbXVuaWNhdGlvbiBDby4sTFREMRAwDgYDVQQLFAdJ
+VCBkZXB0MRowGAYDVQQDFBEqLmNtYmNoaW5hdWNzLmNvbTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAMdHRAdXXs4nmPStb9B2RsSOxSs+ihhGrxmd3D2J
+OSXNGogA2KJa3P5dzeFfySEZtxW7/kwgTOsTGKdfNR/ChILSuVtDvXPzGfgmKnOX
+7+1B1qGiRyIuJ9sc0RZ2Fkx1hDqIxn062pr7YRrI63t/PNBjlCMMQ+wumspNOiEK
+cu0QjnwAZyGm5ZWINFNL7vpccy7BnNDpSIB2bS5hTDckxvfSZ3fgNz3baBD55dzO
+Gwb5YCNn8FWFD6nrSJr+n8PJWyNLQw0pc/GwZhOKEWbI420S7Fhn9qqYVWQl6XtH
+hNeUXWdqkAJkksLHyQmNCnjCFcU2c7LlwBdefYBFK/vjpnsCAwEAAaOCAXcwggFz
+MC0GA1UdEQQmMCSCESouY21iY2hpbmF1Y3MuY29tgg9jbWJjaGluYXVjcy5jb20w
+CQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwKwYDVR0fBCQwIjAgoB6gHIYaaHR0
+cDovL3NzLnN5bWNiLmNvbS9zcy5jcmwwYQYDVR0gBFowWDBWBgZngQwBAgIwTDAj
+BggrBgEFBQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIw
+GQwXaHR0cHM6Ly9kLnN5bWNiLmNvbS9ycGEwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+CCsGAQUFBwMCMB8GA1UdIwQYMBaAFF9gz2GQVd+EQxSKYCqy9Xr0QxjvMFcGCCsG
+AQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0cDovL3NzLnN5bWNkLmNvbTAmBggr
+BgEFBQcwAoYaaHR0cDovL3NzLnN5bWNiLmNvbS9zcy5jcnQwDQYJKoZIhvcNAQEL
+BQADggEBAER6RgbDUv4uKzlNAP0iIo4hFNHN/VuXl9/ev4p+J5HjUe3jMiSIkyyU
+2vZ3TsitZdtYMHnA1GOgyTe6rGoM64/bAIZAplnVv21dnG1FKhYzB0KqD+SAn8X6
+h3K1fXl+E+PRl7xptuTHrxIDy33dNyOkawZHUMxUrXxwPZafqlWKCDp7uTTXemu8
+gPyAjx//Y+NGJBNhYr9FQewKY6Ut3d9OwRCRqTrkHIPaDo2VJ19tiwWHP48z8R74
+if0GdjaEKb9LFFNTidVtamcem56BsYnEVNGy1Dkw8G53paeNKGSudC1K/1TOTkCp
+HiqhHd4GYq8WvcW+gbzLy6qIwgbGP1E=
+-----END CERTIFICATE-----
+        		</textarea>
+        	</td>
+        </tr>
+        <tr>
+        	<th>支付宝公钥</th>
+        	<td colspan="3">
+        		<textarea name="" rows="10" cols="90">
+        			-----BEGIN CERTIFICATE-----
+MIIFIzCCBAugAwIBAgIQSf6Vlz5jiTp9TB9ZhJhMXzANBgkqhkiG9w0BAQsFADB+
+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE1MDQxNjAwMDAwMFoX
+DTE3MDUxNTIzNTk1OVowgaExCzAJBgNVBAYTAkNOMRIwEAYDVQQIEwlHdWFuZ2Rv
+bmcxEjAQBgNVBAcUCWd1YW5nemhvdTE8MDoGA1UEChQzR3Vhbmdkb25nIFVDU01Z
+IEluZm9ybWF0aW9uICYgQ29tbXVuaWNhdGlvbiBDby4sTFREMRAwDgYDVQQLFAdJ
+VCBkZXB0MRowGAYDVQQDFBEqLmNtYmNoaW5hdWNzLmNvbTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAMdHRAdXXs4nmPStb9B2RsSOxSs+ihhGrxmd3D2J
+OSXNGogA2KJa3P5dzeFfySEZtxW7/kwgTOsTGKdfNR/ChILSuVtDvXPzGfgmKnOX
+7+1B1qGiRyIuJ9sc0RZ2Fkx1hDqIxn062pr7YRrI63t/PNBjlCMMQ+wumspNOiEK
+cu0QjnwAZyGm5ZWINFNL7vpccy7BnNDpSIB2bS5hTDckxvfSZ3fgNz3baBD55dzO
+Gwb5YCNn8FWFD6nrSJr+n8PJWyNLQw0pc/GwZhOKEWbI420S7Fhn9qqYVWQl6XtH
+hNeUXWdqkAJkksLHyQmNCnjCFcU2c7LlwBdefYBFK/vjpnsCAwEAAaOCAXcwggFz
+MC0GA1UdEQQmMCSCESouY21iY2hpbmF1Y3MuY29tgg9jbWJjaGluYXVjcy5jb20w
+CQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwKwYDVR0fBCQwIjAgoB6gHIYaaHR0
+cDovL3NzLnN5bWNiLmNvbS9zcy5jcmwwYQYDVR0gBFowWDBWBgZngQwBAgIwTDAj
+BggrBgEFBQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIw
+GQwXaHR0cHM6Ly9kLnN5bWNiLmNvbS9ycGEwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+CCsGAQUFBwMCMB8GA1UdIwQYMBaAFF9gz2GQVd+EQxSKYCqy9Xr0QxjvMFcGCCsG
+AQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0cDovL3NzLnN5bWNkLmNvbTAmBggr
+BgEFBQcwAoYaaHR0cDovL3NzLnN5bWNiLmNvbS9zcy5jcnQwDQYJKoZIhvcNAQEL
+BQADggEBAER6RgbDUv4uKzlNAP0iIo4hFNHN/VuXl9/ev4p+J5HjUe3jMiSIkyyU
+2vZ3TsitZdtYMHnA1GOgyTe6rGoM64/bAIZAplnVv21dnG1FKhYzB0KqD+SAn8X6
+h3K1fXl+E+PRl7xptuTHrxIDy33dNyOkawZHUMxUrXxwPZafqlWKCDp7uTTXemu8
+gPyAjx//Y+NGJBNhYr9FQewKY6Ut3d9OwRCRqTrkHIPaDo2VJ19tiwWHP48z8R74
+if0GdjaEKb9LFFNTidVtamcem56BsYnEVNGy1Dkw8G53paeNKGSudC1K/1TOTkCp
+HiqhHd4GYq8WvcW+gbzLy6qIwgbGP1E=
+-----END CERTIFICATE-----
+        		</textarea>
+        	</td>
+        </tr>
+        </tbody>
+    </table>
+
+          -->
+
+
+
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通道模式 #}
+                <div class="form-group" style="position: relative">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span> 通道模式 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                授权模式
+                                <input type="radio"  class="j-type" name="certificates" value="0" checked="checked">
+                            </label>
+                            <label>
+                                服务商模式
+                                <input type="radio" class="j-type" name="certificates" id="servers" value="1">
+                            </label>
+
+
+
+                            <div class="tooltips-icon"  style="width:16px; height:16px; background-color:#009DD9; border-radius: 8px; color: white;line-height: 16px; position:absolute; top:12px;">
+                            ?
+                            <div class="tooltips" style="height: 60px; top:-60px !important;">
+                            <div>授权模式：银行机构对收款系统进行授权，由系统代发指令。</div>
+
+                          <div>
+                              服务商模式：使用银行pid、appid发起指令，需要银行登录支付宝做相关回调配置。
+                          </div>
+                            <span class="tips-arrow-border"></span>
+                            <span class="tips-arrow"></span>
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {# 通道成本 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通道成本 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" /> <a style="cursor: default;" class="form-control-tools-link">‰</a>
+                    </div>
+                </div>
+
+                {#安全校验码（MD5密钥） #}
+                <div class="form-group organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span>安全校验码（MD5密钥） </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 合作者身份（PID） #}
+                <div class="form-group organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span>合作者身份（PID） </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 应用编号（AppID） #}
+                <div class="form-group organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 应用编号（AppID） </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 私钥类型： #}
+                <div class="form-group organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 私钥类型： </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                    	<div class="form-control-check">
+
+
+                                                   <label>
+                                RSA
+                                <input type="radio"  class="j-type" name="RSA" value="0" checked="checked">
+                            </label>
+                            <label>
+                                RSA2
+                                <input type="radio" class="j-type" name="RSA" id="servers" value="1">
+                            </label>
+                            	</div>
+                    </div>
+                </div>
+                {# 机构私钥 #}
+                <div class="form-group  organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 机构私钥 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+
+                        <textarea type="text" class="form-control" style="resize:none; height: 200px !important; overflow-y: scroll"  id="" cols="30" rows="10" ></textarea>
+                    </div>
+                </div>
+                {# 服务商私钥 #}
+                <div class="form-group organizationKey "  >
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 服务商私钥 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <!--<input type="text" class="form-control" />-->
+                        <textarea type="text" class="form-control" style="resize:none; height: 200px !important; overflow-y: scroll"  id="" cols="30" rows="10" ></textarea>
+                    </div>
+                </div>
+                {# 支付宝公钥 #}
+                <div class="form-group organizationKey" >
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 支付宝公钥 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <!--<input type="text" class="form-control" />-->
+                        <textarea type="text" class="form-control" style="resize:none; height: 200px !important; overflow-y: scroll"  id="" cols="30" rows="10" ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 合约附件-->
+        <div class="form-title">
+            合约附件
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <!-- 通道logo -->
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span>通道logo</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl1" value="" id="GetUrl1" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName1" value="">
+                            <input type="hidden" name="Key1" value="">
+                            <input type="hidden" name="uploadNam1" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+                <!-- 合约照片或扫描件 -->
+                <div class="form-group">
+                    <label class="form-control-label form-control-label-alpha">
+                        <b>*</b>
+                        <span>合约照片或扫描件</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName2" value="">
+                            <input type="hidden" name="Key2" value="">
+                            <input type="hidden" name="uploadNam2" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <a href="通道管理-创建通道（步骤1）.html" class="btn default">取消</a>
+        </div>
+    </form>
+</div>
+
+
+<!--选择机构弹层-->
+<div class="modal-background fade display-none in" id="myOrganization" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                	选择机构
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center">
+                        <form class="filterBox-Alpha" action="#" method="post">
+                            <div class="fliter-inline-wrap">
+                                <div class="fliter-inline-item">
+                                    <label>机构名称：</label>
+                                    <div class="fliter-inline-width1">
+                                        <div class="form-control-date smallsize">
+                                            <input type="text" class="form-control" placeholder="输入机构名称" data-toggle="searchInput">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--搜索按钮-->
+                                <div class="fliter-inline-item">
+                                    <button type="button" class="btn primary small-btn">查找</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--机构列表-->
+                        <table class="table inverse">
+                            <colgroup>
+                                <col style="width: 10%">
+                                <col style="width: 15%">
+                                <col style="width:  8%">
+                                <col style="width: 15%">
+                                <col style="width: 15%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>机构编号</th>
+                                <th>机构名称</th>
+                                <th>层级</th>
+                                <th>所在地</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>1086</td>
+                                <td>招商银行济南分行</td>
+                                <td>3</td>
+                                <td>山东，济南</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div style="padding-left:20px; padding-top: 0px;">
+                            {# 分页 #}
+                            {{ paginationAlpha.default( id='p1' ) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        $(".j-type").on("change",function(){
+            var isServerChecked = $("#servers").prop("checked");
+            if(!isServerChecked){
+                $(".organizationKey").addClass("display-none");
+            }else{
+                $(".organizationKey").removeClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">支付宝通道创建成功！</span>',
+                content : '',
+                 buttons : {  //  按钮可以只传ok或cancel
+                   ok : {
+                     text : '确定',
+                     callback : function () {
+                       console.log('确定');
+                         window.location.href="通道管理-通道列表.html"
+                     }
+                   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                 }
+            });
+        });
+    });
+</script>
+{% endblock %}

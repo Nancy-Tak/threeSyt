@@ -1,0 +1,98 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'数据报表'
+},
+{
+text:'收银交易记录'
+}
+]
+)
+}}
+
+{# frame 爷爷样式 #}
+<img class="frame-img" src="{{ static }}/images/demo/收银交易记录1.png" alt="收银交易记录1" />
+
+
+{{
+tableAlpha.forDemo(
+data={
+theadList: [
+{
+inner: '订单号'
+},
+{
+inner: '下单时间'
+},
+{
+inner: '交易时间'
+},
+{
+inner: '商户名称'
+},
+{
+inner: '门店名称'
+},
+{
+inner: '交易状态'
+},
+{
+inner: '交易类型'
+},
+{
+inner: '付款方式'
+},
+{
+inner: '原始金额'
+},
+{
+inner: '优惠金额'
+},
+{
+inner: '实际交易'
+},
+{
+inner: '手续费'
+},
+{
+inner: '机构'
+},
+{
+inner: '机器编号'
+},
+{
+inner: '付款信息'
+},
+{
+inner: '信用卡'
+},
+{
+inner: '原始订单号'
+},
+{
+inner: '第三方交易号'
+}
+],
+tbodyList: [
+[
+{
+inner: '&nbsp;',
+colspan: '18'
+}
+]
+]
+},
+fixedClass="fn-mt-20"
+)
+}}
+
+
+{% endblock %}

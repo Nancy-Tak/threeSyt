@@ -1,0 +1,148 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'商户管理'
+        }, {
+link: 'javascript:void(0);',
+text:'商户列表'
+},
+        {
+        text: '收款码列表'
+        }
+        ]
+        )
+        }}
+<div>
+
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-10">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 10%">
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label" style='width:94px;'>
+                            <span>门店名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize fn-ml-20" >
+                            <input type="text" class="form-control smallsize" placeholder="请输入">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>门店编号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="请输入">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label" style='width:94px;'>
+                            <span>收款码分类
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize fn-ml-20"  >
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="plural-btns" style="padding-bottom: 10px;">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+  <!--表格-->
+  <table class="table inverse">
+    <colgroup>
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col style="width: 15%">
+      <col />
+    </colgroup>
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>门店编号</th>
+      <th>门店名称</th>
+      <th>收款码分类</th>
+      <th>收银员</th>
+      <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>1256</td>
+      <td>门店简称</td>
+      <td>门店收款码</td>
+        <td>门店</td>
+        <td>
+            <a href="javaScript:;" class="link-standard text-nowrap"  >下载</a>&nbsp;&nbsp;
+            <a href="商户管理-收款码列表-预览.html" class="link-standard text-nowrap"  >预览</a>
+        </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+</script>
+{% endblock %}

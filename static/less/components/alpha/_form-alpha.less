@@ -1,0 +1,179 @@
+.form-frame{
+	.form-group{
+		.form-control-wrap{
+            .form-control-data{
+                height:auto;
+            }
+			.form-control-date{
+				width:150px;
+				.form-control-date-btn{
+
+				}
+			}
+			.coordinate{
+				display: inline-block;
+				width: 134px;
+			}
+			.form-control-cascade{
+				display: inline-block;
+				width:168px;
+			}
+			.form-control-cascade-three{
+                display: inline-block;
+                width:109px;
+            }
+		}
+        .form-control-wrap-date{
+            .form-control-date{
+                width:100%;
+            }
+            .coordinate{
+                display: inline-block;
+                width: 134px;
+            }
+        }
+	}
+    .addPlatBtn{
+        width: 100px;
+    }
+
+}
+
+#form-group-date{
+    .form-notice{
+        padding-top:44px;
+
+        i{
+            position: absolute;
+            top:0px;
+            padding-top:40px;
+        }
+    }
+
+}
+
+
+//	时间控件
+.clockpicker-button{
+	padding:0 !important;
+}
+
+.form-control-label-alpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @form-control-label-width;
+    height: @form-control-height;
+    text-align: right;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    .clearfix();
+
+    > span {
+        .inline-block();
+        line-height: @line-height-base;
+        vertical-align: middle;
+        max-width: 85%;
+    }
+}
+.form-control-tools-alpha {
+    position: absolute;
+    top: 0;
+    right: -( @form-control-label-width + 15px );
+    width: @form-control-label-width;
+    padding: ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 0 ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 0;
+    text-align: left;
+    line-height:  @forms-FontSize + 4px;
+    font-size: @smaller-FontSize;
+}
+
+textarea.form-control {
+	white-space: pre-wrap;
+}
+
+
+//1.2.1 设置还款日
+.form-control-alpha {
+    display: inline-block;
+    padding: ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 - 1px 15px ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 - 2px 15px;
+    //width: 100%;
+    width:90%;
+    height: @form-control-height;
+    outline: none;
+    border-top: 1px solid @form-default-BorderColor;
+    border-left: 1px solid @form-default-BorderColor;
+    border-right: 1px solid @form-default-BorderColor;
+    border-bottom: 2px solid @form-default-BorderColor;
+    line-height: @forms-FontSize + 4px;
+    font-size: @forms-FontSize;
+    color: @formValue-FontColor;
+    background-color: @bgColor-default;
+    .text-hide();
+
+    &:focus,
+    &.focus {
+        .form-control-focus();
+    }
+
+    &[disabled] {
+        background-color: @bgColor-type1;
+        color: @viceText-FontColor + #222;
+        cursor: default;
+        cursor: not-allowed;
+    }
+
+    &[readonly] {
+        background-color: @bgColor-type1;
+        cursor: default;
+    }
+
+    &.smallsize {
+        padding: ( ( @form-control-height - 10px ) - ( @forms-FontSize + 4px ) ) / 2 - 1px 10px ( ( @form-control-height - 10px ) - ( @forms-FontSize + 4px ) ) / 2 - 2px 10px;
+        height: ( @form-control-height - 10px );
+
+        &:focus,
+        &.focus {
+            padding: ( ( @form-control-height - 10px ) - ( @forms-FontSize + 4px ) ) / 2 - 2px 9px ( ( @form-control-height - 10px ) - ( @forms-FontSize + 4px ) ) / 2 - 2px 9px;
+        }
+    }
+}
+
+
+// 清分 编辑 多选
+.form-control-check-alpha {
+    .clearfix();
+
+    > label {
+        width: 400px;
+        line-height: @forms-FontSize + 4px;
+        .float-item( left,block );
+        cursor: pointer;
+        position: relative;
+        color: @formValue-FontColor;
+        padding: ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 25px ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 20px;
+
+        &.agreement-check {
+            padding: ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 - 5px 0 ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 - 5px 20px;
+        }
+
+        > input[type="checkbox"], input[type="radio"] {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -6px;
+        }
+        > span{
+            width:30%;
+            display: inline-block;
+        }
+
+        &.inputContent{
+            width:200px;
+        }
+    }
+}
+
+.form-control-modal-alpha-value-logo  > i:before{
+    content: "\e607";
+}

@@ -1,0 +1,94 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 步骤提示 #}
+{{
+stepTipsAlpha.default(
+list = [
+{
+step: '1',
+text: '创建商户',
+spec:'#F2F2F2'
+},{
+step:'2',
+text: '关联合同',
+spec:'#F2F2F2'
+},{
+step:'3',
+text: '关联服务商'
+},{
+step:'4',
+text: '设置管理员'
+},{
+step:'5',
+text: '启用商户'
+}
+]
+)
+}}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '商户合同管理-合同列表.html',
+text:'商户合同管理'
+},
+{
+text:'创建合同'
+}
+]
+)
+}}
+
+{# 主体信息商户分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <div class="createContract clearfix">
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/alipay.jpg" />
+                <h6 title="支付宝(招商银行总行)">支付宝(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="商户合同管理-创建合同2.html" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/weChat.jpg" />
+                <h6 title="微信支付(招商银行总行)">微信支付(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="商户合同管理-创建合同2.html" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/quickPass.jpg" />
+                <h6 title="银联闪付(招商银行总行)">银联闪付(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="商户合同管理-创建合同2.html" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/tonglianzhifu.png" />
+                <h6 title="通联支付(招商银行总行)">通联支付(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="商户合同管理-创建合同2-通联.html" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

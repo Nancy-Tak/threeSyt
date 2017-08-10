@@ -1,0 +1,64 @@
+{% macro render(step='pass1', text1='step one', text2='step two', text3='step three', mb='fn-mb-10')%}
+    <div class="steps-wrap {{ step }} {{ mb }}">
+        <div class="steps-box">
+            <div class="step-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+            </div>
+            <span class="step step1">1</span>
+            <span class="step step2">2</span>
+            <span class="step step3">3</span>
+            <p class="step-title title1">{{ text1 }}</p>
+            <p class="step-title title2">{{ text2 }}</p>
+            <p class="step-title title3">{{ text3 }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro foursteps(step='pass1', text1='step one', text2='step two', text3='step three', text4='step four', mb='fn-mb-10')%}
+    <div class="steps-wrap {{ step }} {{ mb }} foursteps">
+        <div class="steps-box">
+            <div class="step-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+            </div>
+            <span class="step step1">1</span>
+            <span class="step step2">2</span>
+            <span class="step step3">3</span>
+            <span class="step step4">4</span>
+            <p class="step-title title1">{{ text1 }}</p>
+            <p class="step-title title2">{{ text2 }}</p>
+            <p class="step-title title3">{{ text3 }}</p>
+            <p class="step-title title4">{{ text4 }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro foursteps2(step='pass1', mb='fn-mb-10')%}
+    <div class="steps-wrap {{ step }} {{ mb }} foursteps">
+        <div class="steps-box">
+            <div class="step-bars">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+            </div>
+            <span class="step step1">1</span>
+            <span class="step step2">2</span>
+            <span class="step step3">3</span>
+            <span class="step step4">4</span>
+            <p class="step-title title1">完善企业信息</p>
+            <p class="step-title title2">完善法人信息</p>
+            <p class="step-title title3">完善车辆信息</p>
+            <p class="step-title title4">企业用户安全验证</p>
+        </div>
+    </div>
+{% endmacro %}

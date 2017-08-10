@@ -1,0 +1,16 @@
+{% macro default( list=[],fixedClass='' ) %}
+<ul class="bread-crumb-alpha {{ fixedClass }}">
+    {% for item in list %}
+    <li>
+        {% if item.link %}
+        <a href="{{ item.link }}">
+            {{ item.text }}
+            <i class="icon-chevron-thin-right"></i>
+        </a>
+        {% else %}
+        {{ item.text }}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endmacro %}

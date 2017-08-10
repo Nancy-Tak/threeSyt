@@ -1,0 +1,118 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户列表'
+                },
+                {
+                    text: '管理员账号'
+                }
+            ]
+        )
+    }}
+
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '账号名称'
+                    },
+                    {
+                        inner: '姓名'
+                    },
+                    {
+                        inner: '账号角色'
+                    },
+                    {
+                        inner: '创建时间'
+                    },
+                    {
+                        inner: '状态'
+                    },
+                    {
+                        inner: '操作'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: 'yoiuug'
+                        },
+                        {
+                            inner: '张三'
+                        },
+                        {
+                            inner: '超级管理员'
+                        },
+                        {
+                            inner: '2016-10-10  18:00:00'
+                        },
+                        {
+                            inner: '启用'
+                        },
+                        {
+                            inner: '
+                                <div class="table-ctrls">
+                                        <a href="关联商户管理-商户列表-管理员账号-查看.html" class="text-nowrap link-standard">
+                                            查看
+                                        </a>&nbsp;&nbsp;
+                                        <a href="关联商户管理-商户列表-管理员账号-编辑.html" class="text-nowrap link-standard">
+                                            编辑
+                                        </a>&nbsp;&nbsp;
+                                        <a href="javaScript:void(0);" class="text-nowrap link-standard admin-disabled">
+                                            禁用
+                                        </a>
+                                </div>
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20'
+        )
+    }}
+
+{% endblock %}
+
+{% block jsPage %}
+    <script>
+        $(function(){
+            $(".admin-disabled").on("click",function(){
+                $.tipsModal({
+//                    close:  close ,
+                    // modalTitle:"test",
+                    type : 'info',   //  success info error
+                    title : '<span class="warning-FontColor">禁用</span>',
+                    content : '禁用后，该账号将不可登录机构管理后台，确定禁用？',
+                    buttons : {  //  按钮可以只传ok或cancel
+                      ok : {
+                        text : '确定',
+                        callback : function () {
+                          alert('确定');
+                        }
+                      },
+                      cancel : {
+                        text : '取消',
+                        callback : function () {
+                          alert('取消');
+                        }
+                      }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

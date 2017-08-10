@@ -1,0 +1,209 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+
+{# 步骤提示 #}
+{{
+stepTipsAlpha.default(
+list = [
+{
+step: '1',
+text: '创建门店',
+spec:'#F2F2F2'
+},{
+step:'2',
+text: '关联合同',
+spec:'#F2F2F2'
+},{
+step:'3',
+text: '设置门店管理员'
+},{
+step:'4',
+text: '启用门店'
+}
+]
+)
+}}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '商户合同管理-合同列表.html',
+text:'商户合同管理'
+},
+{
+link: '商户合同管理-合同列表.html',
+text:'合同列表'
+},
+{
+text: '查看关联门店'
+}
+]
+)
+}}
+
+{# 主体信息商户分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <form autocomplete="off">
+        <div class="form-title">
+            阿迪达斯步行街合同主体信息
+        </div>
+
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20 table-view">
+                <tbody>
+                <tr>
+                    <th>商户名称</th>
+                    <td>阿迪达斯成都分公司</td>
+                    <th>所在地</th>
+                    <td>四川/成都/锦江区</td>
+                </tr>
+                <tr>
+                    <th>合同编号</th>
+                    <td>2017-01-01</td>
+                    <!--<th>签购单名称</th>-->
+                    <!--<td>阿迪达斯</td>-->
+                    <th>合同签署日期</th>
+                    <td>2017-01-01</td>
+                    <!--<th>客户经理</th>-->
+                    <!--<td>刘丹</td>-->
+                </tr>
+                <tr>
+                    <th>合同生效日期</th>
+                    <td>2017-01-01</td>
+                    <th>合同到期日期</th>
+                    <td>2017-01-01</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-title">
+            阿迪达斯步行街合同关联的门店
+        </div>
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20 ">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tr>
+                    <th>关联</th>
+                    <th>门店编号</th>
+                    <th>门店名称</th>
+                    <th>所在地</th>
+                    <th>详细地址</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name=""/>
+                    </td>
+                    <td>2334544</td>
+                    <td>阿迪达斯成都好运店</td>
+                    <td>四川/成都/锦江区</td>
+                    <td>成都银泰大厦天府国际12楼</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name=""/>
+                    </td>
+                    <td>2334544</td>
+                    <td>阿迪达斯成都好运店</td>
+                    <td>四川/成都/锦江区</td>
+                    <td>成都银泰大厦天府国际12楼</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+        </div>
+
+    </form>
+
+
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function () {
+
+        $(".j-type").on("change", function () {
+            var isPrivateChecked = $("#private").prop("checked");
+            if (isPrivateChecked) {
+                $("#identity").removeClass("display-none");
+            } else {
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({
+            sendurl: "http://192.168.7.129/fileupload.php",
+            swf: "./static/js/webuploader/uploader.swf"
+        });
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                //close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">门店关联成功！ </span>',
+                content : '<div><a href="子商户管理-子商户列表-新建管理员账号.html" class="btn secondary" role="button">设置门店管理员</a></div>',
+//                buttons : {  //  按钮可以只传ok或cancel
+//                    ok : {
+//                        text : '确定',
+//                        callback : function () {
+//                            console.log('确定');
+//                        }
+//                    }
+//                 ,
+//               cancel : {
+//                 text : '取消',
+//                 callback : function () {
+//                   console.log('取消');
+//                 }
+//               }
+//                }
+            });
+        });
+
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,369 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '子商户管理'
+                },
+                {
+                    text: '子商户列表'
+                }
+            ]
+        )
+    }}
+
+    {# 数据过滤器 #}
+    <form>
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                                <span>商户名称
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <div class="form-control-date smallsize">
+                                <div class="form-control-wrap smallsize">
+                                    <input type="text" class="form-control smallsize">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                                <span>所在省份
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    广东
+                                </option>
+                                <option value="">
+                                    湖南
+                                </option>
+                                <option value="">
+                                    福建
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                                <span>所在城市
+                                </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    中山
+                                </option>
+                                <option value="">
+                                    广州
+                                </option>
+                                <option value="">
+                                    湖南
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="plural-btns" style="padding-bottom: 10px;">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <a href="子商户管理-创建子商户(步骤2).html" type='button' class='btn small-btn secondary link-standard'>创建子商户</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+    <table class="table">
+        <colgroup>
+            <col style="width: 10%" />
+            <col style="width: 12%" />
+            <col style="width: 12%" />
+            <col style="width: 12%" />
+            <col style="width: 8%" />
+            <col style="width: 8%" />
+            <col style="width: 12%" />
+            <col style="width: 10%" />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>商户编号</th>
+                <th>商户名称</th>
+                <th>上级商户</th>
+                <th>所在地</th>
+                <th>门店数量</th>
+                <th>商户层级</th>
+                <th>创建时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="selfData">
+                <td>11086</td>
+                <td>
+                    钱途互联商户
+                </td>
+                <td>淘宝</td>
+                <td>
+                    广东，广州
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>
+                    <span class="text-nowrap">
+                        2015-05-25
+                    </span>
+                    <br />
+                    <span class="text-nowrap viceText-FontColor">
+                        10:25:36
+                    </span>
+                </td>
+                <td>
+                    禁用
+                </td>
+                <td class="text-align-center text-nowrap">
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-查看详情.html">查看</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-编辑子商户.html">编辑</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-管理员账号.html">管理员</a> &nbsp;&nbsp;
+                    <a href="javascript:void(0);" class="link-standard text-nowrap opt-active">启用</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>11086</td>
+                <td>
+                    钱途互联商户
+                </td>
+                <td>淘宝</td>
+                <td>
+                    广东，广州
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>
+                    <span class="text-nowrap">
+                        2015-05-25
+                    </span>
+                    <br />
+                    <span class="text-nowrap viceText-FontColor">
+                        10:25:36
+                    </span>
+                </td>
+                <td>
+                    启用
+                </td>
+                <td class="text-align-center">
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-查看详情.html">查看</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-编辑子商户.html">编辑</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-管理员账号.html">管理员</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="合同管理-合同列表.html">合同</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-收银员列表.html">收银员</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-查看关联终端.html">终端</a> &nbsp;&nbsp;
+                </td>
+            </tr>
+
+            <tr>
+                <td>11086</td>
+                <td>
+                    钱途互联商户
+                </td>
+                <td>淘宝</td>
+                <td>
+                    广东，广州
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>
+                    <span class="text-nowrap">
+                        2015-05-25
+                    </span>
+                    <br />
+                    <span class="text-nowrap viceText-FontColor">
+                        10:25:36
+                    </span>
+                </td>
+                <td>
+                    启用
+                </td>
+                <td class="text-align-center">
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-查看详情.html">查看</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-编辑子商户.html">编辑</a> &nbsp;&nbsp;
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-管理员账号.html">管理员</a> &nbsp;&nbsp;
+                    <a href="javascript:void(0);" class="link-standard text-nowrap opt-disable">禁用</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>11086</td>
+                <td>
+                    钱途互联商户
+                </td>
+                <td>淘宝</td>
+                <td>
+                    广东，广州
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>
+                    <span class="text-nowrap">
+                        2015-05-25
+                    </span>
+                    <br />
+                    <span class="text-nowrap viceText-FontColor">
+                        10:25:36
+                    </span>
+                </td>
+                <td>
+                    待审核
+                </td>
+                <td class="text-align-center">
+                    <a class="link-standard text-nowrap"  href="子商户管理-商户列表-查看详情.html">查看</a>&nbsp;&nbsp;
+                </td>
+            </tr>
+
+            <tr>
+                <td>11086</td>
+                <td>
+                    钱途互联商户
+                </td>
+                <td>淘宝</td>
+                <td>
+                    广东，广州
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>
+                    <span class="text-nowrap">
+                        2015-05-25
+                    </span>
+                    <br />
+                    <span class="text-nowrap viceText-FontColor">
+                        10:25:36
+                    </span>
+                </td>
+                <td>
+                    审核不通过
+                </td>
+                <td class="text-align-center">
+                    <a class="link-standard text-nowrap"  href="子商户管理-创建子商户(步骤2).html">重新提交</a>
+                </td>
+            </tr>
+
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+     {# 分页 #}
+     {{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该商户及关联的子商户和门店将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+//            close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用成功后，该商户及关联的子商户和门店都将激活，确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

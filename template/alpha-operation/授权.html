@@ -1,0 +1,42 @@
+ahpladsa{% extends "_layout/alpha/layout-specialHeader-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+
+<div style="text-align: center">
+<div class="lo">
+
+    <div class="fn-mt-30">
+        <h1>支付宝当面付授权</h1>
+    </div>
+    <div class="lo-panel-1">
+
+        <div  class=" inline-block text-align-center fn-ma-20">
+            <div>
+                手机扫码授权
+            </div>
+            <div class="fn-ma-30">
+                <img src="{{ static }}/images/demo/alipayPic2.png" alt="" />
+            </div>
+            <div class="fn-ma-30">
+                手机打开支付宝钱包完成授权
+            </div>
+        </div>
+        <div class=" inline-block payBox" ></div>
+        <div  class=" inline-block text-align-center fn-ma-20">
+            <div>
+                网页登录授权
+            </div>
+            <div class="fn-ma-30" style="line-height: 227px;">
+                <a href="https://openauth.alipay.com/oauth2/appToAppAuth.htm?app_id=2017010504868709&redirect_uri=http://payapi.95039.com/UPReceiver/AuthNotice" class="btn payButton" role="button">立即授权</a>
+            </div>
+            <div class="fn-ma-30">
+                电脑端用户登录支付宝网页版完成授权
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

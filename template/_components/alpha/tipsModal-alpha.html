@@ -1,0 +1,14 @@
+{% macro default(
+	noticeClass="success",
+	tipsTitle="",
+	tipsClass="success-FontColor2",
+	tipsContent=""
+) %}
+  <div class="notice-wrap {{ noticeClass }} in-modal">
+     <div class="notice-box">
+        <span class="notice-img"></span>
+        <h3>{{ tipsTitle }}</h3>
+        <p>{{ tipsContent }}</p>
+     </div>
+  </div>
+{% endmacro %}

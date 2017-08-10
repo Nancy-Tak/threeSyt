@@ -1,0 +1,182 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '服务商管理-服务商列表.html',
+                    text: '服务商管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '服务商列表'
+                },
+                {
+                    text: '编辑服务商'
+                }
+            ]
+        )
+    }}
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <form autocomplete="off">
+
+                        {# 服务商名称 #}
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>服务商名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control" placeholder="请填写服务商公司名称" value="淘淘谷科技有限公司">
+                            </div>
+                        </div>
+
+                        {# 服务商类型 #}
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b> * </b>
+                                <span> 服务商类型 </span>
+                                <em> : </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <select class="form-control" id="serviceProviderType">
+                                    <option value="0">软件服务商</option>
+                                    <option value="2">硬件服务商</option>
+                                    <option value="1">分润服务商</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="setAccount" class="display-none">
+                            {# 开户行 #}
+                            <div class="form-group">
+                               <label class="form-control-label">
+                                  <b> * </b>
+                                  <span> 开户行 </span>
+                                  <em> : </em>
+                               </label>
+                               <div class="form-control-wrap">
+                                  <select class="form-control">
+                                      <option value="0">招商银行</option>
+                                  </select>
+                               </div>
+                            </div>
+                            {# 开户名 #}
+                            <div class="form-group">
+                               <label class="form-control-label">
+                                  <b> * </b>
+                                  <span> 开户名 </span>
+                                  <em> : </em>
+                               </label>
+                               <div class="form-control-wrap">
+                                  <input type="text" class="form-control" value="淘淘谷科技有限公司"/>
+                               </div>
+                            </div>
+                            {# 开户行所在省份 #}
+                            <div class="form-group">
+                               <label class="form-control-label">
+                                  <b> * </b>
+                                  <span> 开户行所在省份 </span>
+                                  <em> : </em>
+                               </label>
+                               <div class="form-control-wrap">
+                                  <select class="form-control">
+                                      <option value="0">广东</option>
+                                  </select>
+                               </div>
+                            </div>
+                            {# 开户行所在城市 #}
+                            <div class="form-group">
+                               <label class="form-control-label">
+                                  <b> * </b>
+                                  <span> 开户行所在城市 </span>
+                                  <em> : </em>
+                               </label>
+                               <div class="form-control-wrap">
+                                  <select class="form-control">
+                                      <option value="0">广州</option>
+                                  </select>
+                               </div>
+                            </div>
+                            {# 分支行 #}
+                            <div class="form-group">
+                               <label class="form-control-label">
+                                  <b> * </b>
+                                  <span> 分支行 </span>
+                                  <em> : </em>
+                               </label>
+                               <div class="form-control-wrap">
+                                  <select class="form-control">
+                                      <option value="0">招商银行深圳分行</option>
+                                  </select>
+                               </div>
+                            </div>
+                            {# 结算账号 #}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b>*
+                                    </b>
+                                    <span>结算账号
+                                    </span>
+                                    <em>：
+                                    </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" value="6222 8888 8888 8888">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="text-align-center">
+                <div class="form-control-wrap plural-btns margin-top-20px">
+                    <button type="button" class="btn primary" id="submit">提交</button>
+                    <a href="服务商管理-服务商列表.html" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">服务商编辑成功！</span>',
+                content : '即将跳转到服务商列表页面',
+            });
+        });
+
+        $("#serviceProviderType").on("change",function(){
+            var code = $("#serviceProviderType").val();
+            if( code ==="1"){
+                $("#setAccount").removeClass("display-none");
+            }else{
+                $("#setAccount").addClass("display-none");
+            }
+        });
+    });
+</script>
+{% endblock %}

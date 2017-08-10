@@ -1,0 +1,217 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'通道管理'
+        },
+        {
+        text: '通道列表'
+        }
+        ]
+        )
+        }}
+<div>
+  <!--表格-->
+  <table class="table inverse">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 20%">
+      <col style="width:  8%">
+      <col style="width: 15%">
+      <col style="width: 20%">
+      <col style="width: 10%">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>通道编号</th>
+      <th>通道名称</th>
+      <th>支付平台</th>
+      <th>机构名称</th>
+      <th>创建时间</th>
+      <th>状 态</th>
+      <th class="th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>768423</td>
+      <td>支付宝（招商银行总行）</td>
+      <td>支付宝</td>
+      <td>招商银行总行</td>
+      <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+      <td>启用</td>
+      <td class="text-align-center">
+        <a class="link-standard" href="通道管理-通道列表（查看）.html">
+          查看
+        </a> &nbsp;&nbsp;
+          <a class="link-standard" href="通道管理-编辑通道（支付宝）.html">
+              编辑
+          </a> &nbsp;&nbsp;
+          <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>
+      </td>
+    </tr>
+
+    <tr>
+        <td>768423</td>
+        <td>支付宝（招商银行总行）</td>
+        <td>支付宝</td>
+        <td>招商银行总行</td>
+        <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+        <td>启用</td>
+        <td class="text-align-center">
+            <a class="link-standard" href="通道管理-通道列表（查看）.html">
+                查看
+            </a> &nbsp;&nbsp;
+            <a class="link-standard" href="通道管理-编辑通道（支付宝）.html">
+                编辑
+            </a> &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard opt-active">启用</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>768423</td>
+        <td>支付宝（招商银行总行）</td>
+        <td>通联支付</td>
+        <td>招商银行总行</td>
+        <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap viceText-FontColor">18:00:00</span></td>
+        <td>启用</td>
+        <td class="text-align-center">
+            <a class="link-standard" href="通道管理-通道列表（查看-通联）.html">
+                查看
+            </a> &nbsp;&nbsp;
+            <a class="link-standard" href="通道管理-编辑通道（通联支付）.html">
+                编辑
+            </a> &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="link-standard opt-active">启用</a>
+        </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+
+    <!--禁用弹层-->
+    <div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            禁用后，该支付通道将不可用。确定禁用？
+                        </div>
+                        <div class="fn-mt-30">
+                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
+                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--启用弹层-->
+    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            启用后，该支付通道将正常可用。确定启用？
+                        </div>
+                        <div class="fn-mt-30">
+                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
+                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+           // close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该商户及关联的商户将不可用，确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该商户及关联的商户将激活，确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "_layout/alpha/layout-whitePage-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+<div>
+    <div class='bigBox'>
+    <div class='contentPart'>
+        <div >
+            <h2 class='users'>尊敬的客户：</h2>
+        </div>
+        <div class='firstContent'>
+            您好！感谢您选择钱途支付服务，钱途今日为您结算总金额 <span style="font-weight:900;">￥199,437.50 </span>元，共  <span style="font-weight:900;">23</span> 笔，本次结算的对应的收款明细如下：
+        </div>
+
+        {#
+        <div class="moneys">
+            <div class='leftPart'>
+                <p class='title'>
+                    总金额
+                </p>
+                <p class='content'><span class='numbers'>2153615631</span>元</p>
+            </div>
+            <div class='rightPart'>
+                <p class='title'>
+                    总金额
+                </p>
+                <p class='content'><span class='numbers'>2153615631</span>元</p>
+            </div>
+        </div>
+        #}
+
+        <table class='tipsTable-qiantumail' border='1' cellpadding='0' cellspacing='0'>
+            <colgroup>
+                <col style="width: 22%">
+                <col style="width: 22%">
+                <col style="width: 35%">
+                <col style="width: 21%">
+            </colgroup>
+            <thead>
+            <th>交易时间</th>
+            <th>收款方</th>
+            <th>订单号</th>
+            <th>金额（元）</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td><span>2012-12-12</span> <span>15:12:10</span></td>
+                <td>康康 </td>
+                <td>jflajdfklsdajf </td>
+                <td class='error-FontColor2'>15.25 </td>
+            </tr>
+            <tr>
+                <td><span>2012-12-12</span> <span>15:12:10</span></td>
+                <td>康康 </td>
+                <td>jflajdfklsdajf </td>
+                <td class='error-FontColor2'>15.25 </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='footerPart'>
+        <img src="{{static}}/images/mailpagelogo.jpg" alt="">
+        <p>
+            注：此邮件为系统邮件，请勿直接回复。
+        </p>
+        <p>
+            如有任何疑问，请拨打客服电话 400-9928-699。
+        </p>
+    </div>
+</div>
+
+</div>
+{% endblock %}

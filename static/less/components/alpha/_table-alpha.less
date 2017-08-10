@@ -1,0 +1,176 @@
+.tables-title {
+	.table-title-tag{
+		position: absolute;
+		margin-top:9px;
+		right:10px;
+		display: inline-block;
+		color:#fff;
+		border-radius: 6px;
+		height: 28px;
+	    line-height: 28px;
+	    font-size: 12px;
+	    padding: 0 10px;
+	    &.success{
+	    	background-color: #05ae59;
+	    }
+	    &.fail{
+	    	background-color: #e92222;
+	    }
+	}
+}
+
+
+.table{
+
+    .table-checked-all {
+        position: relative;
+        display: block;
+        padding-left: 20px;
+        text-align: left;
+        cursor: pointer;
+
+        > input[type="checkbox"] {
+            position: absolute;
+            top: 1px;
+            left: 0;
+        }
+    }
+
+    .table-checked-alpha{
+        position: relative;
+
+        padding-left: 20px;
+        text-align: left;
+        cursor: pointer;
+
+        > input[type="checkbox"] {
+            position: absolute;
+            top: 1px;
+            left: 0;
+        }
+    }
+
+    .table-ctrls-special{
+        border-right: 1px solid lightgrey;
+    }
+	.table-ctrls{
+        display: inline-block;
+        width:60px;
+
+		> .ctrls {
+			z-index:100;
+			left:0px;
+		}
+	}
+	.table-img-container{
+		text-align: left;
+		a{
+			display: inline-block;
+			width:64px;
+			height:53px;
+			img{
+				width:100%;
+				height:100%;
+			}
+		}
+	}
+	tr.selfData{
+		background-color: #fafafa;
+		td{
+			background-color: #fafafa;
+		}
+	}
+
+    tr.bgcolor-info-alpha{
+        background-color: #fff4ed;
+        td{
+            background-color: #fff4ed;
+        }
+    }
+}
+
+.table-wrap.fixed {
+    .table {
+
+    }
+}
+
+//机构后台 设置费率中的table
+#table-alpha{
+    .form-notice{
+        color: #fd8832;
+    }
+}
+.table-alpha{
+    .form-notice{
+        color: #fd8832;
+    }
+}
+
+//	全checkBox选择的表格
+.table.table-checkBox{
+	tbody{
+		tr{
+			td{
+				.text-align-left();
+				input[type="checkBox"]{
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+// 系统管理-角色管理-角色权限的table
+.permission-table-wrap {
+	width: 100%;
+	display: table;
+	background-color: @primary-BorderColor;
+	padding: @paddingSize-public-alpha/2;
+
+	> .ptb,
+	> .ptName {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	> .ptName {
+		text-align: center;
+	}
+
+	> .ptb {
+		width: 80%;
+	}
+}
+
+
+//channel后台，管理订单 提示中的table
+.tipsTable-alpha{
+    width:100%;
+    margin-top:10px;
+    thead{
+        text-align: center;
+        th:first-child{
+            width:30%;
+            height :30px;
+
+        }
+        th{
+            width:69%;
+            padding:10px;
+            height :30px;
+        }
+    }
+    tbody{
+        text-align: center;
+        td:first-child{
+            width:30%;
+            height:30px;
+        }
+        td{
+            width:69%;
+            padding:10px;
+            height :30px;
+        }
+    }
+}

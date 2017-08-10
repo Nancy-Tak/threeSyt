@@ -1,0 +1,313 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 步骤提示 #}
+{{
+stepTipsAlpha.default(
+list = [
+{
+step: '1',
+text: '创建门店',
+spec:'#F2F2F2'
+},{
+step:'2',
+text: '关联合同'
+},{
+step:'3',
+text: '设置门店管理员'
+},{
+step:'4',
+text: '启用门店'
+}
+]
+)
+}}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'商户管理'
+        },
+        {
+        text: '创建门店'
+        }
+        ]
+        )
+        }}
+
+<div class="form-frame">
+    <form autocomplete="off">
+        <!-- 属性配置-->
+        <div class="form-title">
+            属性配置
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 商户名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> 商户名称 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" name="childChannelName" id="childChannelName" placeholder="" value=""/>
+                        <a href="#selectChildChannel" data-toggle="modal" class="form-control-tools-link">选择商户</a>
+                    </div>
+                </div>
+                {# 门店角色 #}
+                <div class="form-group">
+                    <label class="form-control-label" >
+                        <b> * </b>
+                        <span> 门店角色 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <select class="form-control" disabled=disabled>
+                            <option value="0">门店</option>
+                            <option value="1">个体户</option>
+                        </select>
+                    </div>
+                </div>
+
+                {# 门店类型 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 门店类型 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <select class="form-control" disabled=disabled>
+                            <option value="0">企业</option>
+                            <option value="1">个体户</option>
+                        </select>
+                    </div>
+                </div>
+
+                {# 收单设备 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 收单设备 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <select class="form-control" id="payFont">
+                            <option value="0">聚合收单二维码</option>
+                            <option value="1">POS机</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                {# 所属行业 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 所属行业 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-cascade">
+                            <select class="form-control">
+                                <option value="">主分类</option>
+                                <option value="1">美食</option>
+                                <option value="2">购物</option>
+                                <option value="3">景点</option>
+                                <option value="4">休闲娱乐</option>
+                            </select>
+                        </div>
+                        <div class="form-control-cascade">
+                            <select class="form-control">
+                                <option value="">二级分类</option>
+                                <option value="1">1.1</option>
+                                <option value="1">1.2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 功能权限配置-->
+        <!-- <div class="form-title">
+             功能权限配置
+        </div>
+        <table class="table table-checkBox">
+          <tbody>
+            <tr>
+              <td>
+                <input id="J-info" name="info" type="checkBox" checked="checked" />
+                <label for="J-info">
+                    录入商户主体信息
+                </label>
+              </td>
+              <td>
+                <input type="checkBox" checked="checked" />
+                <label>
+                    录入法人信息
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkBox" />
+                <label>
+                    签署通道合同
+                </label>
+              </td>
+              <td>
+                <input type="checkBox" checked="checked" />
+                <label>
+                    资金结算
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkBox" />
+                <label>
+                    上传企业证照图片
+                </label>
+              </td>
+              <td>
+                <input type="checkBox" />
+                <label>
+                    上传实体环境图片
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkBox" checked="checked" />
+                <label>
+                    激活和使用终端
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table> -->
+
+        <!-- 按钮 -->
+        <div class="text-align-center fn-mt-20">
+            <a href="关联商户管理-创建门店2.html" class="btn primary ">下一步</a>
+        </div>
+    </form>
+</div>
+
+
+<!--选择商户弹层-->
+<div class="modal-background fade display-none in" id="selectChildChannel" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择子商户</span>
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>商户名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>商户号</th>
+                                <th>商户名称</th>
+                                <th>所在地</th>
+                                <th>详细地址</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+    }
+</script>
+{% endblock %}
+

@@ -1,0 +1,611 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'清分管理'
+                },
+                {
+                    text: '机构清分配置'
+                }
+            ]
+        )
+    }}
+    {# 页面跳转按钮 #}
+    {{
+        pageTabAlpha.default(
+            list = [
+                {
+                link: '清分管理-清分列表.html',
+                text:'清分列表'
+                },
+                {
+                    link: '清分管理-清分文件.html',
+                    text:'清分文件'
+                },
+                {
+                    text: '机构清分配置',
+                    isActive: 1
+                }
+            ]
+        )
+    }}
+<div class="form-frame">
+    <div autocomplete="off">
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 机构 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 机构 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 机构 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 机构 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <select class="form-control">
+                            <option value="0">机构1</option>
+                            <option value="1">机构2</option>
+                        </select>
+                    </div>
+                </div>
+
+                {#格式要求 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span>格式要求</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                csv格式
+                                <input type="radio" name="format" value="0" checked="checked">
+                            </label>
+                            <label>
+                                txt文本格式
+                                <input type="radio" name="format" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {#文件分类 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span>文件分类</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check" style="width: 400px;">
+                            <label>
+                             	   不分类(单个文件)
+                                <!--不分类-->
+                                <input type="radio" name="type" value="0" checked="checked">
+                            </label>
+                            <label>
+                             	   按清分类型分类(多个文件)
+                                <!--按清分类型分类-->
+                                <input type="radio" name="type" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                {# 清分结果 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 清分结果 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                不返回结果
+                                <input type="radio" class="n-type" name="certificates" value="0" id="cer1" checked="checked">
+                            </label>
+                            <label>
+                                返回结果
+                                <input type="radio"  class="n-type" name="certificates"  value="1" >
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="qfResult" class="display-none">
+                    {# 清分状态列名 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 清分状态列名 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder='用于解析机构返回的清分结果标题' />
+                        </div>
+                    </div>
+                    {# 加密格式 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 加密格式 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                         		           未加密
+                                    <input type="radio" class="n-type" name="encryptType" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    MD5
+                                    <input type="radio"  class="n-type" name="encryptType"  value="1" >
+                                </label>
+                                <label>
+                                    SHA1
+                                    <input type="radio"  class="n-type" name="encryptType"  value="1" >
+                                </label>
+                                <label>
+                                    SHA2
+                                    <input type="radio"  class="n-type" name="encryptType"  value="1" >
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {# 数据签名#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 数据签名</span>
+                            <em> ： </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <textarea type="text" class="form-control" style="resize:none; height: 200px !important; overflow-y: scroll"  id="" cols="30" rows="10" ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                {# 文件请求 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 文件请求 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                接口获取
+                                <input type="radio" class="n-type" name="filesRequest" value="0" id="cer2" checked="checked">
+                            </label>
+                            <label>
+                                sftp上传
+                                <input type="radio"  class="n-type" name="filesRequest"  value="1" >
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="fileReq" class="display-none">
+                    {# 服务器IP #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 服务器IP </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    {# 服务器端口 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 服务器端口 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    {# sftp帐号 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> sftp帐号 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    {# sftp密码 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> sftp密码</span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                {#字段定义  #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 字段定义 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                默认全部字段
+                                <input type="radio" class="n-type" name="fieldDefinition" value="0" id="cer3" checked="checked">
+                            </label>
+                            <label>
+                                自定义字段
+                                <input type="radio"  class="n-type" name="fieldDefinition"  value="1" >
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="definition" class="display-none">
+                    {# 汇总字段#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 汇总字段</span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check-alpha">
+                                <label>
+                                       <span>汇总笔数</span>
+                                       <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                        <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                </label>
+                                <label>
+                                    <span>汇总金额</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                    	.form-control-check-alpha > label{
+                    		width: 450px;
+                    	}
+                    </style>
+
+                    {# 明细字段#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 明细字段</span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check-alpha" id="ziduan">
+                                <label>
+                                    <span>清分流水号</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                    
+                                    <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>                            
+                                <label>
+                                    <span>机构名称</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="1">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>机构编号</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="2">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+
+                                <label>
+                                    <span>商户编号</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="3">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>商户名称</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="4">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>收款账号</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                      <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>收款户名</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>开户行名</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>分支行名</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>联行号</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>开户省份</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>开户城市</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>清分金额</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>清分类型</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>摘要</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                <label>
+                                    <span>备注</span>
+                                    <input type="checkbox" class="n-type" name="reviewText" value="0">
+                                    <input class="inputContent" type="text" placeholder="可定义显示标题" />
+                                     <a href="javascript:;" class="top"><img src="{{ static }}/images/demo/jiantou.png" alt="" /></a>
+                                    <a href="javascript:;" class="bottom"><img src="{{ static }}/images/demo/jiantou2.png" alt="" /></a>
+                                </label>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="text-align-center fn-mt-20">
+    <button id="submit" type="button" class="btn primary">保存</button>
+</div>
+
+
+    <div class="form-frame fn-mb-10 display-none">
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <form autocomplete="off">
+                    {#下拉框#}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>机构/商户</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <select style="height:40px;">
+                                <option value="0">招行深圳分行</option>
+                                <option value="1">招行广州分行</option>
+                            </select>
+                        </div>
+                    </div>
+                    {#格式要求 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>格式要求</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    csv格式
+                                    <input type="radio" name="format" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    txt文本格式
+                                    <input type="radio" name="format" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {#文件分类 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>文件分类</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    不分类(单个文件)
+                                    <input type="radio" name="type" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    按清分类型分类(多个文件)
+                                    <input type="radio" name="type" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {#文件请求 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>文件请求</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    接口获取
+                                    <input type="radio" name="req" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    sftp上传
+                                    <input type="radio" name="req" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {#字段定义 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>字段定义</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    默认全部字段
+                                    <input type="radio" name="field" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    自定义字段
+                                    <input type="radio" name="field" value="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left margin-top-20px">
+                            <a href="清分管理-机构清分配置.html" class="btn primary" >保存</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block jsPage %}
+
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+  $(function(){
+    	var indexArr={
+    		'str1':''
+    	};
+    	var label1=null;
+    	for(var i=0;i<indexArr.length;i++){
+    		$('#ziduan label').eq(i).find('span').text(indexArr[i])
+    	}
+    		
+    	$('.top').click(function(){
+    		var parent_index=$(this).parents('label').index()
+    		if(parent_index==0){
+    			alert('已经是第一条了')
+    		}else{
+    			$(this).parents('label').insertBefore($('#ziduan label').eq(parent_index-1))
+    		}
+    	})
+    	$('.bottom').click(function(){
+    		var parent_index=$(this).parents('label').index()
+   			if(parent_index==$('#ziduan label').length){
+    			alert('已经是最后一条了')
+    		}else{
+    			$(this).parents('label').insertAfter($('#ziduan label').eq(parent_index+1))
+    		}
+    	})
+
+        //清分结果
+        $(".n-type").on("change",function(){
+            var isChecked = $("#cer1").prop("checked");
+            if(isChecked){
+                $("#qfResult").addClass("display-none");                          
+            }else{
+                $("#qfResult").removeClass("display-none");
+            }
+        });
+
+        //文件请求
+        $(".n-type").on("change",function(){
+            var isChecked = $("#cer2").prop("checked");
+            if(isChecked){
+                $("#fileReq").addClass("display-none");
+            }else{
+                $("#fileReq").removeClass("display-none");
+            }
+        });
+
+        //字段定义
+        $(".n-type").on("change",function(){
+            var isChecked = $("#cer3").prop("checked");
+            if(isChecked){
+                $("#definition").addClass("display-none");
+            }else{
+                $("#definition").removeClass("display-none");
+            }
+        });
+
+    });
+</script>
+{% endblock %}

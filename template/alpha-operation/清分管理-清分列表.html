@@ -1,0 +1,259 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'清分管理'
+                },
+                {
+                    text: '清分列表'
+                }
+            ]
+        )
+    }}
+
+
+{# 数据过滤器 #}
+<div class="filter-table-wrap fn-mt-20">
+    <table class="filter-table">
+        <colgroup>
+            <col style="width: 30%">
+            <col style="width: 30%">
+            <col style="width: 30%">
+        </colgroup>
+        <tr>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>清分日期
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                            <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>清分状态
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                待清分
+                            </option>
+                            <option value="">
+                                已清分
+                            </option>
+                            <option value="">
+                                清分失败
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>清分类型
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                商户清分
+                            </option>
+                            <option value="">
+                                手续费清
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>商户名称
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>机构
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="text-align-right plural-btns">
+                    <button type="button" class="btn primary small-btn">查找</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="index-panel-qf-alpha">
+    <div class="one">
+        <h5>
+            待清分总笔数
+        </h5>
+        <h3>
+
+        </h3>
+    </div>
+    <div class="two">
+        <h5>
+            待清分总金额
+        </h5>
+        <h3>
+            100.00
+        </h3>
+    </div>
+    <div class="three">
+        <h5>
+            手续费待清分总笔数
+        </h5>
+        <h3>
+           1
+        </h3>
+    </div>
+    <div class="four">
+        <h5>
+            手续费待清分总金额
+        </h5>
+        <h3>
+            100.00
+        </h3>
+    </div>
+    <div class="five">
+        <h5>
+            商户待清分总笔数
+        </h5>
+        <h3>
+           1
+        </h3>
+    </div>
+    <div class="six">
+        <h5>
+            商户待清分总金额
+        </h5>
+        <h3>
+            100.00
+        </h3>
+    </div>
+</div>
+
+<div class="text-align-right fn-mt-20 fn-mb-10">
+    <a href="###" class="link-standard" >excel下载</a>
+</div>
+<table class="table inverse">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>结算日期</th>
+                <th>商户/渠道名称</th>
+                <th>商户/渠道编号</th>
+                <th>清分类型</th>
+                <th>清分日期</th>
+                <th>收款账户</th>
+                <th>清分金额</th>
+                <th>清分状态</th>
+                <th>银行机构</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

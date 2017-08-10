@@ -1,0 +1,801 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+    <link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+    <link rel="stylesheet" href="{{ static }}/js/clockpicker/jquery-clockpicker.min.css">
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户列表'
+                },
+                {
+                    text: '编辑门店'
+                }
+            ]
+        )
+    }}
+    <div class='fn-mt-20 h3' style="font-weight: 900;">门店全称</div>
+    <div  class='fn-mt-20'>
+    <span style='color:#999;'>创建日期 :</span>
+    <span style='color:#333;'>2012-12-12</span>
+    <span class='fn-ml-50' style='color:#999;'>门店编号 :</span>
+    <span style='color:#333;'>201255412</span>
+    <span class='fn-ml-50'  style='color:#999;'>进件来源 :</span>
+    <span style='color:#333;'>进件来源fg</span>
+    <span  class='fn-ml-50' style='color:#999;'>所属机构 :</span>
+    <span style='color:#333;'>所属机构rdefte</span>
+</div>
+    <div class='fn-mt-20'>
+    <span style='color:#999;'>所属一级机构 :</span>
+    <span style='color:#333;'>所所属一级机构rdefte</span>
+    <span  class='fn-ml-50' style='color:#999;'>所属商户 :</span>
+    <span style='color:#333;'>所属商户defte</span>
+    <span  class='fn-ml-50' style='color:#999;'>所属一级商户 :</span>
+    <span style='color:#333;'>所属一级商户fte</span>
+</div>
+
+    <div class="form-frame fn-mt-20">
+        <form autocomplete="off">
+           {# 门店主体信息 #}
+            <div class="form-title">
+                门店主体信息
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {# 门店全称 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 门店全称 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+
+                    {# 门店简称 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 商户简称 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" placeholder='不超过15字的简称' class="form-control" />
+                        </div>
+                    </div>
+
+                    {# 所在省份 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 所在省份 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select id="a-province" class="form-control">
+                              <option value="0">广东</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 所在城市 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 所在城市 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select id="a-city" class="form-control">
+                              <option value="0">中山</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 所在区县 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 所在区县 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select id="a-area" class="form-control">
+                              <option value="0">0区</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 详细地址 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 详细地址 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 客服电话 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 客服电话 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 门店参数配置 #}
+            <div id='mdcs' class="form-title">
+                门店参数配置
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 收单设备 </span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    POS机
+                                    <input type="checkbox" class="t-detail">
+                                </label>
+                                <label>
+                                    收银机
+                                    <input type="checkbox" class="t-detail">
+
+                                    <!--另一种做法-->
+                                    {#
+                                    <div data-toggle="tooltips" data-pos="bottom-left" title="信息编辑未成功,
+                   请编辑后重新提交。
+                    如多次提交失败请联系客服电话95039" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+                                    #}
+                                    <!--<div class="tooltips-icon" style="background-color:#009DD9;color:white; margin-left: -3px" >-->
+                                    <!--?-->
+                                    <!--<div class="tooltips">-->
+                                    <!--信息编辑未成功，-->
+                                    <!--请编辑后重新提交。-->
+                                    <!--如多次提交失败请联系客服电话95039-->
+                                    <!--<span class="tips-arrow-border"></span>-->
+                                    <!--<span class="tips-arrow"></span>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    &nbsp;&nbsp;
+
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 门店联系人信息 #}
+            <div class="form-title">
+                门店联系人信息
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+
+                    {# 联系人类型 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 联系人类型 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <select id="area" class="form-control">
+                                <option value="0">法人</option>
+                            </select>
+                        </div>
+                    </div>
+                    {# 联系人姓名 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 联系人姓名 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    {# 联系人身份证 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 联系人身份证 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    {# 联系人手机号 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 联系人手机号 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    {# 联系人邮箱 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 联系人邮箱 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# 图片资料 #}
+            <div class="form-title" id='picTitle'>
+              <span id='picLogo' style='font-weight: 900;'>
+              —</span> 图片资料
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2" id='picContent'>
+                    <!-- 整体门面（含招牌） -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b>*</b>
+                            <span>整体门面（含招牌）用于各终端展示调用</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data form-control-check">
+                                <span class="upload-name"></span>
+                                <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                <div class="upload-box upload-img">
+                                </div>
+                                <input type="hidden" name="FileName2" value="">
+                                <input type="hidden" name="Key2" value="">
+                                <input type="hidden" name="uploadNam2" class="uploadName">
+                            </div>
+                            <div class="alert alert-warning upload-img-alert">
+                                <i></i>
+                                <div class="alert-body">
+                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                    <ul>
+                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="upload-img-wrap">
+                                <div class="upload-img-box">
+                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                    <p>您的图片</p>
+                                </div>
+                                <div class="upload-img-box">
+                                    <img src="./static/images/idcard.jpg" alt="">
+                                    <p>正确示例图</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="picture-detail">
+                            <p>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</p>
+                        </div>
+                    </div>
+                    <!-- 商户LOGO -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>商户LOGO</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data form-control-check">
+                                <span class="upload-name"></span>
+                                <input type="hidden" name="GetUrl2" value="" id="GetUr2" class="from-control upload-path">
+                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                <div class="upload-box upload-img">
+                                </div>
+                                <input type="hidden" name="FileName2" value="">
+                                <input type="hidden" name="Key2" value="">
+                                <input type="hidden" name="uploadNam2" class="uploadName">
+                            </div>
+                            <div class="alert alert-warning upload-img-alert">
+                                <i></i>
+                                <div class="alert-body">
+                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                    <ul>
+                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="upload-img-wrap">
+                                <div class="upload-img-box">
+                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                    <p>您的图片</p>
+                                </div>
+                                <div class="upload-img-box">
+                                    <img src="./static/images/idcard.jpg" alt="">
+                                    <p>正确示例图</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="picture-detail">
+                            <p>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</p>
+                        </div>
+                    </div>
+                    <!-- 收银台 -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>收银台</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data form-control-check">
+                                <span class="upload-name"></span>
+                                <input type="hidden" name="GetUrl2" value="" id="GetUrl" class="from-control upload-path">
+                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                <div class="upload-box upload-img">
+                                </div>
+                                <input type="hidden" name="FileName2" value="">
+                                <input type="hidden" name="Key2" value="">
+                                <input type="hidden" name="uploadNam2" class="uploadName">
+                            </div>
+                            <div class="alert alert-warning upload-img-alert">
+                                <i></i>
+                                <div class="alert-body">
+                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                    <ul>
+                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="upload-img-wrap">
+                                <div class="upload-img-box">
+                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                    <p>您的图片</p>
+                                </div>
+                                <div class="upload-img-box">
+                                    <img src="./static/images/idcard.jpg" alt="">
+                                    <p>正确示例图</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="picture-detail">
+                            <p>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</p>
+                        </div>
+                    </div>
+                    <!-- 店内环境 -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>店内环境</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data form-control-check">
+                                <span class="upload-name"></span>
+                                <input type="hidden" name="GetUrl2" value="" id="Getrl2" class="from-control upload-path">
+                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                <div class="upload-box upload-img">
+                                </div>
+                                <input type="hidden" name="FileName2" value="">
+                                <input type="hidden" name="Key2" value="">
+                                <input type="hidden" name="uploadNam2" class="uploadName">
+                            </div>
+                            <div class="alert alert-warning upload-img-alert">
+                                <i></i>
+                                <div class="alert-body">
+                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                    <ul>
+                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="upload-img-wrap">
+                                <div class="upload-img-box">
+                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                    <p>您的图片</p>
+                                </div>
+                                <div class="upload-img-box">
+                                    <img src="./static/images/idcard.jpg" alt="">
+                                    <p>正确示例图</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="picture-detail">
+                            <p>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</p>
+                        </div>
+                    </div>
+                    <!-- 其他资料 -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>其他资料</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data form-control-check">
+                                <span class="upload-name"></span>
+                                <input type="hidden" name="GetUrl2" value="" id="GeUrl2" class="from-control upload-path">
+                                <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                                <div class="upload-box upload-img">
+                                </div>
+                                <input type="hidden" name="FileName2" value="">
+                                <input type="hidden" name="Key2" value="">
+                                <input type="hidden" name="uploadNam2" class="uploadName">
+                            </div>
+                            <div class="alert alert-warning upload-img-alert">
+                                <i></i>
+                                <div class="alert-body">
+                                    <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                    <ul>
+                                        <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="upload-img-wrap">
+                                <div class="upload-img-box">
+                                    <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                    <p>您的图片</p>
+                                </div>
+                                <div class="upload-img-box">
+                                    <img src="./static/images/idcard.jpg" alt="">
+                                    <p>正确示例图</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="picture-detail">
+                            <p>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 按钮 -->
+            <div class="text-align-center fn-mt-20">
+                <button id="submit" type="button" class="btn primary">提交</button>
+                <a href="关联商户管理-门店列表.html" class="btn default">取消</a>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ static }}/js/webuploader/webuploader.js"></script>
+    <script src="{{ static }}/js/webuploader/uploader.js"></script>
+    <script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MtoHfKTGzxoZlYeCACbOwmDipRIV5hcf"></script>
+{% endblock %}
+
+{% block jsPage %}
+    <script type="text/javascript">
+        /**
+         * uploadSuccess 上传成功后回调
+         * @return {[type]} [description]
+         */
+        function uploadSuccess(el, file, data) {
+            /*var names = data.name.split('.');
+            var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+            $(el).siblings(".uploadName").val(data.name);
+            $(el).siblings(".upload-name").text(name + "." + names[1]);
+            $(el).siblings(".upload-path").val(data.path);
+            $(el).siblings(".upload-size").val(data.size);*/
+            // todo: test
+            $(el).siblings(".upload-name").html(file.name);
+        }
+
+         // dom准备完时加载
+        $(function(){
+            //对公 对私
+            $(".j-type").on("change",function(){
+                var isPrivateChecked = $("#private").prop("checked");
+                if(isPrivateChecked){
+                    $("#identity").removeClass("display-none");
+                }else{
+                    $("#identity").addClass("display-none");
+                }
+            });
+
+            //  营业执照证件交互
+            $(".certificates").on("change",function(){
+                //  营业执照是否勾选
+//              var isCertificatesOneChecked = $("#certificatesOne").prop("checked");
+                if($("#certificates1").prop("checked")){
+                    $(".cf0").removeClass("display-none");
+                    $(".cf1").addClass("display-none");
+                    $(".cf2").addClass("display-none");
+                }else if( $("#certificates2").prop("checked") ){
+                    $(".cf0").addClass("display-none");
+                    $(".cf1").removeClass("display-none");
+                    $(".cf2").addClass("display-none");
+                } else {
+                    $(".cf0").addClass("display-none");
+                    $(".cf1").addClass("display-none");
+                    $(".cf2").removeClass("display-none");
+                }
+            });
+
+
+            //显示/ 隐藏 图片资料
+            var isOpen= true;
+            $("#picTitle").on('click',function () {
+                isOpen = !isOpen;
+                if(isOpen){
+                    console.log('isOpen now')
+                    $("#picContent").removeClass('display-none')
+                    $("#picLogo").text('— ')
+                } else {
+                    console.log('isClose now')
+                    $("#picContent").addClass('display-none')
+                    $("#picLogo").text(' + ')
+                }
+            })
+
+            /*$('.j-upload-btn').fileUpload({
+                swf: './static/js/webuploader/Uploader.swf',
+                sendurl: 'http://localhost/fileupload.php',
+                //fileVal: 'FileData',
+                success: uploadSuccess
+            });*/
+
+            //初始化上传控件
+            $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+            $('.clockpicker').clockpicker();
+
+            //成功弹层
+            $("#submit").on("click",function(){
+              $.tipsModal({
+//                  close:  close ,
+                  // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">门店编辑成功 ！</span>',
+                content : '<div><a href="关联商户管理-门店列表.html" class="btn secondary" role="button">确定</a></div>',
+//                 buttons : {  //  按钮可以只传ok或cancel
+//                   ok : {
+//                     text : '创建合同',
+//                     callback : function () {
+//                       console.log('确定');
+//
+//
+//                     }
+//                   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+//                 }
+              });
+            });
+
+
+            var initSelectContent = "<option value=''>请选择</option>";
+            //  省市区（县），三级联动
+
+            //  省市联动
+            $("#a-province").on("change",function(){
+                //  清空城市和区县下拉选择
+                $("#a-city").html(initSelectContent);
+                $("#a-area").html(initSelectContent);
+
+                var provinceCode = $("#a-province").val();
+
+                if(provinceCode != ""){
+                   $.ajax({
+                        //  通过省份id获取城市列表的接口
+                        url: "/EAccountUser/GetCityList",
+                        data: "provinceID=" + provinceCode,
+                        method: "post",
+                        success: function (result) {
+                            var cities = result.Data;
+                            var cityHtml = initSelectContent;
+                            for (var i = 0; i < cities.length; i++) {
+                                cityHtml += '\r\n<option value="' + cities[i].CityID + '">' + cities[i].CityName + '</option>';
+                            }
+                            $("#a-city").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             CityID: "1000",
+            //             CityName: "北京市",
+            //             ProvinceID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+            //  市区（县）联动
+            $("#a-city").on("change",function(){
+                //  清空区县下拉选择
+                $("#a-area").html(initSelectContent);
+
+                var cityCode = $("#a-province").val();
+
+                if(cityCode != ""){
+                   $.ajax({
+                        //  通过城市id获取区县列表的接口
+                        url: "/EAccountUser/GetAreaList",
+                        data: "cityID=" + cityCode,
+                        method: "post",
+                        success: function (result) {
+                            var areas = result.Data;
+                            var areaHtml = initSelectContent;
+                            for (var i = 0; i < cities.length; i++) {
+                                areaHtml += '\r\n<option value="' + areas[i].AreaID + '">' + areas[i].AreaName + '</option>';
+                            }
+                            $("#a-area").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             AreaID: "1000",
+            //             AreaName: "北京市",
+            //             CityID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+            //省份改变
+            $("#ProvinceCode").change(function () {
+                //清空城市和开户支行
+                $("#BranchBankCode").html(initSelectContent);
+                $("#CityCode").html(initSelectContent);
+
+                var code = $("#ProvinceCode").val();
+                if (code != "") {
+                    $.ajax({
+                        //  通过省份id获取城市列表的接口
+                        url: "/EAccountUser/GetCityList",
+                        data: "provinceID=" + code,
+                        method: "post",
+                        success: function (result) {
+                            var cities = result.Data;
+                            var cityHtml = initSelectContent;
+                            for (var i = 0; i < cities.length; i++) {
+                                cityHtml += '\r\n<option value="' + cities[i].CityID + '">' + cities[i].CityName + '</option>';
+                            }
+                            $("#CityCode").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             CityID: "1000",
+            //             CityName: "北京市",
+            //             ProvinceID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+            //开户行改变，更新开户支行选择
+            $("#BankCode").change(function () {
+                //  清空开户支行
+                $("#BranchBankCode").html(initSelectContent);
+
+                var bankCode = $("#BankCode").val();
+                var bankName = $("#BankCode").find("option:selected").text();
+                var provincecode = $("#ProvinceCode").val();
+                var cityCode = $("#CityCode").val();
+                if (bankCode != "" && provincecode != "" && cityCode != "") {
+                    $.ajax({
+                        //  通过城市和银行获取分支行列表的接口
+                        url: "/EAccountUser/GetBranchBankList",
+                        data: "cityCode=" + cityCode + "&bankName=" + bankName,
+                        method: "post",
+                        success: function (result) {
+                            var items = result.Data;
+                            var html = initSelectContent;
+                            for (var i = 0; i < items.length; i++) {
+                                html += '<option value="' + items[i].BankCode + '">' + items[i].Lname + '</option>';
+                            }
+                            $("#BranchBankCode").html(html);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: "A1747755-CD35-4255-A9A9-66DD691A2CB5",
+            //             BankCode: "102100000474",
+            //             Status: "2",
+            //             ClsCode: "102",
+            //             DrecCode: "102100009980",
+            //             NodeCode: "1000",
+            //             CityCode: "1000",
+            //             Lname: "中国工商银行北京丰益桥支行",
+            //             Address: "北京市丰台区丰管路16号",
+            //             PostCode: "100031",
+            //             Tel: "010-83833155"
+            //         }
+            //     ]
+            // }
+
+
+
+        });
+    </script>
+{% endblock %}

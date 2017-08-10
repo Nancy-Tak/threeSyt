@@ -1,0 +1,443 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '子商户列表'
+                },
+                {
+                    text: '收银员列表'
+                }
+            ]
+        )
+    }}
+
+<div>
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table-coco">
+            <colgroup>
+                <col style="width: 40%">
+                <col style="width: 20%">
+                <col />
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>真实姓名
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn secondary small-btn">查找</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="text-align-left plural-btns">
+                        <button style='width: 100px;' type="button" class="btn secondary small-btn">下载excel模板</button>
+                        <button style='width: 100px;' id='clickDr' type="button" class="btn secondary small-btn">批量导入收银员</button>
+
+                        <a href="子商户管理-商户列表-新增店员.html"   data-toggle="modal" type="button" class="btn secondary small-btn" >
+                            新增收银员
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--表格-->
+    <table class="table inverse fn-mt-10">
+        <colgroup>
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 10%">
+            <col style=" ">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>账号</th>
+            <th>真实姓名</th>
+            <th>角色</th>
+            <th>商户名称</th>
+            <th>门店名称</th>
+            <th>状 态</th>
+            <th class="th-ctrls">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td>陆素琴</td>
+            <td>收银员,主管</td>
+            <td>昌隆零售有限公司</td>
+            <td>昌隆零售门店1</td>
+            <td>启用</td>
+            <td class="text-align-left">
+                <a class="link-standard" href="子商户管理-商户列表-编辑收银员.html">
+                    编辑
+                </a> &nbsp;&nbsp;
+                <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>
+                &nbsp;&nbsp;
+                <a href="javascript:void(0);" class="link-standard opt-disable-del">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>陆素琴</td>
+            <td>收银员,主管</td>
+            <td>昌隆零售有限公司</td>
+            <td>昌隆零售门店1</td>
+            <td>待启用</td>
+            <td class="text-align-left">
+            </td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>陆素琴</td>
+            <td>收银员,主管</td>
+            <td>昌隆零售有限公司</td>
+            <td>昌隆零售门店1</td>
+            <td>待启用</td>
+            <td class="text-align-left">
+                <a class="link-standard" href="子商户管理-商户列表-编辑收银员.html" style="color:red;">
+                    编辑
+                    <!--另一种做法-->
+                    <div data-toggle="tooltips" data-pos="bottom-left" title="信息编辑未成功,
+                   请编辑后重新提交。
+                    如多次提交失败请联系客服电话95039" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+
+                </a> &nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>陆素琴</td>
+            <td>收银员,主管</td>
+            <td>昌隆零售有限公司</td>
+            <td>昌隆零售门店1</td>
+            <td>禁用</td>
+            <td class="text-align-left">
+                <a class="link-standard" href="子商户管理-商户列表-编辑收银员.html">
+                    编辑
+                </a> &nbsp;&nbsp;
+                <a href="javascript:void(0);" class="link-standard opt-active">启用</a>
+                &nbsp;&nbsp;
+                <a href="javascript:void(0);" class="link-standard opt-disable-del">删除</a>
+            </td>
+        </tr>
+        <!--<tr class="bgcolor-info-alpha">-->
+        <!--</tr>-->
+
+        </tbody>
+    </table>
+</div>
+
+<!--导入弹层-->
+<div class="modal-background fade display-none in" id="daoru1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>导入付款人</span>
+                    <button class="modal-close" title="关闭" id="closeDr">
+                    <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+
+                    <div class="alert alert-warning ">
+                        <i></i>
+                        <em></em>
+                        请下载excel模板，按照模板格式填写后导入（当前只支持xls格式）
+                    </div>
+                    <div class="form-layer1 " >
+                        <div class="form-layer2">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <span>文件</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap text-align-left">
+                                    <div class="form-control-data form-control-check">
+                                        <span class="upload-name"></span>
+
+                                        <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button>
+                                        <div class="upload-box upload-img"></div>
+                                        <input type="hidden" name="FileName2" value="">
+                                        <input type="hidden" name="Key2" value="">
+                                        <input type="hidden" name="uploadNam2" class="uploadName">
+                                    </div>
+                                    <div class="alert alert-warning upload-img-alert">
+                                        <i></i>
+                                        <div class="alert-body">
+                                            <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                            <ul>
+                                                <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="form-control-data text-align-left picture-detail">
+                                    支持xls格式，文件大小1M以内 <button >下载excel模板</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                        <button type="button" id="qxdr" class="btn secondary small-btn">
+                            取消
+                        </button>
+                        <button type="button" id='qrdr' class="btn secondary small-btn off1">
+                            确认
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--提示弹层-->
+<div class="modal-background fade display-none in" id="tishi1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>提示</span>
+                    <button class="modal-close" id='closeTs' title="关闭">
+                    <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+
+                    <div class="text-align-left fn-pt-20" style="margin-left:40%;">
+                        <div>
+                            <span>导入成功</span>：<span>1000</span>条
+                        </div>
+                        <div>
+                            <span>导入失败</span>：<span>100</span>条
+                        </div>
+                        <div>
+                            <span>已忽略相同数据</span>：<span>1</span>条
+                        </div>
+                        <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                            <button type="button" id='closeTips' class="btn secondary small-btn off1">
+                                知道了
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--删除弹层-->
+<div class="modal-background fade  display-none in" id="delete1" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>删除付款人</span>
+                    <!--<button class="modal-close" title="关闭">-->
+                    <!--<i></i>-->
+                    <!--</button>-->
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pa-20">
+
+                    <div class='h3 fn-ma-10'>是否确定删除以下信息？</div>
+                    <div class="text-align-left" style="margin-left:30%;">
+
+                        <div>
+                            <span>付款人</span>：<span>百佳超市体育西路店</span>
+                        </div>
+                        <div>
+                            <span>所属门店</span>：<span>门店1</span>
+                        </div>
+                        <div>
+                            <span>备注</span>：<span>备注222</span>
+                        </div>
+                        <div class='fn-mt-10 fn-mr-40 text-align-right'>
+                            <button type="button" id="qxsc" class="btn secondary small-btn">
+                                取消
+                            </button>
+                            <button type="button" id='qrsc' class="btn secondary small-btn off1">
+                                确认
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+    $('.table').on('click','.opt-disable-del',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">删除</span>',
+            content : '删除后，该收银员将不登录POS机。确定删除？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该机构及关联的商户将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            //close:  close ,
+            // modalTitle:"test",
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该机构及关联的商户将正常可用。确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    //点击导入
+    $("#clickDr").on('click',function () {
+        console.log('clickDr')
+        $("#daoru1").removeClass('display-none')
+    })
+    //取消导入
+    $("#qxdr,#closeDr").on('click',function () {
+        $("#daoru1").addClass('display-none')
+    })
+    //确认导入
+    $("#qrdr").on('click',function () {
+        $("#daoru1").addClass('display-none')
+        $("#tishi1").removeClass('display-none')
+
+    })
+
+    //提示  知道了
+    $("#closeTips,  #closeTs ").on('click',function () {
+        $("#tishi1").addClass('display-none')
+    })
+
+    //取消删除
+    $("#qxsc").on('click',function () {
+        $("#delete1").addClass('display-none')
+    })
+    //确认删除
+    $("#qrsc").on('click',function () {
+        $("#delete1").addClass('display-none')
+    })
+
+</script>
+{% endblock %}

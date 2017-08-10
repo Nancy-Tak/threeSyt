@@ -1,0 +1,853 @@
+{% macro default( fixedClass='' ) %}
+<div id="nav-alpha" class="{{ fixedClass }}">
+    <ul class="lv1">
+        <li>
+            <a href="首页.html" class="lv1-btn">
+                首页
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                支付通道管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="通道管理-通道列表.html" class="lv2-btn">
+                        通道列表
+                    </a>
+                </li>
+                <li>
+                    <a href="通道管理-创建通道（步骤1）.html" class="lv2-btn">
+                        创建通道
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                清分管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="清分管理-清分文件.html" class="lv2-btn">
+                        清分文件
+                    </a>
+                </li>
+                <li>
+                    <a href="清分管理-机构清分配置.html" class="lv2-btn">
+                        机构清分配置
+                    </a>
+                </li>
+            </ul>
+        </li> -->
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                机构管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="机构管理-机构列表.html" class="lv2-btn">
+                        机构列表
+                    </a>
+                </li>
+                <li>
+                    <a href="机构管理-创建子机构.html" class="lv2-btn">
+                        创建子机构
+                    </a>
+                </li>
+                <li>
+                    <a href="机构管理-服务方案列表.html" class="lv2-btn">
+                        服务方案列表
+                    </a>
+                </li>
+                <li>
+                    <a href="机构管理-服务方案列表（添加方案）.html" class="lv2-btn">
+                        添加服务方案
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                审核管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="审核管理-待审核列表.html" class="lv2-btn">
+                        待审核列表
+                    </a>
+                </li>
+                <li>
+                    <a href="审核管理-已审核列表.html" class="lv2-btn">
+                        已审核列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                商户管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="关联商户管理-商户列表.html" class="lv2-btn">
+                        商户列表
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-门店列表.html" class="lv2-btn">
+                        门店列表
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-创建商户.html" class="lv2-btn">
+                        创建商户
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-创建子商户.html" class="lv2-btn">
+                        创建子商户
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-创建门店2.html" class="lv2-btn">
+                        创建门店
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                商户合同管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="商户合同管理-合同列表.html" class="lv2-btn">
+                        合同列表
+                    </a>
+                </li>
+                <li>
+                    <a href="商户合同管理-创建合同.html" class="lv2-btn">
+                        创建合同
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                关联终端管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="关联终端管理-机器终端列表.html" class="lv2-btn">
+                        机器终端列表
+                    </a>
+                </li>
+                <li>
+                    <a href="关联终端管理-装机记录.html" class="lv2-btn">
+                        装机记录
+                    </a>
+                </li>
+                <li>
+                    <a href="关联终端管理-撤机记录.html" class="lv2-btn">
+                        撤机记录
+                    </a>
+                </li>
+                <li>
+                    <a href="关联终端管理-激活码管理.html" class="lv2-btn">
+                        激活码管理
+                    </a>
+                </li>
+                <!--<li>-->
+                <!--<a href="关联终端管理-二维码收款管理.html" class="lv2-btn">-->
+                <!--二维码收款管理-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                收单对账管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="对账管理-商户订单列表.html" class="lv2-btn">
+                        商户订单列表
+                    </a>
+                </li>
+                <li>
+                    <a href="对账管理-总账报表.html" class="lv2-btn">
+                        总账报表
+                    </a>
+                </li>
+                <li>
+                    <a href="对账管理-挂销账管理.html" class="lv2-btn">
+                        挂销账管理
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li >
+            <a href="javascript:void(0);" class="lv1-btn">
+                账务报表查询
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="收单对账管理-服务商流水表.html" class="lv2-btn">
+                        服务商流水表
+                    </a>
+                </li>
+                <li>
+                    <a href="收单对账管理-服务商结算表.html" class="lv2-btn">
+                        服务商结算表
+                    </a>
+                </li>
+                <li>
+                    <a href="收单对账管理-商户流水表.html" class="lv2-btn">
+                        商户流水表
+                    </a>
+                </li>
+                <li>
+                    <a href="收单对账管理-商户结算表.html" class="lv2-btn">
+                        商户结算表
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        {#
+
+        <li >
+            <a href="javascript:void(0);" class="lv1-btn">
+                账务报表查询
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="财务报表查询-收银交易记录.html" class="lv2-btn">
+                        收银交易记录
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="lv2-btn">
+                        交易数据统计
+                        <i class="icon-chevron-thin-right"></i>
+                    </a>
+                    <ul class="lv3">
+                        <li>
+                            <a href="财务报表查询-交易数据统计（按机构统计）.html" class="lv3-btn">
+                                按机构统计
+                            </a>
+                        </li>
+                        <li>
+                            <a href="财务报表查询-交易数据统计（按支付方式统计）.html" class="lv3-btn">
+                                按支付方式统计
+                            </a>
+                        </li>
+                        <li>
+                            <a href="财务报表查询-交易数据统计（按行业分类统计）.html" class="lv3-btn">
+                                按行业分类统计
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="财务报表查询-机构分润对账单.html" class="lv2-btn">
+                        机构分润对账单
+                    </a>
+                </li>
+                <li>
+                    <a href="财务报表查询-商户分润对账单.html" class="lv2-btn">
+                        商户分润对账单
+                    </a>
+                </li>
+            </ul>
+        </li>
+        #}
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                清分管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="清分管理-清分列表.html" class="lv2-btn">
+                        清分列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                系统管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="系统管理-账号管理.html" class="lv2-btn">
+                        账号管理
+                    </a>
+                </li>
+                <li>
+                    <a href="系统管理-角色管理.html" class="lv2-btn">
+                        角色管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro channel( fixedClass='' ) %}
+<div id="nav-alpha" class="{{ fixedClass }}">
+    <ul class="lv1">
+        <li>
+            <a href="首页.html" class="lv1-btn">
+                首页
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                子商户管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="子商户管理-商户列表.html" class="lv2-btn">
+                        子商户列表
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="子商户管理-创建子商户(步骤2).html" class="lv2-btn">-->
+                        <!--创建子商户-->
+                    <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                门店管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="门店管理-门店列表.html" class="lv2-btn">
+                        门店列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                支付通道查看
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="通道列表.html" class="lv2-btn">
+                        通道列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                合同管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="合同管理-合同列表.html" class="lv2-btn">
+                        合同列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="关联终端管理-二维码收款管理.html" class="lv1-btn">
+                二维码管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                收款管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="收款管理-管理收款对象.html" class="lv2-btn">
+                        管理收款对象
+                    </a>
+                </li>
+                <li>
+                    <a href="收款管理-管理订单.html" class="lv2-btn">
+                        管理订单
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                数据报表
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="数据报表-交易数据报表.html" class="lv2-btn">
+                        交易数据报表
+                    </a>
+                </li>
+                <!--          <li>
+                            <a href="数据报表-订单列表.html" class="lv2-btn">
+                                订单列表
+                            </a>
+                        </li>-->
+                <li>
+                    <a href="数据报表-收单金额结算.html" class="lv2-btn">
+                        收单金额结算
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!--
+        <li>
+            <a href="进销存管理.html" class="lv1-btn">
+                进销存管理
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                数据报表
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="收单流水查询.html" class="lv2-btn">
+                        收银交易记录
+                    </a>
+                </li>
+            </ul>
+        </li>
+          -->
+        <!--
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                财务报表查询
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="财务报表查询-交易数据汇总.html" class="lv2-btn">
+                        交易数据汇总
+                    </a>
+                </li>
+                <li>
+                    <a href="财务报表查询-交易记录.html" class="lv2-btn">
+                        交易记录
+                    </a>
+                </li>
+                <li>
+                    <a href="财务报表查询-交易数据分析.html" class="lv2-btn">
+                        交易数据分析
+                    </a>
+                </li>
+            </ul>
+        </li>
+         -->
+        <!-- <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                关联终端管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="关联终端管理-二维码收款管理.html" class="lv2-btn">
+                        二维码收款管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        -->
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                系统管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="系统管理-账号管理.html" class="lv2-btn">
+                        账号管理
+                    </a>
+                </li>
+                <li>
+                    <a href="系统管理-角色管理.html" class="lv2-btn">
+                        角色管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro operation( fixedClass='' ) %}
+<div id="nav-alpha" class="{{ fixedClass }}">
+    <ul class="lv1">
+        <!--<li>
+            <a href="机构管理-机构列表.html" class="lv1-btn">
+                机构列表
+            </a>
+        </li>
+        <li>
+            <a href="机构管理-创建子机构.html" class="lv1-btn">
+                创建机构
+            </a>
+        </li>
+        <li>
+            <a href="服务商管理-服务商列表.html" class="lv1-btn">
+                服务商列表
+            </a>
+        </li>
+        <li>
+            <a href="服务商管理-创建服务商.html" class="lv1-btn">
+                创建服务商
+            </a>
+        </li>
+        <li>
+            <a href="终端管理-终端列表.html" class="lv1-btn">
+                终端列表
+            </a>
+        </li>-->
+        <li>
+            <a href="首页.html" class="lv1-btn">
+                首页
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                支付通道管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+
+            <ul class="lv2">
+                <li>
+                    <a href="通道管理-通道列表.html" class="lv2-btn">
+                        通道列表
+                    </a>
+                </li>
+                <li>
+                    <a href="通道管理-创建通道（步骤1）.html" class="lv2-btn">
+                        创建通道
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                机构管理
+                <i class="icon-chevron-thin-right"></i>
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="机构管理-机构列表.html" class="lv2-btn">
+                        机构列表
+                    </a>
+                </li>
+                <li>
+                    <a href="机构管理-创建子机构.html" class="lv2-btn">
+                        创建一级机构
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                服务方案管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="机构管理-服务方案列表.html" class="lv2-btn">
+                        服务方案列表
+                    </a>
+                </li>
+                <li>
+                    <a href="机构管理-服务方案列表（添加方案）.html" class="lv2-btn">
+                        添加服务方案
+                    </a>
+                </li>
+                <li>
+                    <a href="服务商管理-服务商列表.html" class="lv2-btn">
+                        服务商列表
+                    </a>
+                </li>
+                <li>
+                    <a href="服务商管理-创建服务商.html" class="lv2-btn">
+                        创建服务商
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                商户管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="关联商户管理-商户列表.html" class="lv2-btn">
+                        商户列表
+                    </a>
+                </li>
+                  <li>
+                    <a href="关联商户管理-门店列表.html" class="lv2-btn">
+                        门店列表
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-创建商户(步骤1).html" class="lv2-btn">
+                        创建商户
+                    </a>
+                </li>
+                  <li>
+                    <a href="关联商户管理-创建子商户.html" class="lv2-btn">
+                        创建子商户
+                    </a>
+                </li>
+                <li>
+                    <a href="关联商户管理-创建门店.html" class="lv2-btn">
+                        创建门店
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                商户合同管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="商户合同管理-合同列表.html" class="lv2-btn">
+                        合同列表
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+        </li>
+                <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                审核管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="审核管理-待审核列表.html" class="lv2-btn">
+                        待审核列表
+                    </a>
+                </li>
+                     <li>
+                    <a href="审核管理-已审核列表.html" class="lv2-btn">
+                        已审核列表
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                收单对账管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="对账管理-挂销账管理.html" class="lv2-btn">
+                        挂销账管理
+                    </a>
+                </li>
+                <li>
+                    <a href="收单流水查询-收银流水表.html" class="lv2-btn">
+                        收银流水表
+                    </a>
+                </li>
+                <li>
+                    <a href="收单流水查询-商户订单列表.html" class="lv2-btn">
+                        商户订单列表
+                    </a>
+                </li>
+
+
+
+
+            </ul>
+
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                关联终端管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="终端管理-终端列表.html" class="lv2-btn">
+                        终端列表
+                    </a>
+                </li>
+                <li>
+                    <a href="关联终端管理-激活码管理.html" class="lv2-btn">
+                        激活码管理
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </li>
+
+
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                清分管理
+
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="清分管理-清分列表.html" class="lv2-btn">
+                        清分列表
+                    </a>
+                </li>
+                  <li>
+                    <a href="清分管理-清分状态管理.html" class="lv2-btn">
+                        清分状态管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+<!--        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                报表管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="财务报表查询-收银交易记录.html" class="lv2-btn">
+                        收银交易记录
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </li>-->
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                系统管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="系统管理-系统日志.html" class="lv2-btn">
+                        系统日志
+                    </a>
+                </li>
+                <li>
+                    <a href="系统管理-账号管理.html" class="lv2-btn">
+                        帐号管理
+                    </a>
+                </li>
+                <li>
+                    <a href="系统管理-角色管理.html" class="lv2-btn">
+                        角色管理
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+
+{% macro operationTwo( fixedClass='' ) %}
+<div id="nav-alpha" class="{{ fixedClass }}">
+    <ul class="lv1">
+        <li>
+            <a href="机构管理-机构列表.html" class="lv1-btn">
+                机构列表
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                创建机构
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                服务商列表
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                创建服务商
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                终端列表
+            </a>
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro service( fixedClass='' ) %}
+<div id="nav-alpha" class="{{ fixedClass }}">
+    <ul class="lv1">
+        <li>
+            <a href="首页.html" class="lv1-btn">
+                首页
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="lv1-btn">
+                收单对账管理
+            </a>
+            <ul class="lv2">
+                <li>
+                    <a href="收单对账管理-服务商流水表.html" class="lv2-btn">
+                        服务商流水表
+                    </a>
+                </li>
+                <li>
+                    <a href="收单对账管理-服务商结算表.html" class="lv2-btn">
+                        服务商结算表
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endmacro %}

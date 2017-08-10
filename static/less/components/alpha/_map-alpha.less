@@ -1,0 +1,62 @@
+//	百度地图
+.map-modalContainer{
+	&.invisible{
+		visibility: hidden;
+	}
+	position:fixed;
+	width:100%;
+	height:100%;
+	top: 0;
+    left: 0;
+    z-index:2;
+    background: url(../images/black70.png);
+}
+.mapWrap{
+	position: absolute;
+	width: 75%;
+    height: 70%;
+    min-width: 700px;
+    min-height: 500px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+	.mapContainer{width:100%;height:100%;}
+	.searchWrap{
+		position:absolute;
+		top:10px;
+		left:10px;
+	}
+
+	p{margin-left:5px; font-size:14px;}
+}
+
+.tangram-suggestion-main{
+	z-index:2;
+}
+
+.map-modalContainer{
+	#r-result {
+        background-color: #ddf;
+        color: #333;
+        border: 1px solid silver;
+        box-shadow: 3px 4px 3px 0px silver;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        line-height: 20px;
+    }
+    #r-result input[type="text"] {
+        height: 25px;
+        border: 0;
+        padding-left: 5px;
+        width: 280px;
+        border-radius: 3px;
+        outline: none;
+    }
+}
+

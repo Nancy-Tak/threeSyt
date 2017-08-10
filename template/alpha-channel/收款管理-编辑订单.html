@@ -1,0 +1,258 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '收款管理'
+                }, {
+link: 'javascript:void(0);',
+text: '管理订单'
+},
+                {
+                    text: '编辑订单'
+                }
+            ]
+        )
+    }}
+
+    <div class="form-frame">
+        <form autocomplete="off">
+
+            <div class="form-title">
+             编辑订单
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {# 商户订单号 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 商户订单号 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" value='百佳超市体育西路店' class="form-control" />
+                        </div>
+                    </div>
+
+                    {# 订单金额（元） #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 订单金额（元） </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" value='百佳超市体育西路店' class="form-control" />
+                       </div>
+                    </div>
+
+                    {# 所属门店 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b> * </b>
+                            <span> 所属门店 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="***" class="form-control inline-block" name="childChannelName" id="childChannelName" placeholder="" value=""/>
+                            <a href="#"  id='chooseBtn' class="form-control-tools-link">选择门店</a>
+                        </div>
+                    </div>
+
+
+
+                    {# 付款人名称 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span> 付款人名称 </span>
+                            <em> : </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="***" class="form-control inline-block" name="" placeholder="" value=""/>
+                        </div>
+                        </div>
+
+                    {# 备注 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 备注 </span>
+                          <em> : </em>
+                       </label>
+                        <div class="form-control-wrap">
+                            <textarea class="form-control"   rows="5" style="resize:none; max-width: 100%; width: 100%; height: auto">长期订单</textarea>
+                            <div>300个字以内</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 按钮 -->
+            <div class="text-align-center fn-mt-20">
+                <!--<button type="button" class="btn primary submit">提交</button>-->
+                <!-- <button type="submit" class="btn primary">提交</button> -->
+                <a href="收款管理-管理订单.html"type="button" class="btn primary">确定</a>
+                <a href="收款管理-管理订单.html" type="button" class="btn default">取消</a>
+            </div>
+        </form>
+    </div>
+
+{# 选择门店弹层 #}
+<div class="modal-background fade display-none in" id="selectChildChannel" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择门店</span>
+                    <button class="modal-close" id='closeSelectShop'  title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>门店名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col style='width:15%'>
+                                <col style='width:20%'>
+                                <col style='width:20%'>
+                                <col style='width:25%'>
+                                <col />
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>门店编号</th>
+                                <th>门店名称</th>
+                                <th>所在地</th>
+                                <th>详细地址</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td >百事可乐公司1</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single"  id='百事可乐公司1'>选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司2</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single"  id='百事可乐公司2'>选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司3</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single"  id='百事可乐公司3'>选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司4</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single"  id='百事可乐公司4'>选择</a></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block jsPage %}
+  <script>
+      // 静态分页
+      function ajaxData(e, index, instance){
+          index = index || 1;
+          // 自定义总页码模板
+          $('#p1').pagination({
+              currentPage: index,
+              items: 100,
+              itemsOnPage: 10,
+              pageStr: {
+                  show: true,
+                  template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+              }
+          });
+          $('#p1').on('select.ui.pagination', ajaxData);
+      }
+      ajaxData();
+
+
+      $(".submit").on("click",function(){
+          $.tipsModal({
+              close:  close ,
+              // modalTitle:"test",
+            type : 'success',   //  success info error
+            title : '<span class="success-FontColor2">成功</span>',
+            content : '子商户管理员账号新建成功'
+            // buttons : {  //  按钮可以只传ok或cancel
+            //   ok : {
+            //     text : '确定',
+            //     callback : function () {
+            //       console.log('确定');
+            //     }
+            //   },
+            //   cancel : {
+            //     text : '取消',
+            //     callback : function () {
+            //       console.log('取消');
+            //     }
+            //   }
+            // }
+          });
+      });
+
+      //点击‘ 选择门店’ 弹出弹层
+      $("#chooseBtn").on('click',function () {
+          $("#selectChildChannel").removeClass('display-none')
+
+      })
+
+      //选择了门店 ， 关闭‘选择门店’ 弹层
+      $(".single, #closeSelectShop").on('click',function () {
+          console.log(this.id  )
+          var showName = this.id;
+          $("#selectChildChannel").addClass('display-none')
+          $("#childChannelName").val(showName)
+      })
+  </script>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '系统管理-账号管理.html',
+                    text: '系统管理'
+                },
+                {
+                    link: '系统管理-账号管理.html',
+                    text: '账号管理'
+                },
+                {
+                    text: '查看账号'
+                }
+            ]
+        )
+    }}
+
+
+    {# 表格标题 #}
+    <h5 class="fn-mt-20 fn-mb-10">账号信息</h5>
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            cols='
+                <colgroup>
+                    <col style="width: 20%">
+                    <col style="width: 30%">
+                    <col style="width: 20%">
+                    <col style="width: 30%">
+                </colgroup>
+            ',
+            data={
+                tbodyList: [
+                    [
+                        {
+                            inner: '<b>账号名称</b>'
+                        },
+                        {
+                            inner: 'Graxii'
+                        },
+                        {
+                            inner: '<b>姓名</b>'
+                        },
+                        {
+                            inner: '张丹丹'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>手机号码</b>'
+                        },
+                        {
+                            inner: '138 0000 0000'
+                        },
+                        {
+                            inner: '<b>邮箱</b>'
+                        },
+                        {
+                            inner: 'dandan.zhang@gmail.com'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>账号角色</b>'
+                        },
+                        {
+                            inner: '财务'
+                        },
+                        {
+                            inner: '<b>备注</b>'
+                        },
+                        {
+                            inner: '新员工'
+                        }
+                    ],
+                    [
+                        {
+                            inner: '<b>创建时间</b>'
+                        },
+                        {
+                            inner: '
+                                <span class="text-nowrap">
+                                    2015-05-25
+                                </span>
+                                <span class="text-nowrap viceText-FontColor">
+                                    10:25:36
+                                </span>
+                            '
+                        },
+                        {
+                            inner: '<b>状态</b>'
+                        },
+                        {
+                            inner: '
+                                <span>
+                                    启用
+                                </span>
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='table-border'
+        )
+    }}
+
+    <div class="text-align-center fn-pt-20">
+        <button class="btn secondary" onclick="window.location.href='系统管理-账号管理.html'">
+            返回
+        </button>
+    </div>
+
+{% endblock %}

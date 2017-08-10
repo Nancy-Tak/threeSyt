@@ -1,0 +1,24 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'财务报表查询'
+},
+{
+text: '商户分润对账单'
+}
+]
+)
+}}
+
+{# frame 爷爷样式 #}
+<img class="frame-img" src="{{ static }}/images/demo/商户分润对账单.png" alt="商户分润对账单" />
+
+{% endblock %}

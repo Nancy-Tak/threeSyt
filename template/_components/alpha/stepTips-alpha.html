@@ -1,0 +1,47 @@
+{% macro default( list=[],fixedClass='' ) %}
+<table cellspacing="0 " width="100%" cellpadding="0 " class="step-tips-table-alpha {{ fixedClass }}" >
+    {% for item in list %}
+        {% if item.spec %}
+        <th class="border-th" bgcolor={{item.spec}}>
+        {% if list.length==item.step %}
+        <span >
+            {{item.step}}
+        </span>
+        <span>
+            {{ item.text }}
+         </span>
+        {% else %}
+        <span>
+            {{item.step}}
+        </span>
+        <span>
+            {{ item.text }}
+         </span>
+        <i class="icon-chevron-thin-right"></i>
+        {% endif %}
+    </th>
+        {% else %}
+        <th class="border-th"  >
+        {% if list.length==item.step %}
+        <span >
+            {{item.step}}
+        </span>
+        <span>
+            {{ item.text }}
+         </span>
+        {% else %}
+        <span>
+            {{item.step}}
+        </span>
+        <span>
+            {{ item.text }}
+         </span>
+        <i class="icon-chevron-thin-right"></i>
+        {% endif %}
+    </th>
+        {% endif %}
+    {% endfor %}
+    </thead>
+</table>
+
+{% endmacro %}

@@ -1,0 +1,84 @@
+{% extends "_layout/alpha/layout-noNavAndHeader-alpha.html" %}
+
+{# content内容 #}
+{% block content %}
+<div class="lo">
+    <div class="lo-panel">
+
+        <div class="lo-box">
+            <h3 class="text-align-center fn-pb-20">账号：Graxii</h3>
+            <form action="">
+                <div class="lo-form-item">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="请输入新密码">
+                        </div>
+                    </div>
+                </div>
+                <div class="lo-form-item">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="请再次输入新密码">
+                        </div>
+                    </div>
+                </div>
+                <div class="lo-form-item">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <div class="form-control-verify">
+                                <input type="text" class="form-control" placeholder="请输入短信验证码">
+                                <button id="getCode" class="btn form-control-verify-btn" type="button">获取验证码</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="fn-pt-10 fn-pb-10 viceText-FontColor">短信将发送至尾号为6740的手机号</p>
+
+                <div class="lo-form-item button">
+                    <button type="button" class="btn primary" style="width: 100%; display: block;" id="submit">提交</button>
+                    <a href="登录.html" class="link-standard text-align-center fn-pt-10" style="display: block;">返回登录界面</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+//                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将跳转到系统登录页面',
+                // buttons : {  //按钮可以只传ok或cancel
+                //     ok : {
+                //     text : '确定', callback : function () {
+                //             console.log('确定');
+                //         }
+                //     }
+                // }
+            });
+        });
+    });
+
+    // 调用获取验证码方法
+    $(function() {
+         var btn = document.getElementById( "getCode" );
+         //调用监听
+         monitor( $(btn) );
+         //点击click
+         btn.onclick = function() {
+             //倒计时效果  getCode回调函数  获取验证码api
+             countDown($( this ), getCode);
+         };
+         function getCode() {
+             alert( "验证码发送成功" );
+         }
+     });
+</script>
+{% endblock %}

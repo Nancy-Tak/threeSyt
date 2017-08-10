@@ -1,0 +1,410 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '商户列表'
+                },
+                {
+                    text: '查看门店详情'
+                }
+            ]
+        )
+    }}
+
+{# 属性配置 #}
+    <div>
+        <div class="tables-title">
+            属性配置
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+            	 <tr>
+                    <th>所属一级机构</th>
+                    <td>所属一级机构所属一级机构</td>
+                    <th>所属机构</th>
+                    <td>所属机构这是门店所属商户的所属机构</td>
+                </tr>
+                <tr>
+                    <th>所属一级商户</th>
+                    <td>所属一级商户所属一级商户</td>
+                    <th>所属商户</th>
+                    <td>百事可乐嘉年华有限公司</td>
+                </tr>
+                <tr>
+                  
+                    <th>所属行业</th>
+                    <td>购物，综合商场</td>
+                      <th>进件来源</th>
+                    <td>自主进件</td>
+                </tr>
+                <tr>
+                    <th>创建时间</th>
+                    <td>2016-12-12</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{# 功能权限 #}
+   <!-- <div>
+        <div class="tables-title">
+            功能权限
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <td>录入商户主体信息</td>
+                    <td>录入法人信息</td>
+                </tr>
+                <tr>
+                    <td>签署通道合同</td>
+                    <td>资金结算</td>
+                </tr>
+                <tr>
+                    <td>上传企业证照图片</td>
+                    <td>上传实体环境图片</td>
+                </tr>
+                <tr>
+                    <td>激活和使用终端</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+-->
+{# 核身要求 #}
+    <!--
+    <div>
+        <div class="tables-title">
+            核身要求
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <td>企业对公账户认证</td>
+                    <td>法人身份认证</td>
+                </tr>
+                <tr>
+                    <td>法人人脸认证</td>
+                    <td>法人个人银行卡认证</td>
+                </tr>
+                <tr>
+                    <td>商户管理员身份认证</td>
+                    <td>商户管理员人脸认证</td>
+                </tr>
+                <tr>
+                    <td>商户管理员银行卡认证</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+{# 门店主体信息 #}
+    <div>
+        <div class="tables-title">
+            门店主体信息
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>门店编号</th>
+                    <td>1086</td>
+                    <th>门店名称</th>
+                    <td>北京爱时尚女装有限公司</td>
+                </tr>
+                <tr>
+                    <th>门店简称</th>
+                    <td>北京爱时尚女装</td>
+                    <th>详细地址</th>
+                    <td>好汉路108号1楼</td>
+                </tr>
+                <tr>
+                    <th>所在地</th>
+                    <td>广东，深圳，福田</td>
+                    <th>客服电话</th>
+                    <td>00755-2336784</td>
+                </tr>
+             <!--   <tr>
+                    <th>线上线下</th>
+                    <td>线下实体店</td>
+                    <th></th>
+                    <td></td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    
+    {#  门店联系人信息 #}
+    <div>
+        <div class="tables-title">
+             门店联系人信息
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>联系人姓名</th>
+                    <td>张三</td>
+                    <th>联系人类型</th>
+                    <td>法人</td>
+                </tr>
+                <tr>
+                    <th>联系人身份证号</th>
+                    <td>33333333333333333</td>
+                    <th>联系人手机号码</th>
+                    <td>1300000000000</td>
+                </tr>
+                <tr>
+                    <th>联系人邮箱</th>
+                    <td>244444</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        
+    {#   门店参数 #}
+    <div>
+        <div class="tables-title">
+              门店参数
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>收单设备</th>
+                    <td>POS,收银机</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{# 法人信息 #}
+    <!-- 法人信息-->
+<!--    <div>
+        <div class="tables-title">
+            法人信息
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>法人姓名</th>
+                    <td>陈豪</td>
+                    <th>法人性别</th>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <th>证件国别/地区</th>
+                    <td>中华人民共和国</td>
+                    <th>证件类型</th>
+                    <td>居民身份证</td>
+                </tr>
+                <tr>
+                    <th>证件号码</th>
+                    <td>450000000000000000</td>
+                    <th>证件有效期</th>
+                    <td>2010-07-08至2020-07-07</td>
+                </tr>
+                <tr>
+                    <th>法人联系电话</th>
+                    <td>135000000000</td>
+                    <th>法人联系邮箱</th>
+                    <td>chenhao@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{# 结算账户 #}
+    <div>
+        <div class="tables-title">
+            结算账户
+            <span class="table-title-tag success">
+                已通过核身认证
+            </span>
+            <span class="table-title-tag fail">
+                未通过核身认证
+            </span>
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+                <tr>
+                    <th>结算账户类型</th>
+                    <td>对公</td>
+                    <th>开户行</th>
+                    <td>招商银行</td>
+                </tr>
+                <tr>
+                    <th>开户名</th>
+                    <td>北京爱时尚女装有限公司</td>
+                    <th>分支行</th>
+                    <td>招商银行深圳分行</td>
+                </tr>
+                <tr>
+                    <th>账户号</th>
+                    <td>6222 8888 8888 8888</td>
+                    <th>财务联系人</th>
+                    <td>文娟</td>
+                </tr>
+                <tr>
+                    <th>财务联系电话</th>
+                    <td>13967836654</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+-->
+{# 图片资料 #}
+    <div>
+        <div class="tables-title">
+            图片资料
+        </div>
+        <table class="table bordered table-view fn-mb-20">
+            <tbody>
+          <!--      <tr>
+                    <th>营业执照扫描件</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="https://www.baidu.com/img/bd_logo1.png">
+                                <img src="https://www.baidu.com/img/bd_logo1.png" />
+                            </a>
+                        </div>
+                    </td>
+                    <th>组织机构代码证扫描件</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>税务登记证扫描件</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                    <th>商户LOGO</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>法人身份证正面</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                    <th>法人身份证反面</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            -->
+            <tr>
+                      <th>整体门面（含招牌）：<br />用于各终端展示调用</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                   <th>门店LOGO</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>收银台</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                    <th>店内环境</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>其他资料</th>
+                    <td>
+                        <div class="table-img-container">
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="" />
+                            </a>
+                        </div>
+                    </td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-align-center">
+        <a href="关联商户管理-商户列表.html" class="btn default">返回</a>
+    </div>
+{% endblock %}

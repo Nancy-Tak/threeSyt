@@ -1,0 +1,46 @@
+{% extends "_layout/alpha/layout-noNavAndHeader-alpha.html" %}
+
+{# content内容 #}
+{% block content %}
+<div class="lo">
+    <div class="lo-panel">
+
+        <div class="lo-box">
+            <div class="lo-logo">
+                <img src="{{ static }}/images/operation.png" alt="logo">
+            </div>
+            <form action="">
+                <div class="lo-form-item username">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="请输入登录名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="lo-form-item lock">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="请输入登录密码">
+                        </div>
+                    </div>
+                </div>
+                <div class="lo-form-item text">
+                    <div class="form-group" style="padding: 0;">
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label class="agreement-check viceText-FontColor">
+                                    记住登录名称
+                                    <input type="checkbox" name="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lo-form-item button">
+                    <button type="button" class="btn primary" style="width: 100%; display: block;" onclick="window.location.href='首页.html'">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

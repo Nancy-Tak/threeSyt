@@ -1,0 +1,18 @@
+{% macro default( list=[],fixedClass='' ) %}
+<table class="contentBox-alpha {{fixedClass}}">
+    <tbody>
+        <tr>
+            {% for item in list %}
+            <td>
+                <div class="box">
+                    <!--<div>{{item.title}}</div>-->
+                    <!--<div>{{item.content}}</div>-->
+                    <h5>{{item.title}}</h5>
+                    <h3>{{item.content}}</h3>
+                </div>
+            </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endmacro %}

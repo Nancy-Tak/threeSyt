@@ -1,0 +1,173 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+text: '收单费率'
+}
+]
+)
+}}
+<div>
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 20%">
+            <col style="width: 8%">
+            <col style="width: 20%">
+            <col style="width: 22%">
+            <col/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th colspan="2">支付通道</th>
+            <th>商户签约扣率</th>
+            <th>商户封顶</th>
+            <th>通道成本</th>
+            <th>总分润</th>
+            <th class="th-ctrls">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td rowspan="3" colspan="2">微信支付（广州招行）</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（查看费率）.html">
+                    查看
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（查看费率）.html">
+                    查看
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（查看费率）.html">
+                    查看
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" colspan="2">支付宝（大连工行）</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（查看费率）.html">
+                    查看
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>水电煤缴费</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（设置费率）.html">
+                    设置
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" colspan="2">通联支付（成都工行）</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（设置费率-通联）.html">
+                    设置
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style='padding-left:30px; text-align: left;'>
+                <div>0-5万(含)  1.80元/笔</div>
+                <div>5-20万(含)  3.50元/笔</div>
+                <div>20-100万(含)  5.80元/笔</div>
+            </td>
+            <td>-</td>
+            <td style='padding-left:30px; text-align: left;'>
+                <div>0-5万(含)  1.80元/笔</div>
+                <div>5-20万(含)  3.50元/笔</div>
+                <div>20-100万(含)  5.80元/笔</div>
+            </td>
+            <td style='padding-left:20px; text-align: left;'>
+                <div>0-5万(含)  分润1.80元/笔</div>
+                <div>5-20万(含)  分润3.50元/笔</div>
+                <div>20-100万(含) 分润5.80元/笔</div>
+            </td>
+            <td class="text-align-center">
+                <a class="link-standard" href="机构管理-收单费率列表（查看费率-通联）.html">
+                    查看
+                </a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+    {# 分页 #}
+    {{ paginationAlpha.default( id='p1' ) }}
+
+</div>
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

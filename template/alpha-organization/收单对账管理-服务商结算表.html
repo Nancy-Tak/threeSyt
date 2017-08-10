@@ -1,0 +1,184 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'收单对账管理'
+                },
+                {
+                    text: '服务商结算表'
+                }
+            ]
+        )
+    }}
+
+{# 数据过滤器 #}
+<div class="filter-table-wrap fn-mt-20">
+    <table class="filter-table">
+        <colgroup>
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+        </colgroup>
+        <tr>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>结算日期
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize">
+                        <span class="form-control-date-btn">
+                            <i></i>
+                        </span>
+                            <input class="form-control" type="text" value="" data-toggle="datetimepicker" placeholder="YYYY-MM-DD" />
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>结算状态
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                待结算
+                            </option>
+                            <option value="">
+                                已结算
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group inline-filter">
+                    <label class="form-control-label">
+                            <span>结算机构
+                            </span>
+                        <em>：
+                        </em>
+                    </label>
+                    <div class="form-control-wrap smallsize">
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部
+                            </option>
+                            <option value="">
+                                广州
+                            </option>
+                            <option value="">
+                                深圳
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="text-align-right plural-btns">
+                    <button type="button" class="btn primary small-btn">查找</button>
+                    <button type="button" class="btn secondary small-btn">重置</button>
+                    <!--<button type="button" class="btn secondary small-btn" onclick="window.location.href='系统管理-账号管理-添加账号.html'">添加账号</button>-->
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+    <table class="table inverse">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>结算日期
+                    <!--另一种做法-->
+                    <div data-toggle="tooltips" data-pos="bottom-left" title="此日期为预计结算日期，遇周末、法定节假日顺延，实际到账情况以结算状态为准" class="inline-block text-align-center" style="width:16px; height:16px; background-color:#009DD9; line-height:16px; border-radius: 8px; color: white;"> ? </div>
+                </th>
+                <th>机构</th>
+                <th>结算金额</th>
+                <th>结算状态</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    2017-01-21 15:45:54
+                </td>
+                <td>
+                    深圳分行
+                </td>
+                <td>2800</td>
+                <td>待结算</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    2017-01-21 15:45:54
+                </td>
+                <td>
+                    广州分行
+                </td>
+                <td>2800</td>
+                <td>待结算</td>
+            </tr>
+
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

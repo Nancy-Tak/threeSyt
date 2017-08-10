@@ -1,0 +1,60 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '服务商管理-服务商列表.html',
+                    text: '服务商管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '服务商列表'
+                },
+                {
+                    text: '查看服务商'
+                }
+            ]
+        )
+    }}
+
+    <!-- 服务商信息 -->
+    <table class="table bordered table-view fn-mb-20">
+        <tbody>
+            <tr>
+                <th>服务商名称</th>
+                <td>淘淘谷科技有限公司</td>
+                <th>务商类型</th>
+                <td>分润</td>
+            </tr>
+            <tr>
+                <th>开户行</th>
+                <td>中国银行</td>
+                <th>开户名</th>
+                <td>淘淘谷科技有限公司</td>
+            </tr>
+            <tr>
+                <th>开户行所在省份</th>
+                <td>广东</td>
+                <th>开户行所在城市</th>
+                <td>深圳</td>
+            </tr>
+            <tr>
+                <th>分支行</th>
+                <td>深圳分行罗湖支行</td>
+                <th>结算账号</th>
+                <td>6222 8888 8888 8888</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-align-center">
+        <a href="服务商管理-服务商列表.html" class="btn default">返回</a>
+    </div>
+{% endblock %}
+
+{# 页面脚本 #}

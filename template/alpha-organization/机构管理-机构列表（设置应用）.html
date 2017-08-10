@@ -1,0 +1,109 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '机构列表'
+        },
+        {
+        text:'设置应用'
+        }
+        ]
+        )
+        }}
+
+<div>
+    <!--  选择子机构的应用权限-->
+    <div>
+        <div class="tables-title">
+            选择子机构的应用权限
+        </div>
+        <table class="table  table-border table-view fn-mb-20">
+            <thead>
+            <tr>
+                <th colspan="4">
+                    <label class="table-checked-all">
+                        <input type="checkbox" data-toggle="checkAll">
+                        全选
+                    </label>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td class="text-align-left" colspan="2">
+                    <input type="checkbox">
+                    收银台
+                </td>
+                <td class="text-align-left" colspan="2">
+                    <input type="checkbox">
+                    数据报表
+                </td>
+            </tr>
+
+            <tr colspan="3">
+                <td class="text-align-left" colspan="2">
+                    <input type="checkbox">
+                    企业投资CBS
+                </td>
+                <td class="text-align-left" colspan="2">
+                    <input type="checkbox">
+                    企业融资
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--提交 取消  机构费率设置成功-->
+        <div class="text-align-center plural-btns fn-ma-50">
+            <button id="submit" type="button" class="btn default">提交</button>
+            <a href="机构管理-机构列表.html" class="btn default" role="button">取消</a>
+        </div>
+</div>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+
+    $(function(){
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">机构费率设置成功！</span>',
+                content : ''
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+            });
+        });
+
+    });
+</script>
+{% endblock %}
+

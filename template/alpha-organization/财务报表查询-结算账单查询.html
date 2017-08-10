@@ -1,0 +1,47 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'账务报表查询'
+                },
+                {
+                    text: '结算账单查询'
+                }
+            ]
+        )
+    }}
+
+<div class="form-frame fn-mb-10">
+    <div class="createContract clearfix">
+
+        <div class="box float-left">
+
+                <h6>支付宝</h6>
+        </div>
+
+        <div class="box float-left">
+
+                <h6>微信支付</h6>
+        </div>
+
+        <div class="box float-left">
+
+                <h6>银联闪付</h6>
+        </div>
+
+        <div class="box float-left">
+
+                <h6>百度钱包</h6>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

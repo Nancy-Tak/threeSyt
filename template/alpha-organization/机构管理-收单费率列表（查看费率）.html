@@ -1,0 +1,179 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+link: 'javascript:void(0);',
+text:'收单费率'
+},
+{
+text: '查看费率'
+}
+]
+)
+}}
+<div>
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>支付通道</th>
+            <th colspan="7">商户签约扣率</th>
+            <th>通道封顶</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>支付宝（成都招行）</td>
+            <td colspan="7">0.5%-0.6%</td>
+            <td>100元</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>通道成本</th>
+            <th colspan="6">总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>0.2%</td>
+            <td colspan="6">0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+     <!--
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="2">机构总分润</th>
+            <th colspan="2">系统总分润</th>
+            <th colspan="2">商户总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.5%-0.6%</td>
+            <td style="border-bottom: none"></td>
+        </tr>
+        <tr>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+        </tr>
+        <tr>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+        </tr>
+        <tr>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+            <td style="border-bottom: none"></td>
+        </tr>
+        </tbody>
+    </table>
+      -->
+
+
+
+    <!--提示-->
+    <div class="fn-ma-30">
+        商户签约扣率=通道成本+总分润
+    </div>
+
+    <!--返回-->
+        <div class="text-align-center fn-mb-20">
+            <a href="机构管理-机构列表（收单费率）.html">
+                <button type="button" class="btn default">取消</button>
+            </a>
+        </div>
+</div>
+{% endblock %}

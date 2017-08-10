@@ -1,0 +1,264 @@
+{
+	"name": "bms_3v3",
+	"port": "8091",
+	"staticPath": "./static",
+	"static": "/static",
+	"template": "./template/",
+	"destPath" : "www",
+	"bower_components": "/bower_components",
+	"version": "3.1.0",
+	"sprite_padding": 20,
+	"jsPath": [
+		"./bower_components/jquery/dist/jquery.min.js",
+		"./bower_components/html5shiv/dist/html5shiv.min.js",
+		"./bower_components/respond/dest/respond.min.js",
+		"./bower_components/underscore/underscore-min.js"
+	],
+	"thirdPart": {
+      "yunsheng": {
+        "name": "yunsheng",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/yunsheng/",
+        "title": "工业E+",
+        "logo": "工业E+",
+        "logo_image": "logo-ex.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "yunsheng.css"
+      },
+      "zonghuida": {
+        "name": "zonghuida",
+        "port": 8523,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/zonghuida/",
+        "title": "众辉达",
+        "logo": "众辉达",
+        "logo_image": "logo-zonghuida.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "zonghuida.css"
+      },
+      "yiyitong": {
+        "name": "yiyitong",
+        "port": 8524,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/yiyitong/",
+        "title": "易易通",
+        "logo": "易易通",
+        "logo_image": "logo-yiyitong.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "yiyitong.css"
+      },
+      "shandonggaosu": {
+        "name": "shandonggaosu",
+        "port": 8526,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/shandonggaosu/",
+        "title": "山东高速",
+        "logo": "山东高速",
+        "logo_image": "logo-shandonggaosu.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "shandonggaosu.css"
+      },
+      "putianyaoxie": {
+        "name": "putianyaoxie",
+        "port": 8527,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/putianyaoxie/",
+        "title": "普天药械",
+        "logo": "普天药械",
+        "logo_image": "pt_logo.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "putianyaoxie.css"
+      },
+      "chuandiqianbao": {
+        "name": "chuandiqianbao",
+        "port": 8528,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/chuandiqianbao/",
+        "title": "川迪钱包",
+        "logo": "川迪钱包",
+        "logo_image": "logo-chuandiqianbao.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "chuandiqianbao.css"
+      },
+      "tuancanbao": {
+        "name": "tuancanbao",
+        "port": 8529,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/tuancanbao/",
+        "title": "团餐宝",
+        "logo": "团餐宝",
+      "logo_image": "logo-tuancanbao.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "tuancanbao.css"
+      },
+      "zhenyaocai": {
+        "name": "zhenyaocai",
+        "port": 8530,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "dest": "../third-part/zhenyaocai/",
+        "title": "珍药材",
+        "logo": "珍药材",
+        "logo_image": "logo-zhanyaocai.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "zhenyaocai.css"
+      },
+      "alading": {
+        "name": "alading",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 1,
+        "dest": "../third-part/alading/",
+        "title": "阿拉丁",
+        "logo": "阿拉丁",
+        "logo_image": "logo-ex.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "alading.css"
+      },
+      "yizhaocai": {
+        "name": "yizhaocai",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 0,
+        "dest": "../third-part/yizhaocai/",
+        "title": "易招财",
+        "logo": "易招财",
+        "logo_image": "logo-yizhaocai.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "yizhaocai.css"
+      },
+	  "nageban": {
+        "name": "nageban",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 0,
+        "dest": "../third-part/nageban/",
+        "title": "哪个班",
+        "logo": "哪个班",
+        "logo_image": "logo-nageban.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "nageban.css"
+      },
+	  "ririjin": {
+        "name": "ririjin",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 0,
+        "dest": "../third-part/ririjin/",
+        "title": "日日进",
+        "logo": "日日进",
+        "logo_image": "logo-ririjin.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "ririjin.css"
+      },
+      "default": {
+        "name": "default",
+        "port": 8524,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html",
+            "05账户管理企业.html"
+          ],
+          [
+            "06公共页面-收银台-收银台（充值）.html",
+            "06公共页面-收银台-收银台（充值） - 企业.html",
+            "06公共页面-收银台-（充值）-充值结果页.html",
+            "06公共页面_支付_支付结果页.html"
+          ]
+        ],
+        "version": "v1.0",
+        "newVer": 1,
+        "noHeader": 0,
+        "dest": "../third-part/default/",
+        "title": "默认",
+        "logo": "默认",
+        "logo_image": "logo.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "default.css"
+      }
+    }
+}

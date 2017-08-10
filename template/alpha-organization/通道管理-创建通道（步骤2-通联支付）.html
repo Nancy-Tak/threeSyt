@@ -1,0 +1,601 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 加载页面专有样式表 #}
+{% block css %}
+<link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+<link rel="stylesheet" href="{{ static }}/js/clockpicker/jquery-clockpicker.min.css">
+<!--<link type="text/css" href="{{ static }}/js/timepicker/jquery-ui-1.8.17.custom.css">-->
+<!--<link type="text/css" href="{{ static }}/js/timepicker/jquery-ui-timepicker-addon.css">-->
+
+{% endblock %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text: '通道管理'
+},{
+text: '通道开通'
+}
+]
+)
+}}
+
+<div class="form-frame">
+    <form autocomplete="off">
+       {#基础信息#}
+        <div class="form-title">
+            基础信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通道名称 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通道名称 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" value="支付宝（招商银行总行）" />
+                    </div>
+                </div>
+                {# 支付平台 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>支付平台</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            通联支付
+                        </div>
+                    </div>
+                </div>
+                {# 机构名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-5">
+                        <span>机构名称</span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" value="" id="childChannelName"  readonly='readonly'/>
+                        <!--<a href="#selectChildChannel" data-toggle="modal" class="form-control-tools-link">选择机构</a>-->
+                        <a href="#"  id='chooseOrgBtn' class="form-control-tools-link">选择机构</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+      {# 参数配置 #}
+        <div class="form-title">
+            参数配置
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 通联支付商户号  #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联支付商户号  </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                        <!--<a style="cursor: default;" class="form-control-tools-link">‰</a>-->
+                    </div>
+                </div>
+                {# 通联商户用户名 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联商户用户名 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 通联用户密码 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联用户密码 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 机构私钥 #}
+               {# <div class="form-group" id="organizationKey">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 机构私钥 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <!--<input type="text" class="form-control" />-->
+                        <textarea type="text" class="form-control" style="resize:none; height: 200px !important; overflow-y: scroll"  id="" cols="30" rows="10" ></textarea>
+                    </div>
+                </div> #}
+                {# 通联商户私钥密码 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联商户私钥密码 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                {# 通联商户私钥证书 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联商户私钥证书 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap fn-pt-10 ">
+                        <a href="###" class='link-standard '>商户用户名.p12</a>
+                        <a href='javascript:;' type='button' class='btn small-btn secondary'>上传证书</a>
+                    </div>
+                </div>
+                {# 通联商户公钥证书 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 通联商户公钥证书 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap fn-pt-10 ">
+                        <a href="###" class='link-standard '>商户用户名.p12</a>
+                        <a href='javascript:;' type='button' class='btn small-btn secondary'>上传证书</a>
+                    </div>
+                </div>
+
+                {# 结算周期 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 结算周期 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap" >
+                        T +
+                        <input type="text" class="form-control"  style='width:150px; display: inline-block;' />
+                        <select class="form-control" style='display: inline-block; width:100px; padding-top:8px;' >
+                            <option value="0">自然日</option>
+                            <option value="1">工作日</option>
+                        </select>
+                    </div>
+                </div>
+
+                {# 日切点 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 日切点 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date   clockpicker" style='display: inline-block; '>
+    <span class="form-control-date-btn input-group-addon">
+                                   <i></i>
+                               </span>
+                            <input
+                                type="text" name="datetime" class="ui_timepicker form-control " value="00:00:00"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 日切点 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date   clockpicker" style='display: inline-block; '>
+                            <input
+                                type="text" name="datetime" class="ui_timepicker form-control " value="00:00:00"  readonly='readonly' disabled='true'
+                            >
+                        </div>
+                    </div>
+                </div>
+
+
+                {# 预计对账时间 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 预计对账时间 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-date   clockpicker" style='display: inline-block; '>
+                               <span class="form-control-date-btn input-group-addon">
+                                   <i></i>
+                               </span>
+                            <input
+                                type="text" name="datetime" class="ui_timepicker form-control " value="00:00:00"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                {# 对账文件下载地址 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span> 对账文件下载地址 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class='fn-ma-10' style='font-weight: 900;'>
+                     通道费用设置
+                </div>
+
+                {# B2C代收 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span> B2C代收 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div>
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万 ——
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万（含）
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 元/笔
+                        </div>
+                        <div class='fn-mt-10 '>
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万 ——
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万（含）
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 元/笔
+                        </div>
+                        <div class='fn-mt-10 '>
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万 ——
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 万（含）
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 元/笔
+                        </div>
+                    </div>
+                </div>
+
+                {# B2B代收 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span> B2B代收 </span>
+                        <em> ： </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div>
+                            <input type="text" class="form-control" style='width:62px; text-overflow:clip; padding:5px; display: inline-block; '/> 元/笔
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--图片资料 -->
+        <div class="form-title">
+            图片资料
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                <!-- 通道logo -->
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b>*</b>
+                        <span>通道logo</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl1" value="" id="GetUrl1" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName1" value="">
+                            <input type="hidden" name="Key1" value="">
+                            <input type="hidden" name="uploadNam1" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+                <!-- 合约照片或扫描件 -->
+                <div class="form-group">
+                    <label class="form-control-label form-control-label-alpha">
+                        <b>*</b>
+                        <span>合约照片或扫描件</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-data form-control-check">
+                            <span class="upload-name"></span>
+                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
+                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
+                            <div class="upload-box upload-img">
+                            </div>
+                            <input type="hidden" name="FileName2" value="">
+                            <input type="hidden" name="Key2" value="">
+                            <input type="hidden" name="uploadNam2" class="uploadName">
+                        </div>
+                        <div class="alert alert-warning upload-img-alert">
+                            <i></i>
+                            <div class="alert-body">
+                                <h5>您上传的图片不符合以下标准，请重新上传。</h5>
+                                <ul>
+                                    <li>图片确保清晰、完整，并且图片的文字为正方向。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="upload-img-wrap">
+                            <div class="upload-img-box">
+                                <img src="./static/images/black10.png" class="upload-img-yours" alt="">
+                                <p>您的图片</p>
+                            </div>
+                            <div class="upload-img-box">
+                                <img src="./static/images/idcard.jpg" alt="">
+                                <p>正确示例图</p>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <a href="通道管理-创建通道（步骤1）.html" class="btn default">取消</a>
+        </div>
+    </form>
+</div>
+
+{# 选择机构弹层 #}
+<div class="modal-background fade display-none in" id="selectChildChannel" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择机构</span>
+                    <button class="modal-close" id='closeSelectShop'  title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>机构名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>机构编号</th>
+                                <th>机构名称</th>
+                                <th>所在地</th>
+                                <th>详细地址</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司1</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single" id='百事可乐公司1'>选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司2</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single"id='百事可乐公司2' >选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司3</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single " id='百事可乐公司3'>选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司4</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn single" id='百事可乐公司4' >选择</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+<script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
+
+
+
+<script type="text/javascript" src="{{ static }}/js/timepicker/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ static }}/js/timepicker/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="{{ static }}/js/timepicker/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="{{ static }}/js/timepicker/jquery-ui-timepicker-zh-CN.js"></script>
+
+
+{% endblock %}
+
+{% block jsPage %}
+
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+        $(".ui_timepicker").timepicker({
+            //showOn: "button",
+            //buttonImage: "./css/images/icon_calendar.gif",
+            //buttonImageOnly: true,
+            showSecond: true,
+            timeFormat: 'hh:mm:ss',
+            stepHour: 1,
+            stepMinute: 1,
+            stepSecond: 1
+        })
+
+//        $('.clockpicker').clockpicker();
+
+        $(".j-type").on("change",function(){
+            var isServerChecked = $("#servers").prop("checked");
+            if(isServerChecked){
+                $("#shopKey").removeClass("display-none");
+                $("#organizationKey").addClass("display-none");
+            }else{
+                $("#shopKey").addClass("display-none");
+                $("#organizationKey").removeClass("display-none");
+            }
+        });
+
+        //点击‘ 选择机构’ 弹出弹层
+        $("#chooseOrgBtn").on('click',function () {
+            $("#selectChildChannel").removeClass('display-none')
+        })
+
+        //选择了机构 ， 关闭‘选择机构’ 弹层
+        $(".single, #closeSelectShop").on('click',function () {
+//          console.log(this.parentNode.parentNode.id)
+            console.log(this.id )
+            var showName = this.id;
+            $("#selectChildChannel").addClass('display-none')
+            $("#childChannelName").val(showName)
+
+        })
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">通道开通成功！</span>',
+                content : '<div><a href="通道管理-通道列表.html" class="btn secondary" role="button">确定</a></div>',
+//                 buttons : {  //  按钮可以只传ok或cancel
+//                   ok : {
+//                     text : '确定',
+//                     callback : function () {
+//                       console.log('确定');
+//                         window.location.href="通道管理-通道列表.html"
+//                     }
+//                   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+//                 }
+            });
+        });
+    });
+</script>
+{% endblock %}

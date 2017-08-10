@@ -1,0 +1,52 @@
+.filterBox-Alpha{
+	.fliter-inline-wrap{
+		padding:0 0 12px 12px;
+		.fliter-inline-item{
+			.clearfix();
+			display: inline-block;
+			float: left;
+			margin-left: 8px;
+			margin-top: 12px;
+			.fliter-inline-width1{
+				width:auto;
+			}
+			label{
+				float:left;
+				line-height: 30px;
+			}
+			select{
+				padding: 5px 0px;
+			}
+		}
+	}
+}
+
+// 表格形式排版
+.filter-table-wrap {
+
+	.filter-table {
+		width: 100%;
+		table-layout: fixed;
+		background-color: @bgColor-type1;
+		border: 1px solid @base-BorderColor;
+
+		td {
+			padding: @paddingSize-public-alpha/2;
+			padding-bottom: 0;
+			vertical-align: top;
+		}
+	}
+
+    .filter-table-coco {
+        width: 100%;
+        table-layout: fixed;
+        background-color: @bgColor-type1;
+        border: 1px solid @base-BorderColor;
+
+        td {
+            padding: @paddingSize-public-alpha/2;
+            padding-bottom: 10px;
+            vertical-align: top;
+        }
+    }
+}

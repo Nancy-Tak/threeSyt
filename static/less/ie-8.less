@@ -1,0 +1,106 @@
+// @import "_normalize";       //��Ŀ������ʽ��ʼ��
+@import "_config";          //��Ŀ��ʽ�趨��
+@import "_mix";             //��Ŀ��ʽ����
+@import "_font";            //��Ŀ����
+@import "_fonticon";        //��Ŀ����ͼ��
+@import "_sprite";          //��Ŀѩ��ͼ
+// @import "_animate.less";    //��Ŀ����CSS3������
+// @import "_animation.less";    //����CSS3����
+
+//ҵ��������ʾ
+.notice-wrap {
+
+    &.in-modal {
+
+        &.success {
+
+            .notice-box {
+
+                > .notice-img {
+                    background: url("@{images-url}success_62x62.png") no-repeat;
+                }
+            }
+        }
+
+        &.waiting {
+
+            .notice-box {
+
+                > .notice-img {
+                    background: url("@{images-url}waiting_62x62.gif") no-repeat;
+                }
+            }
+        }
+
+        &.info {
+
+            .notice-box {
+
+                > .notice-img {
+                    background: url("@{images-url}info_62x62.png") no-repeat;
+                }
+            }
+        }
+
+        &.error {
+
+            .notice-box {
+
+                > .notice-img {
+                    background: url("@{images-url}error_62x62.png") no-repeat;
+                }
+            }
+        }
+    }
+}
+
+//����ͳ�Ʋ���
+.date-count-ul {
+
+    > li {
+
+        &.last-li {
+            border-right: none;
+        }
+    }
+}
+
+//����
+.step {
+    .icon-step_normal();
+    background-color: transparent;
+}
+
+.steps-wrap {
+
+    &.pass1 {
+
+        .step {
+
+            &.step1 {
+                .icon-step_active();
+                background-color: transparent;
+            }
+        }
+    }
+
+    &.pass2 {
+
+        .step {
+
+            &.step1,
+            &.step2 {
+                background-color: transparent;
+                .icon-step_active();
+            }
+        }
+    }
+
+    &.pass3 {
+
+        .step {
+            .icon-step_active();
+            background-color: transparent;
+        }
+    }
+}

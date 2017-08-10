@@ -1,0 +1,214 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'通道管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '通道列表'
+        },
+        {
+        text:'查看通道详情'
+        }
+        ]
+        )
+        }}
+
+<div>
+<!--基础信息-->
+<div>
+    <div class="tables-title">
+        基础信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>通道编号</th>
+            <td>768423</td>
+            <th>通道名称</th>
+            <td>支付宝（招商银行总行）</td>
+        </tr>
+        <tr>
+            <th>支付平台</th>
+            <td>支付宝</td>
+            <th>机构名称</th>
+            <td>招商银行总行</td>
+        </tr>
+        <tr>
+            <th>创建时间</th>
+            <td>
+                <span>2016-10-10</span>
+                <span>18:00:00</span>
+            </td>
+            <th>状 态</th>
+            <td>启用</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--参数配置-->
+<div>
+        <div class="tables-title">
+            参数配置
+        </div>
+        <table class="table inverse bordered table-view fn-mb-20">
+            <tbody>
+            <tr>
+                <th>通道模式</th>
+                <td>授权模式</td>
+                <th>通道成本</th>
+             	<td>2‰  </td>
+        
+            </tr>
+              <tr>
+                <th>合作者身份（PID）</th>
+                <td>mm_12345678_0_0</td>
+                <th>应用编号（APPID）</th>
+                <td>201505214235435170</td>
+            </tr>
+            <tr>
+                <th>应用秘钥</th>
+                <td>1111111111111</td>
+                <th>安全校验码（MD5密钥）</th>
+                <td>1111111111111</td>
+            </tr>
+            
+           <!-- 
+             <tr>
+                <th>通道成本</th>
+                <td>2%</td>
+                <th>渠道商号（channel_id）</th>
+                 <td>1111111 <a href="商户合同管理-合同列表.html" class="link-standard"> 渠道商号管理</a> </td>
+            </tr>
+              <tr>
+                <th>商户号（MCH_ID）</th>
+                <td>mm_12345678_0_0</td>
+                <th>应用编号（APPID）</th>
+                <td>201505214235435170</td>
+            </tr>
+            <tr>
+                <th>微信客户端证书</th>
+                <td>1111111111111</td>
+                <th>应用秘钥</th>
+                <td>201505214235uuu</td>
+            </tr>-->
+
+            <tr>
+                <th>机构RSA/RSA2私钥</th>
+                <td colspan="3">
+                    <texearea>-----BEGIN CERTIFICATE-----
+                        MIIFIzCCBAugAwIBAgIQSf6Vlz5jiTp9TB9ZhJhMXzANBgkqhkiG9w0BAQsFADB+
+                        MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+                        BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+                        IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE1MDQxNjAwMDAwMFoX
+                        DTE3MDUxNTIzNTk1OVowgaExCzAJBgNVBAYTAkNOMRIwEAYDVQQIEwlHdWFuZ2Rv
+                        bmcxEjAQBgNVBAcUCWd1YW5nemhvdTE8MDoGA1UEChQzR3Vhbmdkb25nIFVDU01Z
+                        IEluZm9ybWF0aW9uICYgQ29tbXVuaWNhdGlvbiBDby4sTFREMRAwDgYDVQQLFAdJ
+                        VCBkZXB0MRowGAYDVQQDFBEqLmNtYmNoaW5hdWNzLmNvbTCCASIwDQYJKoZIhvcN
+                        AQEBBQADggEPADCCAQoCggEBAMdHRAdXXs4nmPStb9B2RsSOxSs+ihhGrxmd3D2J
+                        OSXNGogA2KJa3P5dzeFfySEZtxW7/kwgTOsTGKdfNR/ChILSuVtDvXPzGfgmKnOX
+                        7+1B1qGiRyIuJ9sc0RZ2Fkx1hDqIxn062pr7YRrI63t/PNBjlCMMQ+wumspNOiEK
+                        cu0QjnwAZyGm5ZWINFNL7vpccy7BnNDpSIB2bS5hTDckxvfSZ3fgNz3baBD55dzO
+                        Gwb5YCNn8FWFD6nrSJr+n8PJWyNLQw0pc/GwZhOKEWbI420S7Fhn9qqYVWQl6XtH
+                        hNeUXWdqkAJkksLHyQmNCnjCFcU2c7LlwBdefYBFK/vjpnsCAwEAAaOCAXcwggFz
+                        MC0GA1UdEQQmMCSCESouY21iY2hpbmF1Y3MuY29tgg9jbWJjaGluYXVjcy5jb20w
+                        CQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwKwYDVR0fBCQwIjAgoB6gHIYaaHR0
+                        cDovL3NzLnN5bWNiLmNvbS9zcy5jcmwwYQYDVR0gBFowWDBWBgZngQwBAgIwTDAj
+                        BggrBgEFBQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIw
+                        GQwXaHR0cHM6Ly9kLnN5bWNiLmNvbS9ycGEwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+                        CCsGAQUFBwMCMB8GA1UdIwQYMBaAFF9gz2GQVd+EQxSKYCqy9Xr0QxjvMFcGCCsG
+                        AQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0cDovL3NzLnN5bWNkLmNvbTAmBggr
+                        BgEFBQcwAoYaaHR0cDovL3NzLnN5bWNiLmNvbS9zcy5jcnQwDQYJKoZIhvcNAQEL
+                        BQADggEBAER6RgbDUv4uKzlNAP0iIo4hFNHN/VuXl9/ev4p+J5HjUe3jMiSIkyyU
+                        2vZ3TsitZdtYMHnA1GOgyTe6rGoM64/bAIZAplnVv21dnG1FKhYzB0KqD+SAn8X6
+                        h3K1fXl+E+PRl7xptuTHrxIDy33dNyOkawZHUMxUrXxwPZafqlWKCDp7uTTXemu8
+                        gPyAjx//Y+NGJBNhYr9FQewKY6Ut3d9OwRCRqTrkHIPaDo2VJ19tiwWHP48z8R74
+                        if0GdjaEKb9LFFNTidVtamcem56BsYnEVNGy1Dkw8G53paeNKGSudC1K/1TOTkCp
+                        HiqhHd4GYq8WvcW+gbzLy6qIwgbGP1E=
+                        -----END CERTIFICATE-----</texearea>
+                </td>
+            </tr>
+            <tr>
+                <th>支付宝公钥</th>
+                <td colspan="3">
+                    <texearea>
+                    	-----BEGIN CERTIFICATE-----
+MIIFIzCCBAugAwIBAgIQSf6Vlz5jiTp9TB9ZhJhMXzANBgkqhkiG9w0BAQsFADB+
+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE1MDQxNjAwMDAwMFoX
+DTE3MDUxNTIzNTk1OVowgaExCzAJBgNVBAYTAkNOMRIwEAYDVQQIEwlHdWFuZ2Rv
+bmcxEjAQBgNVBAcUCWd1YW5nemhvdTE8MDoGA1UEChQzR3Vhbmdkb25nIFVDU01Z
+IEluZm9ybWF0aW9uICYgQ29tbXVuaWNhdGlvbiBDby4sTFREMRAwDgYDVQQLFAdJ
+VCBkZXB0MRowGAYDVQQDFBEqLmNtYmNoaW5hdWNzLmNvbTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAMdHRAdXXs4nmPStb9B2RsSOxSs+ihhGrxmd3D2J
+OSXNGogA2KJa3P5dzeFfySEZtxW7/kwgTOsTGKdfNR/ChILSuVtDvXPzGfgmKnOX
+7+1B1qGiRyIuJ9sc0RZ2Fkx1hDqIxn062pr7YRrI63t/PNBjlCMMQ+wumspNOiEK
+cu0QjnwAZyGm5ZWINFNL7vpccy7BnNDpSIB2bS5hTDckxvfSZ3fgNz3baBD55dzO
+Gwb5YCNn8FWFD6nrSJr+n8PJWyNLQw0pc/GwZhOKEWbI420S7Fhn9qqYVWQl6XtH
+hNeUXWdqkAJkksLHyQmNCnjCFcU2c7LlwBdefYBFK/vjpnsCAwEAAaOCAXcwggFz
+MC0GA1UdEQQmMCSCESouY21iY2hpbmF1Y3MuY29tgg9jbWJjaGluYXVjcy5jb20w
+CQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwKwYDVR0fBCQwIjAgoB6gHIYaaHR0
+cDovL3NzLnN5bWNiLmNvbS9zcy5jcmwwYQYDVR0gBFowWDBWBgZngQwBAgIwTDAj
+BggrBgEFBQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIw
+GQwXaHR0cHM6Ly9kLnN5bWNiLmNvbS9ycGEwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+CCsGAQUFBwMCMB8GA1UdIwQYMBaAFF9gz2GQVd+EQxSKYCqy9Xr0QxjvMFcGCCsG
+AQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0cDovL3NzLnN5bWNkLmNvbTAmBggr
+BgEFBQcwAoYaaHR0cDovL3NzLnN5bWNiLmNvbS9zcy5jcnQwDQYJKoZIhvcNAQEL
+BQADggEBAER6RgbDUv4uKzlNAP0iIo4hFNHN/VuXl9/ev4p+J5HjUe3jMiSIkyyU
+2vZ3TsitZdtYMHnA1GOgyTe6rGoM64/bAIZAplnVv21dnG1FKhYzB0KqD+SAn8X6
+h3K1fXl+E+PRl7xptuTHrxIDy33dNyOkawZHUMxUrXxwPZafqlWKCDp7uTTXemu8
+gPyAjx//Y+NGJBNhYr9FQewKY6Ut3d9OwRCRqTrkHIPaDo2VJ19tiwWHP48z8R74
+if0GdjaEKb9LFFNTidVtamcem56BsYnEVNGy1Dkw8G53paeNKGSudC1K/1TOTkCp
+HiqhHd4GYq8WvcW+gbzLy6qIwgbGP1E=
+-----END CERTIFICATE-----
+                    </texearea>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+<!--合约附件-->
+<div>
+    <div class="tables-title">
+        合约附件
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <td>
+                <div class="table-img-container text-align-left ">
+                    <a href="https://www.baidu.com/img/bd_logo1.png">
+                        <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                    </a>
+                    <a href="https://www.baidu.com/img/bd_logo1.png">
+                        <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--返回-->
+<div>
+    <div class="text-align-center fn-mb-20">
+        <a href="通道管理-通道列表.html">
+            <button type="button" class="btn default">返回</button>
+        </a>
+    </div>
+</div>
+
+</div>
+{% endblock %}

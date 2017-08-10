@@ -1,0 +1,90 @@
+{% macro default(
+    data={},
+    theadClass='',
+    tbodyID='',
+    tbodyClass='',
+    fixedClass='',
+    cols=''
+) %}
+<div class="table-wrap {{ fixedClass }}">
+    <table class="table">
+        {{ cols }}
+        <thead class="{{ theadClass }}">
+            <tr>
+            {% for thItem in data.theadList %}
+                <th class="{{ thItem.thClass }}" width="{{ thItem.thWidth }}">
+                    {{ thItem.inner }}
+                </th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody id="{{ tbodyID }}" class="{{ tbodyClass }}">
+            {% for trItem in data.tbodyList %}
+            <tr>
+                {% for tdItem in trItem %}
+                <td class="{{ tdItem.tdClass }}">
+                    {{ tdItem.inner }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endmacro %}
+
+{% macro tableHeaderDefault(
+    title='',
+    fixedClass='',
+    tableTitleBtns='',
+    btns=[]
+) %}
+<div class="tables-title {{ fixedClass }}">
+   {{ title }}
+   {% if haveBtns %}
+   <div class="{{ tableTitleBtns }}">
+      {% for btn in btns %}
+      <a href="{{ btn.link }}" onclick="{{ btn.onclick }}">
+          {{ btn.inner }}
+      </a>
+      {% endfor %}
+   </div>
+   {% else %}
+   {% endif %}
+</div>
+{% endmacro %}
+
+{% macro forDemo(
+    data={},
+    fixedClass='',
+    cols='',
+    theadClass='',
+    tbodyID='',
+    tbodyClass=''
+) %}
+<div class="overflowAuto-table {{ fixedClass }}">
+    <table>
+        {{ cols }}
+        <thead class="{{ theadClass }}">
+            <tr>
+            {% for thItem in data.theadList %}
+                <th class="{{ thItem.thClass }}" width="{{ thItem.thWidth }}">
+                    {{ thItem.inner }}
+                </th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for trItem in data.tbodyList %}
+            <tr>
+                {% for tdItem in trItem %}
+                <td class="{{ tdItem.tdClass }}" rowspan="{{ tdItem.rowspan }}" colspan="{{ tdItem.colspan }}">
+                    {{ tdItem.inner }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endmacro %}

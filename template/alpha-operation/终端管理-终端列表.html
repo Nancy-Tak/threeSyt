@@ -1,0 +1,194 @@
+{% extends "_layout/alpha/layout-alpha-operation.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'终端管理'
+        },
+        {
+        text: '终端列表'
+        }
+        ]
+        )
+        }}
+
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="">
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>商户名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>门店名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>机器码
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn primary small-btn">查找</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>机器状态
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">全部</option>
+                                <option value="1">新增商户</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>激活状态
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">全部</option>
+                                <option value="1">新增商户</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+            <col style="width: 10%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>机构编号</th>
+            <th>硬件服务商</th>
+            <th>机器码</th>
+            <th>关联商户</th>
+            <th>关联门店</th>
+            <th>所在区域</th>
+            <th>详细地址</th>
+            <th>机器状态</th>
+            <th>激活状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>123456</td>
+            <td>联迪-A9</td>
+            <td>A476837209489DISCIDSUD9892712345</td>
+            <td>阿迪达斯成都分公司</td>
+            <td>阿迪达斯市区分店</td>
+            <td>四川/成都/锦江区</td>
+            <td>天府国12楼</td>
+            <td>已装机</td>
+            <td>未激活</td>
+        </tr>
+        <tr>
+            <td>123457</td>
+            <td>世迈-155</td>
+            <td>A476837209489DISCIDSUD9892712345</td>
+            <td>阿迪达斯成都分公司</td>
+            <td>阿迪达斯市区分店</td>
+            <td>四川/成都/锦江区</td>
+            <td>天府国12楼</td>
+            <td>已装机</td>
+            <td>未激活</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

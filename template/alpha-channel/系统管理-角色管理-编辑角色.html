@@ -1,0 +1,389 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: '系统管理-角色管理.html',
+                    text: '系统管理'
+                },
+                {
+                    link: '系统管理-角色管理.html',
+                    text: '角色管理'
+                },
+                {
+                    text: '编辑角色'
+                }
+            ]
+        )
+    }}
+
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>角色名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control" value="运营">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <span>备注
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <textarea class="form-control" rows="5" style="max-width: 100%; width: 100%; height: auto">新员工</textarea>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+
+        {# 权限 #}
+        <h3 class="fn-mt-20 fn-mb-10">角色权限设置</h3>
+        <div class="permission-table-wrap">
+            <div class="ptName">
+                <h3>子商户管理</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border fn-mb-10">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt1">
+                        <tr>
+                            <td rowspan="7">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt1 :checkbox">
+                                    子商户列表
+                                </label>
+                            </td>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    查看
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    编辑
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    管理员
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    合同
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    收银员
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    终端
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    禁用/启用
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt2">
+                        <tr>
+                            <td colspan="2">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt2 :checkbox">
+                                    新建子商户
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-table-wrap fn-mt-20">
+            <div class="ptName">
+                <h3>通道查看</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt3">
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt3 :checkbox">
+                                    通道列表
+                                </label>
+                            </td>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    查看
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-table-wrap fn-mt-20">
+            <div class="ptName">
+                <h3>合同管理</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt4">
+                        <tr>
+                            <td rowspan="2">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt4 :checkbox">
+                                    合同列表
+                                </label>
+                            </td>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    查看
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    关联门店
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-table-wrap fn-mt-20">
+            <div class="ptName">
+                <h3>数据报表</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt5">
+                        <tr>
+                            <td colspan="2">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt5 :checkbox">
+                                    收单流水查询
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-table-wrap fn-mt-20">
+            <div class="ptName">
+                <h3>进销存管理</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt6">
+                        <tr>
+                            <td colspan="2">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt6 :checkbox">
+                                    进销存管理
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="permission-table-wrap fn-mt-20">
+            <div class="ptName">
+                <h3>系统管理</h3>
+            </div>
+            <div class="ptb">
+                <table class="table table-border fn-mb-10">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt7">
+                        <tr>
+                            <td rowspan="3">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt7 :checkbox">
+                                    账号管理
+                                </label>
+                            </td>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    查看
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    编辑
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    启用/禁用
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-border">
+                    <colgroup>
+                        <col style="width: 30%">
+                        <col>
+                    </colgroup>
+                    <tbody id="pt8">
+                        <tr>
+                            <td rowspan="3">
+                                <label class="table-checked-all">
+                                    <input type="checkbox" data-toggle="checkAll" data-target="#pt8 :checkbox">
+                                    角色管理
+                                </label>
+                            </td>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    查看
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    编辑
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checked-all">
+                                    <input type="checkbox">
+                                    启用/禁用
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-align-center">
+            <div class="plural-btns btn-with-viceLink fn-mt-20 fn-mb-20">
+                <button type="button" class="btn primary" id="submit">提交</button>
+                <a href="系统管理-角色管理.html" class="btn default">取消</a>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将跳转到角色管理页面',
+                // buttons : {  //按钮可以只传ok或cancel
+                //     ok : {
+                //     text : '确定', callback : function () {
+                //             console.log('确定');
+                //         }
+                //     }
+                // }
+            });
+        });
+    });
+</script>
+{% endblock %}

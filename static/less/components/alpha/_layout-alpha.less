@@ -1,0 +1,354 @@
+/*
+// alpha 项目通用布局
+// --------------------------------------------------
+*/
+
+@charset "utf-8";
+
+
+#layoutAlpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: @bgColor-layout-alpha;
+
+    .alpha-main {
+        position: absolute;
+        top: @height-header-alpha;
+        bottom: 0;
+        width: @width-web-alpha;
+        left: 50%;
+        margin-left: -@width-web-alpha/2;
+    }
+
+    .alpha-body {
+        display: table;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &-nav-wrap {
+            display: table-cell;
+            vertical-align: top;
+            width: @width-nav-alpha;
+            background-color: @bgColor-nav-alpha;
+            border-left: 1px solid @base-BorderColor;
+        }
+
+        &-content-wrap {
+            // display: table-cell;
+            // vertical-align: top;
+            // border-right: 1px solid @base-BorderColor;
+            // border-left: 1px solid @base-BorderColor;
+            // position: relative;
+            position: absolute;
+            left: @width-nav-alpha;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border-right: 1px solid @base-BorderColor;
+            border-left: 1px solid @base-BorderColor;
+        }
+
+        &-content-box {
+            position: absolute;
+            //height: 100%;
+            //padding: @paddingSize-public-alpha;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+
+            > div {
+                // position: relative;
+                height: 100%;
+                // position: absolute;
+                // top: 0;
+                // bottom: 0;
+                // left: 0;
+                // right: 0;
+                min-height: 520px;
+                //min-height: 92%; //极端滴解决：当内容过少，页脚不在底部的问题
+                //padding-bottom: 50px;
+            }
+        }
+    }
+}
+
+#layoutNoNavAlpha {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    //background: url('https://www.qianduan.com/Content/images/index/tu3.jpg') #fff center center no-repeat;
+    background: url( '@{images-url}tu3.jpg')  #fff center center no-repeat;
+    //background: url( '@{images-url}organizationNew.png')  #fff center center no-repeat;
+    background-size: cover;
+
+    .lo {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        &-panel {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        &-panel-1 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        &-box {
+            width: 400px;
+            min-width: 400px;
+            margin: 0 auto;
+            padding: @paddingSize-public-alpha*2;
+            background-color: #fff;
+            background: url( '@{images-url}blue70.png' );
+            //border: 1px solid @base-BorderColor;
+            box-shadow: 0 0 10px 0 rgba( 0,0,0,0.15 );
+            .rounded( @borderRadius-public-alpha );
+        }
+
+        &-logo {
+            text-align: center;
+            font-size: 0;
+            padding-bottom: @paddingSize-public-alpha;
+
+            > img {
+                .inline-block();
+                max-width: 100%;
+            }
+        }
+
+        &-form-item {
+
+            &.username,
+            &.lock {
+                .border-radius( @borderRadius-public-alpha,0,0,@borderRadius-public-alpha );
+                background-repeat: no-repeat;
+                padding-left: @form-control-height;
+                background-color: @bgColor-type3;
+            }
+
+            &.username {
+                background-image: url("@{images-url}svg/user-999.svg");
+                background-size: auto 60%;
+                background-position: 9px center;
+            }
+
+            &.lock {
+                background-image: url("@{images-url}svg/lock-999.svg");
+                background-size: auto 80%;
+                background-position: 5px center;
+            }
+
+            &.button {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            &.text {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            & + .lo-form-item {
+                margin-top: @paddingSize-public-alpha/2;
+            }
+        }
+    }
+}
+
+#layoutNoNavAlphaOrganization {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    //background: url('https://www.qianduan.com/Content/images/index/tu3.jpg') #fff center center no-repeat;
+    //background: url( '@{images-url}tu3.jpg')  #fff center center no-repeat;
+    background: url( '@{images-url}organizationNew.png')  #fff center center no-repeat;
+    background-size: cover;
+
+    .lo {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        &-panel {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        &-panel-1 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        &-box {
+            width: 400px;
+            min-width: 400px;
+            margin: 0 auto;
+            padding: @paddingSize-public-alpha*2;
+            background-color: #fff;
+            background: url( '@{images-url}blue70.png' );
+            //border: 1px solid @base-BorderColor;
+            box-shadow: 0 0 10px 0 rgba( 0,0,0,0.15 );
+            .rounded( @borderRadius-public-alpha );
+        }
+
+        &-logo {
+            text-align: center;
+            font-size: 0;
+            padding-bottom: @paddingSize-public-alpha;
+
+            > img {
+                .inline-block();
+                max-width: 100%;
+            }
+        }
+
+        &-form-item {
+
+            &.username,
+            &.lock {
+                .border-radius( @borderRadius-public-alpha,0,0,@borderRadius-public-alpha );
+                background-repeat: no-repeat;
+                padding-left: @form-control-height;
+                background-color: @bgColor-type3;
+            }
+
+            &.username {
+                background-image: url("@{images-url}svg/user-999.svg");
+                background-size: auto 60%;
+                background-position: 9px center;
+            }
+
+            &.lock {
+                background-image: url("@{images-url}svg/lock-999.svg");
+                background-size: auto 80%;
+                background-position: 5px center;
+            }
+
+            &.button {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            &.text {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            & + .lo-form-item {
+                margin-top: @paddingSize-public-alpha/2;
+            }
+        }
+    }
+}
+
+.alpha-foot {
+     position: absolute;
+     bottom: 0 !important;
+     //top: auto !important;
+     left: 0;
+     right: 0;
+    //margin-top: 20px;
+    //min-height: auto !important;
+    text-align: center;
+    line-height: @height-footer-alpha;
+    height: @height-footer-alpha;
+    //background-color: @bgColor-nav-alpha;
+}
+
+.alpha-next-version-body {
+  height: 100%;
+}
+
+@height-header-anv: 100px;
+@width-main-anv: 1200px;
+
+#alpha-next-version-layout {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding-top: @height-header-anv;
+  padding-bottom: @height-header-anv;
+
+  .anv-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-width: @width-main-anv;
+    background-color: gray;
+
+    .anv-header-body {
+      width: @width-main-anv;
+      height: @height-header-anv;
+      margin: 0 auto;
+      background-color: lighten(gray,10%);
+    }
+  }
+
+  .anv-footer {
+    height: @height-header-anv;
+    background-color: gray;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: @width-main-anv;
+
+    .anv-footer-body {
+      width: @width-main-anv;
+      height: @height-header-anv;
+      margin: 0 auto;
+      background-color: lighten(gray,10%);
+    }
+  }
+
+  .anv-main {
+    width: @width-main-anv;
+    margin: 0 auto;
+    background-color: lighten(gray,20%);
+    display: table-cell;
+    position: relative;
+    height: 100%;
+    font-size: 14px;
+    padding-left: @width-nav-alpha;
+  }
+
+  .anv-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @width-nav-alpha;
+    bottom: 0;
+    height: 100%;
+    min-height: 100%;
+    background-color: lighten(gray,30%);
+  }
+
+}
+
+.a {
+  height: 400px;
+  width: 10px;
+  background-color: red;
+}
+
+.content-iframe {
+  display: block;
+}

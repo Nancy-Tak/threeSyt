@@ -1,0 +1,353 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 步骤提示 #}
+{{
+stepTipsAlpha.default(
+list = [
+{
+step: '1',
+text: '创建商户',
+spec:'#F2F2F2'
+},{
+step:'2',
+text: '关联合同',
+spec:'#F2F2F2'
+},{
+step:'3',
+text: '关联服务商',
+spec:'#F2F2F2'
+},{
+step:'4',
+text: '设置管理员'
+},{
+step:'5',
+text: '启用商户'
+}
+]
+)
+}}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '商户合同管理-合同列表.html',
+text:'商户合同管理'
+},
+{
+link: '商户合同管理-合同列表.html',
+text:'合同列表'
+},
+{
+text: '设置关联服务方案'
+}
+]
+)
+}}
+
+{# 阿迪达斯商户合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <form autocomplete="off">
+        <div class="form-title">
+            阿迪达斯步行街合同主体信息
+        </div>
+
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20 table-view">
+                <tbody>
+                    <tr>
+                        <th>商户名称</th>
+                        <td>阿迪达斯成都分公司</td>
+                        <th>所在地</th>
+                        <td>四川/成都/锦江区</td>
+                    </tr>
+                    <tr>
+                        <th>合同编号</th>
+                        <td>2017-01-01</td>
+                        <th>合同签署日期</th>
+                        <td>阿迪达斯</td>
+                    </tr>
+                    <tr>
+                        <th>合同生效日期</th>
+                        <td>2017-01-01</td>
+                        <th>合同到期日期</th>
+                        <td>长期有效</td>
+                    </tr>
+                    <tr>
+                        <th>签约扣率</th>
+                        <td>0.6‰</td>
+                        <th>总分润</th>
+                        <td>0.4‰</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-title">
+            阿迪达斯商户合同关联的服务方案
+        </div>
+        <div class="fn-pa-5">
+            <a href="#reSelectProject" type="button" data-toggle="modal" class="btn secondary" id="planBtn">
+                    +新增方案
+            </a>
+
+            <table id="planTable" class="table border-bottom inverse fn-mb-20">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <tr>
+
+                    <th>方案名称</th>
+                    <th>硬件服务商</th>
+                    <th>软件服务商</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>阿迪达斯成都好运店</td>
+                    <td>联迪-A9</td>
+                    <td>TTG</td>
+                    <td><a href="#reSelectProject" data-toggle="modal" class="link-standard">重选方案</a></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="form-title">
+            方案展示
+        </div>
+        <div class="fn-pa-5">
+            <table class="table border-bottom inverse fn-mb-20">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tr>
+                    <th>分润方</th>
+                    <th>分润占比</th>
+                    <th>分润比例</th>
+                </tr>
+                <tr>
+                    <td>本机构</td>
+                    <td>50%</td>
+                    <td>0.2%</td>
+                </tr>
+                <tr>
+                    <td>服务商</td>
+                    <td>20%</td>
+                    <td>0.08%</td>
+                </tr>
+                <tr>
+                    <td>子机构1</td>
+                    <td>30%</td>
+                    <td>0.12%</td>
+                </tr>
+            </table>
+
+            <table class="table border-bottom inverse fn-mb-20">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <tr>
+                    <th>分润方</th>
+                    <th>分润值</th>
+                </tr>
+                <tr>
+                    <td>本机构</td>
+                    <td>50%</td>
+                </tr>
+                <tr>
+                    <td>服务商</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>子机构1</td>
+                    <td>30%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="text-align-center fn-mt-20">
+            <button id="submit" type="button" class="btn primary">提交</button>
+            <!--<a href="商户合同管理-合同列表.html" class="btn default">取消</a>-->
+        </div>
+
+    </form>
+
+
+</div>
+
+<!--重选方案弹层-->
+<div class="modal-background fade display-none in" id="reSelectProject" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择方案</span>
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>方案名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn primary small-btn">查找</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>方案名称</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TTG合作方案</td>
+                                    <td>2016-01-01 10:00:00</td>
+                                    <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                                </tr>
+                                <tr>
+                                    <td>蚂蚁医疗合作方案</td>
+                                    <td>2016-01-01 10:00:00</td>
+                                    <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                                </tr>
+                                <tr>
+                                    <td>昌隆零售合作方案</td>
+                                    <td>2016-01-01 10:00:00</td>
+                                    <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ static }}/js/webuploader/webuploader.js"></script>
+<script src="{{ static }}/js/webuploader/uploader.js"></script>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function () {
+
+        $(".j-type").on("change", function () {
+            var isPrivateChecked = $("#private").prop("checked");
+            if (isPrivateChecked) {
+                $("#identity").removeClass("display-none");
+            } else {
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+        //初始化上传控件
+        $(".upload-img").InitUploader({
+            sendurl: "http://192.168.7.129/fileupload.php",
+            swf: "./static/js/webuploader/uploader.swf"
+        });
+
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                //close:  close ,
+                // modalTitle:"test",
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">设置成功 !</span>',
+                content : '',
+                buttons : {  //  按钮可以只传ok或cancel
+                    ok : {
+                        text : '设置商户管理员',
+                        callback : function () {
+                            console.log('确定');
+                            window.location.href="关联商户管理-商户列表-新建管理员账号.html"
+                           // window.location.href="商户合同管理-合同列表.html"
+                        }
+                    }
+//                 ,
+//               cancel : {
+//                 text : '取消',
+//                 callback : function () {
+//                   console.log('取消');
+//                 }
+//               }
+                }
+            });
+        });
+
+    });
+
+    // 弹窗-静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "_layout/alpha/layout-alpha-nextversion.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+  breadCrumbAlpha.default(
+    list = [
+      {
+        link: 'javascript:void(0);',
+        text:'数据报表'
+      },
+      {
+        text: '交流记录'
+      }
+    ]
+  )
+}}
+<!-- <div>123</div> -->
+<!-- <div class="a"></div> -->
+<iframe src="http://www.cnblogs.com/leo388/p/4464147.html" width="100%" height="100%" class="content-iframe"></iframe>
+{% endblock %}
